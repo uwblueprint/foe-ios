@@ -9,8 +9,22 @@
 import UIKit
 import FBSDKLoginKit
 
-class ViewController: UIViewController, FBSDKLoginButtonDelegate {
-
+class ViewController: UIViewController, FBSDKLoginButtonDelegate, UITextFieldDelegate {
+    
+    //MARK: PROPERTIES
+    
+    @IBOutlet weak var textInput: UITextField!
+    @IBOutlet weak var textLabel: UILabel!
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textLabel.text = textField.text
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,6 +34,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         loginButton.frame = CGRect(x: 16, y: 50, width: view.frame.width - 32, height: 50)
         
         loginButton.delegate = self
+        textInput.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
     
