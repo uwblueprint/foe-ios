@@ -6,22 +6,72 @@
 //  Copyright © 2018 Blueprint. All rights reserved.
 //
 
+import AVFoundation
 import UIKit
 
-class SubmitViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+class SubmitViewController: UIViewController, UIImagePickerControllerDelegate,
+    UINavigationControllerDelegate {
+  
     var sighting = Sighting()
+    var captureSession: AVCaptureSession?
+    var videoPreviewLayer: AVCaptureVideoPreviewLayer?
+    var capturePhotoOutput: AVCapturePhotoOutput?
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let captureDevice = AVCaptureDevice.default(.builtInDualCamera, for: AVMediaType.video, position: .back)
+        do {
+            let input = try AVCaptureDeviceInput(device: captureDevice!)
+            captureSession = AVCaptureSession()
+            captureSession?.addInput(input)
+            
+            // Get an instance of ACCapturePhotoOutput class
+            capturePhotoOutput = AVCapturePhotoOutput()
+            capturePhotoOutput?.isHighResolutionCaptureEnabled = true
+            
+            // Set the output on the capture session
+            captureSession?.addOutput(capturePhotoOutput!)
+            
+            videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
+            videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
+            videoPreviewLayer?.frame = view.layer.bounds
+            previewView.layer.addSublayer(videoPreviewLayer!)
+            captureSession?.startRunning()
+        } catch {
+            print(error)
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    //MARK: Outlets
   
-    override func viewDidAppear(_ animated: Bool) {
+    @IBOutlet weak var previewView: UIView!
+  
+    //MARK: Actions
+    
+    @IBAction func onTapTakePhoto(_ sender: Any) {
+        // Make sure capturePhotoOutput is valid
+        guard let capturePhotoOutput = self.capturePhotoOutput else { return }
+        
+        // Get an instance of AVCapturePhotoSettings class
+        let photoSettings = AVCapturePhotoSettings()
+        
+        // Set photo settings for our need
+        photoSettings.isAutoStillImageStabilizationEnabled = true
+        photoSettings.isHighResolutionPhotoEnabled = true
+        photoSettings.flashMode = .auto
+        
+        // Call capturePhoto method by passing our photo settings and a
+        // delegate implementing AVCapturePhotoCaptureDelegate
+        capturePhotoOutput.capturePhoto(with: photoSettings, delegate: self)
+    }
+    
+    @IBAction func openPhotoLibraryButton(_ sender: UIButton) {
         // UIImagePickerController is a view controller that lets a user pick media from their photo library.
         let imagePickerController = UIImagePickerController()
         // Only allow photos to be picked, not taken.
@@ -55,4 +105,32 @@ class SubmitViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     */
 
+}
+
+extension SubmitViewController : AVCapturePhotoCaptureDelegate {
+    func photoOutput(_ captureOutput: AVCapturePhotoOutput,
+                     didFinishProcessingPhoto photoSampleBuffer: CMSampleBuffer?,
+                     previewPhoto previewPhotoSampleBuffer: CMSampleBuffer?,
+                 resolvedSettings: AVCaptureResolvedPhotoSettings,
+                 bracketSettings: AVCaptureBracketedStillImageSettings?,
+                 error: Error?) {
+        
+        // Make sure we get some photo sample buffer
+        guard error == nil,
+            let photoSampleBuffer = photoSampleBuffer else {
+                print("Error capturing photo: \(String(describing: error))")
+                return
+        }
+        // Convert photo same buffer to a jpeg image data by using // AVCapturePhotoOutput
+        guard let imageData =
+            AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: photoSampleBuffer, previewPhotoSampleBuffer: previewPhotoSampleBuffer) else {
+                return
+        }
+        // Initialise a UIImage with our image data
+        let capturedImage = UIImage.init(data: imageData , scale: 1.0)
+        if let image = capturedImage {
+            // Save our captured image to photos album
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        }
+    }
 }

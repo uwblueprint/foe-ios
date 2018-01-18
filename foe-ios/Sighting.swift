@@ -15,4 +15,8 @@ class Sighting {
   func setImage(newImage: UIImage) {
     image = newImage
   }
+  
+  func getImage() -> UIImage {
+    return image!
+  }
 }
