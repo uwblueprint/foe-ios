@@ -1,5 +1,5 @@
 //
-//  SubmitViewController.swift
+//  CaptureViewController.swift
 //  foe-ios
 //
 //  Created by Dinah Shi on 2018-01-18.
@@ -21,7 +21,6 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate,
         super.viewDidLoad()
 
         let captureDevice = AVCaptureDevice.default(.builtInDualCamera, for: AVMediaType.video, position: .back)
-
         do {
             let input = try AVCaptureDeviceInput(device: captureDevice!)
             captureSession = AVCaptureSession()
@@ -35,7 +34,7 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate,
             captureSession?.addOutput(capturePhotoOutput!)
             
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
-            videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+            videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
             videoPreviewLayer?.frame = view.layer.bounds
             previewView.layer.addSublayer(videoPreviewLayer!)
             captureSession?.startRunning()
@@ -124,7 +123,6 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate,
     */
 
 }
-
 
 extension CaptureViewController : AVCapturePhotoCaptureDelegate {
     func photoOutput(_ captureOutput: AVCapturePhotoOutput,
