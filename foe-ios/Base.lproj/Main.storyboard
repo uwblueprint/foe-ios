@@ -37,10 +37,10 @@
             </objects>
             <point key="canvasLocation" x="185" y="134"/>
         </scene>
-        <!--Submit View Controller-->
+        <!--Capture View Controller-->
         <scene sceneID="XoG-P5-Jcm">
             <objects>
-                <viewController storyboardIdentifier="submitViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qxv-bk-SbZ" customClass="SubmitViewController" customModule="foe_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="captureViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qxv-bk-SbZ" customClass="CaptureViewController" customModule="foe_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3Fz-HZ-JVo"/>
                         <viewControllerLayoutGuide type="bottom" id="oX9-KN-iE6"/>

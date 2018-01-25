@@ -1,5 +1,5 @@
 //
-//  SubmitViewController.swift
+//  CaptureViewController.swift
 //  foe-ios
 //
 //  Created by Dinah Shi on 2018-01-18.
