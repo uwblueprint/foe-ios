@@ -30,6 +30,9 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         }
         
         print("Successfully logged in with facebook...")
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabController") as! UITabBarController
+        self.present(vc, animated: true, completion: nil)
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
