@@ -40,7 +40,7 @@
         <!--Submit View Controller-->
         <scene sceneID="XoG-P5-Jcm">
             <objects>
-                <viewController id="Qxv-bk-SbZ" customClass="SubmitViewController" customModule="foe_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="submitViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qxv-bk-SbZ" customClass="SubmitViewController" customModule="foe_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3Fz-HZ-JVo"/>
                         <viewControllerLayoutGuide type="bottom" id="oX9-KN-iE6"/>
@@ -82,10 +82,10 @@
             </objects>
             <point key="canvasLocation" x="3057" y="505"/>
         </scene>
-        <!--View Controller-->
+        <!--Species Selection View Controller-->
         <scene sceneID="eah-02-I0k">
             <objects>
-                <viewController id="VPZ-LU-P8o" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="speciesSelectionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VPZ-LU-P8o" customClass="SpeciesSelectionViewController" customModule="foe_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Syi-nV-8od"/>
                         <viewControllerLayoutGuide type="bottom" id="LZf-Vs-eFm"/>
@@ -93,12 +93,21 @@
                     <view key="view" contentMode="scaleToFill" id="3O9-19-RRY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xZn-sB-0VO">
+                                <rect key="frame" x="0.0" y="28" width="375" height="482"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="previewImage" destination="xZn-sB-0VO" id="5Gq-bK-0nU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LJc-cr-L9m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4057" y="504"/>
+            <point key="canvasLocation" x="4056.8000000000002" y="503.29835082458777"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="xYo-ii-J8C">
@@ -172,7 +181,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="2po-mM-feC">
             <objects>
-                <tabBarController id="rCg-Jq-wI1" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabController" id="rCg-Jq-wI1" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MOP-kD-HGE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -209,7 +218,7 @@
         <!--Submit-->
         <scene sceneID="Tgf-uf-Ymg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m6E-qd-xHS" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="submissionNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="m6E-qd-xHS" customClass="SubmissionNavigationController" customModule="foe_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Submit" id="JEJ-He-QXs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Sz3-DE-H7Q">

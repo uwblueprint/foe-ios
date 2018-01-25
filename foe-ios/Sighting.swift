@@ -12,8 +12,8 @@ import UIKit
 class Sighting {
   private var image: UIImage?
   
-  func setImage(newImage: UIImage) {
-    image = newImage
+  func setImage(image: UIImage) {
+    self.image = image
   }
   
   func getImage() -> UIImage {

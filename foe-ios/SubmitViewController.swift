@@ -12,14 +12,14 @@ import UIKit
 class SubmitViewController: UIViewController, UIImagePickerControllerDelegate,
     UINavigationControllerDelegate {
   
-    var sighting = Sighting()
+    var sighting: Sighting?
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var capturePhotoOutput: AVCapturePhotoOutput?
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let captureDevice = AVCaptureDevice.default(.builtInDualCamera, for: AVMediaType.video, position: .back)
         do {
             let input = try AVCaptureDeviceInput(device: captureDevice!)
@@ -41,6 +41,16 @@ class SubmitViewController: UIViewController, UIImagePickerControllerDelegate,
         } catch {
             print(error)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let navController = self.navigationController as! SubmissionNavigationController
+        sighting = navController.getSighting()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        let navController = self.navigationController as! SubmissionNavigationController
+        navController.setSighting(sighting: sighting!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -91,13 +101,20 @@ class SubmitViewController: UIViewController, UIImagePickerControllerDelegate,
         guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
           fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
-        sighting.setImage(newImage: selectedImage)
+        sighting?.setImage(image: selectedImage)
         dismiss(animated: true, completion: nil)
+        goToNextScreen()
+    }
+
+    
+    // MARK: - Navigation
+
+    func goToNextScreen() {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "speciesSelectionViewController") as! UIViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     /*
-    // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
@@ -131,6 +148,9 @@ extension SubmitViewController : AVCapturePhotoCaptureDelegate {
         if let image = capturedImage {
             // Save our captured image to photos album
             UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+
+            sighting?.setImage(image: image)
         }
+        goToNextScreen()
     }
 }
