@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		AB8A972E3E41E9BE139D8CC2 /* Pods_foe_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 262AFD0B38D941AFD3D77A42 /* Pods_foe_iosTests.framework */; };
 		CA88D7C1AA27005C2F980B6E /* Pods_foe_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DA9DF25072E139B10984B8A /* Pods_foe_ios.framework */; };
+		F65FEAC0201FC5A00011B0C7 /* NosePickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65FEABF201FC5A00011B0C7 /* NosePickerItem.swift */; };
 		F68F4B92201A6B1B00630068 /* SightingFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68F4B8C201A6B1A00630068 /* SightingFormViewController.swift */; };
 		F68F4B93201A6B1B00630068 /* SpeciesSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68F4B8D201A6B1A00630068 /* SpeciesSelectionViewController.swift */; };
 		F68F4B94201A6B1B00630068 /* SubmissionNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68F4B8E201A6B1A00630068 /* SubmissionNavigationController.swift */; };
 		F68F4B95201A6B1B00630068 /* Sighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68F4B8F201A6B1A00630068 /* Sighting.swift */; };
 		F68F4B96201A6B1B00630068 /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68F4B90201A6B1B00630068 /* CaptureViewController.swift */; };
+		F68F4B98201A6DF100630068 /* NosePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68F4B97201A6DF100630068 /* NosePicker.swift */; };
 		F6C90B892009134A00039933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C90B882009134A00039933 /* AppDelegate.swift */; };
 		F6C90B8B2009134A00039933 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C90B8A2009134A00039933 /* ViewController.swift */; };
 		F6C90B8E2009134A00039933 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6C90B8C2009134A00039933 /* Main.storyboard */; };
@@ -39,11 +41,13 @@
 		59E890187ACD2297CE725851 /* Pods-foe-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foe-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-foe-iosTests/Pods-foe-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		830A560FEB860970E861BB38 /* Pods-foe-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foe-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-foe-ios/Pods-foe-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		9DA9DF25072E139B10984B8A /* Pods_foe_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_foe_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F65FEABF201FC5A00011B0C7 /* NosePickerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NosePickerItem.swift; sourceTree = "<group>"; };
 		F68F4B8C201A6B1A00630068 /* SightingFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SightingFormViewController.swift; path = "/Users/johnsington/uw/blueprint/foe-ios/foe-ios/foe-ios/SightingFormViewController.swift"; sourceTree = "<absolute>"; };
 		F68F4B8D201A6B1A00630068 /* SpeciesSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpeciesSelectionViewController.swift; path = "/Users/johnsington/uw/blueprint/foe-ios/foe-ios/foe-ios/SpeciesSelectionViewController.swift"; sourceTree = "<absolute>"; };
 		F68F4B8E201A6B1A00630068 /* SubmissionNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SubmissionNavigationController.swift; path = "/Users/johnsington/uw/blueprint/foe-ios/foe-ios/foe-ios/SubmissionNavigationController.swift"; sourceTree = "<absolute>"; };
 		F68F4B8F201A6B1A00630068 /* Sighting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sighting.swift; path = "/Users/johnsington/uw/blueprint/foe-ios/foe-ios/foe-ios/Sighting.swift"; sourceTree = "<absolute>"; };
 		F68F4B90201A6B1B00630068 /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CaptureViewController.swift; path = "/Users/johnsington/uw/blueprint/foe-ios/foe-ios/foe-ios/CaptureViewController.swift"; sourceTree = "<absolute>"; };
+		F68F4B97201A6DF100630068 /* NosePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NosePicker.swift; sourceTree = "<group>"; };
 		F6C90B852009134A00039933 /* foe-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "foe-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6C90B882009134A00039933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6C90B8A2009134A00039933 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 				F6C90B8F2009134A00039933 /* Assets.xcassets */,
 				F6C90B912009134A00039933 /* LaunchScreen.storyboard */,
 				F6C90B942009134A00039933 /* Info.plist */,
+				F68F4B97201A6DF100630068 /* NosePicker.swift */,
+				F65FEABF201FC5A00011B0C7 /* NosePickerItem.swift */,
 			);
 			path = "foe-ios";
 			sourceTree = "<group>";
@@ -363,8 +369,10 @@
 				F68F4B96201A6B1B00630068 /* CaptureViewController.swift in Sources */,
 				F68F4B94201A6B1B00630068 /* SubmissionNavigationController.swift in Sources */,
 				F68F4B95201A6B1B00630068 /* Sighting.swift in Sources */,
+				F65FEAC0201FC5A00011B0C7 /* NosePickerItem.swift in Sources */,
 				F68F4B93201A6B1B00630068 /* SpeciesSelectionViewController.swift in Sources */,
 				F68F4B92201A6B1B00630068 /* SightingFormViewController.swift in Sources */,
+				F68F4B98201A6DF100630068 /* NosePicker.swift in Sources */,
 				F6C90B892009134A00039933 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
