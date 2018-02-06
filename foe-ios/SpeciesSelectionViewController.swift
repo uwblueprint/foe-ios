@@ -20,6 +20,11 @@ class SpeciesSelectionViewController: UIViewController {
         let navController = self.navigationController as! SubmissionNavigationController
         sighting = navController.getSighting()
         
+        let nextButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.plain, target: self, action: "goToNextScreen")
+        self.navigationItem.backBarButtonItem?.title = "Back"
+        self.navigationItem.rightBarButtonItem = nextButton
+        self.navigationItem.title = "Step 2: Identify"
+
         previewImage.image = sighting?.getImage()
     }
 
@@ -31,6 +36,13 @@ class SpeciesSelectionViewController: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet weak var previewImage: UIImageView!
+    
+    // MARK: - Actions
+    
+    func goToNextScreen() {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "detailsFormViewController") as! UIViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     /*
     // MARK: - Navigation
