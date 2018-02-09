@@ -6,8 +6,8 @@ target 'foe-ios' do
   use_frameworks!
 
   # Pods for foe-ios
-    pod 'FBSDKLoginKit'
-    
+  pod 'FBSDKLoginKit'
+  pod 'GooglePlaces'
 
   target 'foe-iosTests' do
     inherit! :search_paths

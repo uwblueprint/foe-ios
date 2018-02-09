@@ -120,7 +120,6 @@
         <!--Details Form View Controller-->
         <scene sceneID="JAd-nA-4ow">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nlk-vz-PSo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="detailsFormViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iZ6-ba-KXL" customClass="DetailsFormViewController" customModule="foe_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="u7V-90-rUF"/>
@@ -172,18 +171,30 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pr1-Q2-QWc">
-                                <rect key="frame" x="164" y="282" width="46" height="30"/>
+                                <rect key="frame" x="16" y="287" width="96" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Autocomplete"/>
+                                <connections>
+                                    <action selector="locationPickerClicked:" destination="iZ6-ba-KXL" eventType="touchUpInside" id="zkI-kG-FiP"/>
+                                </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zLh-zM-HkR">
+                                <rect key="frame" x="120" y="287" width="239" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="habitatPickerTextField" destination="i0c-rh-cA6" id="rUb-bF-a7y"/>
+                        <outlet property="locationTextField" destination="zLh-zM-HkR" id="ytH-7C-gLb"/>
                         <outlet property="previewImage" destination="AxT-UO-JYg" id="SGt-I5-GAW"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nlk-vz-PSo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5037.6000000000004" y="502.39880059970017"/>
         </scene>

@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import GooglePlaces
 
 class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     // MARK: outlets
     @IBOutlet weak var previewImage: UIImageView!
+    @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var habitatPickerTextField: UITextField!
     
     var sighting: Sighting?
@@ -34,6 +36,12 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
         setupHabitatPicker()
     }
 
+    @IBAction func locationPickerClicked(_ sender: Any) {
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        present(autocompleteController, animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -68,4 +76,34 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
             .map { return $0.lowercased().capitalized }
             .joined(separator: " ")
     }
+}
+
+extension DetailsFormViewController: GMSAutocompleteViewControllerDelegate {
+    
+    // Handle the user's selection.
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        locationTextField.text = place.name
+        sighting?.setLocation(location: place)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
+    }
+    
+    // User canceled the operation.
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+    
 }

@@ -8,10 +8,12 @@
 
 import Foundation
 import UIKit
+import GooglePlaces
 
 class Sighting {
     private var image: UIImage?
     private var habitat: String?
+    private var location: GMSPlace?
 
     func getImage() -> UIImage {
         return image!
@@ -27,5 +29,9 @@ class Sighting {
 
     func setHabitat(habitat: String) {
         self.habitat = habitat
+    }
+    
+    func setLocation(location: GMSPlace) {
+        self.location = location
     }
 }
