@@ -13,6 +13,8 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
 
     // MARK: outlets
     @IBOutlet weak var previewImage: UIImageView!
+    @IBOutlet weak var commonNameLabel: UILabel!
+    @IBOutlet weak var binomialNameLabel: UILabel!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var habitatPickerTextField: UITextField!
     
@@ -32,6 +34,9 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
         self.navigationItem.title = "Step 3: Geotag"
 
         previewImage.image = sighting?.getImage()
+        
+//        commonNameLabel = sighting?.getSpecies()?.
+//        binomialNameLabel = sighting?.getSpecies().
         
         setupHabitatPicker()
     }
