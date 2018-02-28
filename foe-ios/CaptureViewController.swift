@@ -29,7 +29,7 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate,
         
         photoLibraryButtonImage.isUserInteractionEnabled = true
         photoLibraryButtonImage.addGestureRecognizer(singleTapLibrary)
-        
+
         let captureDevice = AVCaptureDevice.defaultDevice(withDeviceType: .builtInDualCamera, mediaType: AVMediaTypeVideo, position: .back)
         do {
             let input = try AVCaptureDeviceInput(device: captureDevice!)
@@ -67,6 +67,9 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate,
         navController.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Avenir", size: 14)!, NSForegroundColorAttributeName : UIColor.white ]
         self.navigationItem.title = "Step 1: Capture".uppercased()
         
+        let cancelButton =  UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(gotoPreviousScreen))
+        self.navigationItem.leftBarButtonItem = cancelButton
+        
         sighting = navController.getSighting()
     }
     
@@ -89,7 +92,6 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var captureButtonImage: UIImageView!
     @IBOutlet weak var photoLibraryButtonImage: UIStackView!
-    
 
     func onTapTakePhoto(_ sender: Any) {
         // Make sure capturePhotoOutput is valid
@@ -139,6 +141,10 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate,
     func goToNextScreen() {
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "speciesSelectionViewController")
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func gotoPreviousScreen() {
+        self.dismiss(animated: true, completion: nil)
     }
 
     /*
