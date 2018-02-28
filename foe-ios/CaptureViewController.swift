@@ -19,7 +19,17 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate,
   
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let singleTapCapture = UITapGestureRecognizer(target: self, action: #selector(onTapTakePhoto(_:)))
+        
+        captureButtonImage.isUserInteractionEnabled = true
+        captureButtonImage.addGestureRecognizer(singleTapCapture)
+        
+        let singleTapLibrary = UITapGestureRecognizer(target: self, action: #selector(openPhotoLibraryButton(_:)))
+        
+        photoLibraryButtonImage.isUserInteractionEnabled = true
+        photoLibraryButtonImage.addGestureRecognizer(singleTapLibrary)
+        
         let captureDevice = AVCaptureDevice.defaultDevice(withDeviceType: .builtInDualCamera, mediaType: AVMediaTypeVideo, position: .back)
         do {
             let input = try AVCaptureDeviceInput(device: captureDevice!)
@@ -35,16 +45,28 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate,
             
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
             videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-            videoPreviewLayer?.frame = view.layer.bounds
-            previewView.layer.addSublayer(videoPreviewLayer!)
-            captureSession?.startRunning()
+            videoPreviewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
+        
         } catch {
             print(error)
         }
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        videoPreviewLayer?.frame = previewView.layer.bounds
+        previewView.layer.addSublayer(videoPreviewLayer!)
+        captureSession?.startRunning()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         let navController = self.navigationController as! SubmissionNavigationController
+        navController.navigationBar.barTintColor = UIColor.black
+        navController.navigationBar.isTranslucent = false
+        navController.navigationBar.tintColor = UIColor(red:0.12, green:0.75, blue:0.39, alpha:1.0)
+        navController.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Avenir", size: 14)!, NSForegroundColorAttributeName : UIColor.white ]
+        self.navigationItem.title = "Step 1: Capture".uppercased()
+        
         sighting = navController.getSighting()
     }
     
@@ -57,14 +79,19 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate,
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
     //MARK: Outlets
   
     @IBOutlet weak var previewView: UIView!
-  
-    //MARK: Actions
+    @IBOutlet weak var captureButtonImage: UIImageView!
+    @IBOutlet weak var photoLibraryButtonImage: UIStackView!
     
-    @IBAction func onTapTakePhoto(_ sender: Any) {
+
+    func onTapTakePhoto(_ sender: Any) {
         // Make sure capturePhotoOutput is valid
         guard let capturePhotoOutput = self.capturePhotoOutput else { return }
         
@@ -81,7 +108,7 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate,
         capturePhotoOutput.capturePhoto(with: photoSettings, delegate: self)
     }
     
-    @IBAction func openPhotoLibraryButton(_ sender: UIButton) {
+    func openPhotoLibraryButton(_ sender: Any) {
         // UIImagePickerController is a view controller that lets a user pick media from their photo library.
         let imagePickerController = UIImagePickerController()
         // Only allow photos to be picked, not taken.
@@ -110,7 +137,7 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate,
     // MARK: - Navigation
 
     func goToNextScreen() {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "speciesSelectionViewController") as! UIViewController
+        let vc = self.storyboard!.instantiateViewController(withIdentifier: "speciesSelectionViewController")
         self.navigationController?.pushViewController(vc, animated: true)
     }
 

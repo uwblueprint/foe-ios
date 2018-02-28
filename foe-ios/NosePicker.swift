@@ -18,51 +18,94 @@ import UIKit
     let h = 64
     let w = 64
     let padding = 16
-    let n = 10
+    var n = 10
+    var callback : ((String)->())? = nil
+    
+    var activeButton : Int = 0
     
     //MARK: Initialization
     
     override init(frame: CGRect) {
-        super.init(frame: CGRect(x: 0, y: 100, width: 500, height: h + (2 * padding)))
-        self.contentSize =  CGSize (width: ((w + padding) * n), height: h)
-        self.autoresizingMask = UIViewAutoresizing.flexibleWidth
-        self.showsHorizontalScrollIndicator = false
-        self.backgroundColor = UIColor.yellow
-        
-        setupButtons()
+        super.init(frame: frame)
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.contentSize =  CGSize (width: ((w + padding) * n), height: h)
-        self.autoresizingMask = UIViewAutoresizing.flexibleWidth
-        self.showsHorizontalScrollIndicator = false
-        self.backgroundColor = UIColor.yellow
         setupButtons()
     }
     
-    convenience init(frame: CGRect, items: [NosePickerItem]) {
+    convenience init(frame: CGRect, items: [NosePickerItem], updateCallback : @escaping (_ res: String)->()) {
         self.init(frame: frame)
         self.items = items
-        print("items count: \(self.items.count)")
+        self.autoresizingMask = UIViewAutoresizing.flexibleWidth
+        self.showsHorizontalScrollIndicator = false
+        self.alwaysBounceHorizontal = true
+        setupButtons()
+        updateSelectedView()
+        self.callback = updateCallback
     }
     
     //MARK: Button Action
     
-    func ratingButtonTapped(button: UIButton) {
-        print("⛄️")
-    }
-    //MARK: Private Methods
+    func loadNewButtons (newItems: [NosePickerItem], activeId: String) {
+        //remove previous buttons from view
+        for i in 0..<self.items.count {
+            buttons[i].removeFromSuperview()
+        }
     
+        buttons.removeAll()
+        
+        self.items = newItems
+        self.setButtonFromIdentifier(id:activeId)
+        setupButtons()
+        updateSelectedView()
+    }
+    
+    func ratingButtonTapped(button: UIButton) {
+        print("\(self.items[button.tag].getIdentifier()) pressed")
+        self.activeButton = button.tag
+        updateSelectedView()
+        
+        self.callback!(self.getActiveIdentifier())
+    }
+    
+    //MARK: Private Methods
+    private func getActiveIdentifier() -> String {
+        return items[self.activeButton].getIdentifier()
+    }
+    
+    private func setButtonFromIdentifier(id: String)  {
+        for i in 0..<self.n {
+            if (items[i].getIdentifier() == id) {
+                self.activeButton = i
+                break
+            }
+        }
+    }
+    
+    private func updateSelectedView() {
+        for i in 0..<buttons.count {
+            if (i == self.activeButton) {
+                buttons[i].layer.borderWidth = 4
+                buttons[i].layer.borderColor = UIColor(red:0.12, green:0.75, blue:0.39, alpha:1.0).cgColor
+            } else {
+                buttons[i].layer.borderWidth = 0
+            }
+        }
+    }
     private func setupButtons() {
+        self.n = items.count
+        self.contentSize =  CGSize (width: ((w + padding) * n) + padding, height: h)
         for i in 0..<items.count {
             let button = UIButton()
-//            button.setImage(items[i].getImage(), for: .normal)
+            button.setImage(items[i].getImage(), for: .normal)
             button.frame = CGRect(x: padding * (i + 1) + (i * w), y: padding, width: w, height: h)
-//            button.layer.cornerRadius = CGFloat(w/2)
-//            button.clipsToBounds = true
-            button.backgroundColor = UIColor.red
+            button.backgroundColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.0)
+            button.layer.cornerRadius = CGFloat(w/2)
+            button.clipsToBounds = true
+            self.backgroundColor = UIColor.white
             
+            button.tag = i
             button.addTarget(self, action: #selector(NosePicker.ratingButtonTapped(button:)), for: .touchUpInside)
             
             self.addSubview(button)
