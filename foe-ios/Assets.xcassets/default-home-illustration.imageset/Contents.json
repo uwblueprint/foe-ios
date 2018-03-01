@@ -2,17 +2,13 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "green-checkmark.png",
+      "filename" : "default-home-illustration.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "green-checkmark@2x.png",
+      "filename" : "default-home-illustration@2x.png",
       "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
     }
   ],
   "info" : {
