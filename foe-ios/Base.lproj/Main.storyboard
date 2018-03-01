@@ -29,13 +29,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Li2-OI-9Rx">
-                                <rect key="frame" x="160" y="460" width="55" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Capture"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ScC-HJ-LpA">
-                                <rect key="frame" x="160" y="460" width="55" height="30"/>
+                                <rect key="frame" x="160" y="540" width="55" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Capture"/>
                                 <connections>
@@ -233,7 +228,6 @@
         <!--Table View Controller-->
         <scene sceneID="xYo-ii-J8C">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="E61-Oa-gvR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="N2V-M3-kmr" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="FK9-vQ-kqU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -296,6 +290,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="geK-wk-UgL"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E61-Oa-gvR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3056.8000000000002" y="-201.04947526236884"/>
         </scene>
