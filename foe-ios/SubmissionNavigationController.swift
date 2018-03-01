@@ -30,6 +30,10 @@ class SubmissionNavigationController: UINavigationController {
     func setSighting(sighting: Sighting){
         self.sighting = sighting
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
     /*
     // MARK: - Navigation
