@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		AB8A972E3E41E9BE139D8CC2 /* Pods_foe_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 262AFD0B38D941AFD3D77A42 /* Pods_foe_iosTests.framework */; };
 		CA88D7C1AA27005C2F980B6E /* Pods_foe_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DA9DF25072E139B10984B8A /* Pods_foe_ios.framework */; };
+		E3638AAE204895B90025DE21 /* Sighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3638AA8204895B80025DE21 /* Sighting.swift */; };
+		E3638AAF204895B90025DE21 /* DetailsFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3638AA9204895B80025DE21 /* DetailsFormViewController.swift */; };
+		E3638AB0204895B90025DE21 /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3638AAA204895B80025DE21 /* CaptureViewController.swift */; };
+		E3638AB1204895B90025DE21 /* SightingFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3638AAB204895B80025DE21 /* SightingFormViewController.swift */; };
+		E3638AB2204895B90025DE21 /* SubmissionNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3638AAC204895B90025DE21 /* SubmissionNavigationController.swift */; };
+		E3638AB3204895B90025DE21 /* SpeciesSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3638AAD204895B90025DE21 /* SpeciesSelectionViewController.swift */; };
+		E3638AB5204895EB0025DE21 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3638AB4204895EB0025DE21 /* Constants.swift */; };
 		F65FEAC0201FC5A00011B0C7 /* NosePickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65FEABF201FC5A00011B0C7 /* NosePickerItem.swift */; };
-		F68F4B92201A6B1B00630068 /* SightingFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68F4B8C201A6B1A00630068 /* SightingFormViewController.swift */; };
-		F68F4B93201A6B1B00630068 /* SpeciesSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68F4B8D201A6B1A00630068 /* SpeciesSelectionViewController.swift */; };
-		F68F4B94201A6B1B00630068 /* SubmissionNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68F4B8E201A6B1A00630068 /* SubmissionNavigationController.swift */; };
-		F68F4B95201A6B1B00630068 /* Sighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68F4B8F201A6B1A00630068 /* Sighting.swift */; };
-		F68F4B96201A6B1B00630068 /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68F4B90201A6B1B00630068 /* CaptureViewController.swift */; };
 		F68F4B98201A6DF100630068 /* NosePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68F4B97201A6DF100630068 /* NosePicker.swift */; };
 		F6B99BE32047B1F60033939D /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B99BE22047B1F60033939D /* Modal.swift */; };
 		F6B99BE52047B2240033939D /* CustomModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B99BE42047B2240033939D /* CustomModal.swift */; };
@@ -44,12 +46,14 @@
 		59E890187ACD2297CE725851 /* Pods-foe-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foe-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-foe-iosTests/Pods-foe-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		830A560FEB860970E861BB38 /* Pods-foe-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foe-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-foe-ios/Pods-foe-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		9DA9DF25072E139B10984B8A /* Pods_foe_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_foe_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3638AA8204895B80025DE21 /* Sighting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sighting.swift; sourceTree = "<group>"; };
+		E3638AA9204895B80025DE21 /* DetailsFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsFormViewController.swift; sourceTree = "<group>"; };
+		E3638AAA204895B80025DE21 /* CaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
+		E3638AAB204895B80025DE21 /* SightingFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SightingFormViewController.swift; sourceTree = "<group>"; };
+		E3638AAC204895B90025DE21 /* SubmissionNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmissionNavigationController.swift; sourceTree = "<group>"; };
+		E3638AAD204895B90025DE21 /* SpeciesSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeciesSelectionViewController.swift; sourceTree = "<group>"; };
+		E3638AB4204895EB0025DE21 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F65FEABF201FC5A00011B0C7 /* NosePickerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NosePickerItem.swift; sourceTree = "<group>"; };
-		F68F4B8C201A6B1A00630068 /* SightingFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SightingFormViewController.swift; path = "/Users/johnsington/uw/blueprint/foe-ios/foe-ios/foe-ios/SightingFormViewController.swift"; sourceTree = "<absolute>"; };
-		F68F4B8D201A6B1A00630068 /* SpeciesSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpeciesSelectionViewController.swift; path = "/Users/johnsington/uw/blueprint/foe-ios/foe-ios/foe-ios/SpeciesSelectionViewController.swift"; sourceTree = "<absolute>"; };
-		F68F4B8E201A6B1A00630068 /* SubmissionNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SubmissionNavigationController.swift; path = "/Users/johnsington/uw/blueprint/foe-ios/foe-ios/foe-ios/SubmissionNavigationController.swift"; sourceTree = "<absolute>"; };
-		F68F4B8F201A6B1A00630068 /* Sighting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sighting.swift; path = "/Users/johnsington/uw/blueprint/foe-ios/foe-ios/foe-ios/Sighting.swift"; sourceTree = "<absolute>"; };
-		F68F4B90201A6B1B00630068 /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CaptureViewController.swift; path = "/Users/johnsington/uw/blueprint/foe-ios/foe-ios/foe-ios/CaptureViewController.swift"; sourceTree = "<absolute>"; };
 		F68F4B97201A6DF100630068 /* NosePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NosePicker.swift; sourceTree = "<group>"; };
 		F6B99BE22047B1F60033939D /* Modal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
 		F6B99BE42047B2240033939D /* CustomModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModal.swift; sourceTree = "<group>"; };
@@ -129,12 +133,13 @@
 		F6C90B872009134A00039933 /* foe-ios */ = {
 			isa = PBXGroup;
 			children = (
+				E3638AAA204895B80025DE21 /* CaptureViewController.swift */,
+				E3638AA9204895B80025DE21 /* DetailsFormViewController.swift */,
+				E3638AA8204895B80025DE21 /* Sighting.swift */,
+				E3638AAB204895B80025DE21 /* SightingFormViewController.swift */,
+				E3638AAD204895B90025DE21 /* SpeciesSelectionViewController.swift */,
+				E3638AAC204895B90025DE21 /* SubmissionNavigationController.swift */,
 				F6B99BE22047B1F60033939D /* Modal.swift */,
-				F68F4B90201A6B1B00630068 /* CaptureViewController.swift */,
-				F68F4B8F201A6B1A00630068 /* Sighting.swift */,
-				F68F4B8C201A6B1A00630068 /* SightingFormViewController.swift */,
-				F68F4B8D201A6B1A00630068 /* SpeciesSelectionViewController.swift */,
-				F68F4B8E201A6B1A00630068 /* SubmissionNavigationController.swift */,
 				F6C90B882009134A00039933 /* AppDelegate.swift */,
 				F6C90B8A2009134A00039933 /* ViewController.swift */,
 				F6C90B8C2009134A00039933 /* Main.storyboard */,
@@ -145,6 +150,7 @@
 				F65FEABF201FC5A00011B0C7 /* NosePickerItem.swift */,
 				F6B99BE42047B2240033939D /* CustomModal.swift */,
 				F6B99BE6204879C40033939D /* CardView.swift */,
+				E3638AB4204895EB0025DE21 /* Constants.swift */,
 			);
 			path = "foe-ios";
 			sourceTree = "<group>";
@@ -214,7 +220,7 @@
 				TargetAttributes = {
 					F6C90B842009134A00039933 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = X9J33NSWJL;
+						DevelopmentTeam = 4TRZ7YCVD3;
 						ProvisioningStyle = Automatic;
 					};
 					F6C90B982009134A00039933 = {
@@ -325,9 +331,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-foe-ios/Pods-foe-ios-resources.sh",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -376,16 +385,18 @@
 			files = (
 				F6C90B8B2009134A00039933 /* ViewController.swift in Sources */,
 				F6B99BE32047B1F60033939D /* Modal.swift in Sources */,
-				F68F4B96201A6B1B00630068 /* CaptureViewController.swift in Sources */,
-				F68F4B94201A6B1B00630068 /* SubmissionNavigationController.swift in Sources */,
-				F68F4B95201A6B1B00630068 /* Sighting.swift in Sources */,
 				F65FEAC0201FC5A00011B0C7 /* NosePickerItem.swift in Sources */,
-				F68F4B93201A6B1B00630068 /* SpeciesSelectionViewController.swift in Sources */,
-				F68F4B92201A6B1B00630068 /* SightingFormViewController.swift in Sources */,
 				F68F4B98201A6DF100630068 /* NosePicker.swift in Sources */,
 				F6C90B892009134A00039933 /* AppDelegate.swift in Sources */,
+				E3638AB1204895B90025DE21 /* SightingFormViewController.swift in Sources */,
 				F6B99BE7204879C40033939D /* CardView.swift in Sources */,
+				E3638AB2204895B90025DE21 /* SubmissionNavigationController.swift in Sources */,
+				E3638AAF204895B90025DE21 /* DetailsFormViewController.swift in Sources */,
+				E3638AAE204895B90025DE21 /* Sighting.swift in Sources */,
+				E3638AB3204895B90025DE21 /* SpeciesSelectionViewController.swift in Sources */,
+				E3638AB5204895EB0025DE21 /* Constants.swift in Sources */,
 				F6B99BE52047B2240033939D /* CustomModal.swift in Sources */,
+				E3638AB0204895B90025DE21 /* CaptureViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,10 +550,10 @@
 			baseConfigurationReference = 830A560FEB860970E861BB38 /* Pods-foe-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = X9J33NSWJL;
+				DEVELOPMENT_TEAM = 4TRZ7YCVD3;
 				INFOPLIST_FILE = "foe-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.uwblueprint.foe-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blueprint.foe-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -553,10 +564,10 @@
 			baseConfigurationReference = 1C83638E0486B243AC5E60A9 /* Pods-foe-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = X9J33NSWJL;
+				DEVELOPMENT_TEAM = 4TRZ7YCVD3;
 				INFOPLIST_FILE = "foe-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.uwblueprint.foe-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blueprint.foe-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

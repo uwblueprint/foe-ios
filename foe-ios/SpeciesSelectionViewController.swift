@@ -102,6 +102,11 @@ class SpeciesSelectionViewController: UIViewController {
         navController.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Avenir", size: 14)!, NSForegroundColorAttributeName : UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0) ]
         self.navigationItem.title = "Step 2: Identify".uppercased()
         
+        let nextButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.plain, target: self, action: "goToNextScreen")
+        self.navigationItem.backBarButtonItem?.title = "Back"
+        self.navigationItem.rightBarButtonItem = nextButton
+        self.navigationItem.title = "Step 2: Identify"
+
         previewImage.image = sighting?.getImage()
         
     }
@@ -134,6 +139,13 @@ class SpeciesSelectionViewController: UIViewController {
         updateButtons()
     }
     
+    
+    // MARK: - Actions
+    
+    func goToNextScreen() {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "detailsFormViewController") as! UIViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     /*
     // MARK: - Navigation
