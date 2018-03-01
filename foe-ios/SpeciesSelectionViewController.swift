@@ -75,6 +75,10 @@ class SpeciesSelectionViewController: UIViewController {
         view.addSubview(partsPicker!)
         
         updateButtons()
+        
+        let alert = CustomModal(title: "Which bee?", caption: "Tap the patterns below to determine which species your bee is.", image: UIImage(named: "picker-illustration")!)
+        
+        alert.show(animated: true)
     }
     
     func updateButtons() {

@@ -16,6 +16,8 @@
 		F68F4B95201A6B1B00630068 /* Sighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68F4B8F201A6B1A00630068 /* Sighting.swift */; };
 		F68F4B96201A6B1B00630068 /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68F4B90201A6B1B00630068 /* CaptureViewController.swift */; };
 		F68F4B98201A6DF100630068 /* NosePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68F4B97201A6DF100630068 /* NosePicker.swift */; };
+		F6B99BE32047B1F60033939D /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B99BE22047B1F60033939D /* Modal.swift */; };
+		F6B99BE52047B2240033939D /* CustomModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B99BE42047B2240033939D /* CustomModal.swift */; };
 		F6C90B892009134A00039933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C90B882009134A00039933 /* AppDelegate.swift */; };
 		F6C90B8B2009134A00039933 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C90B8A2009134A00039933 /* ViewController.swift */; };
 		F6C90B8E2009134A00039933 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6C90B8C2009134A00039933 /* Main.storyboard */; };
@@ -48,6 +50,8 @@
 		F68F4B8F201A6B1A00630068 /* Sighting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sighting.swift; path = "/Users/johnsington/uw/blueprint/foe-ios/foe-ios/foe-ios/Sighting.swift"; sourceTree = "<absolute>"; };
 		F68F4B90201A6B1B00630068 /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CaptureViewController.swift; path = "/Users/johnsington/uw/blueprint/foe-ios/foe-ios/foe-ios/CaptureViewController.swift"; sourceTree = "<absolute>"; };
 		F68F4B97201A6DF100630068 /* NosePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NosePicker.swift; sourceTree = "<group>"; };
+		F6B99BE22047B1F60033939D /* Modal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
+		F6B99BE42047B2240033939D /* CustomModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModal.swift; sourceTree = "<group>"; };
 		F6C90B852009134A00039933 /* foe-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "foe-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6C90B882009134A00039933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6C90B8A2009134A00039933 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 		F6C90B872009134A00039933 /* foe-ios */ = {
 			isa = PBXGroup;
 			children = (
+				F6B99BE22047B1F60033939D /* Modal.swift */,
 				F68F4B90201A6B1B00630068 /* CaptureViewController.swift */,
 				F68F4B8F201A6B1A00630068 /* Sighting.swift */,
 				F68F4B8C201A6B1A00630068 /* SightingFormViewController.swift */,
@@ -136,6 +141,7 @@
 				F6C90B942009134A00039933 /* Info.plist */,
 				F68F4B97201A6DF100630068 /* NosePicker.swift */,
 				F65FEABF201FC5A00011B0C7 /* NosePickerItem.swift */,
+				F6B99BE42047B2240033939D /* CustomModal.swift */,
 			);
 			path = "foe-ios";
 			sourceTree = "<group>";
@@ -366,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6C90B8B2009134A00039933 /* ViewController.swift in Sources */,
+				F6B99BE32047B1F60033939D /* Modal.swift in Sources */,
 				F68F4B96201A6B1B00630068 /* CaptureViewController.swift in Sources */,
 				F68F4B94201A6B1B00630068 /* SubmissionNavigationController.swift in Sources */,
 				F68F4B95201A6B1B00630068 /* Sighting.swift in Sources */,
@@ -374,6 +381,7 @@
 				F68F4B92201A6B1B00630068 /* SightingFormViewController.swift in Sources */,
 				F68F4B98201A6DF100630068 /* NosePicker.swift in Sources */,
 				F6C90B892009134A00039933 /* AppDelegate.swift in Sources */,
+				F6B99BE52047B2240033939D /* CustomModal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
