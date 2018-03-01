@@ -9,13 +9,18 @@
 /* Begin PBXBuildFile section */
 		AB8A972E3E41E9BE139D8CC2 /* Pods_foe_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 262AFD0B38D941AFD3D77A42 /* Pods_foe_iosTests.framework */; };
 		CA88D7C1AA27005C2F980B6E /* Pods_foe_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DA9DF25072E139B10984B8A /* Pods_foe_ios.framework */; };
-		E3459A6D20292FC7007858F4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3459A6C20292FC7007858F4 /* Constants.swift */; };
-		E35FF545202397D700C223FE /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35FF544202397D700C223FE /* CaptureViewController.swift */; };
-		E35FF547202397FA00C223FE /* SpeciesSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35FF546202397FA00C223FE /* SpeciesSelectionViewController.swift */; };
-		E35FF5492023A16A00C223FE /* DetailsFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35FF5482023A16A00C223FE /* DetailsFormViewController.swift */; };
-		E3FAFBD2202397BB00106595 /* Sighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FAFBCC202397B900106595 /* Sighting.swift */; };
-		E3FAFBD3202397BB00106595 /* SightingFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FAFBCD202397B900106595 /* SightingFormViewController.swift */; };
-		E3FAFBD4202397BB00106595 /* SubmissionNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FAFBCE202397B900106595 /* SubmissionNavigationController.swift */; };
+		E3638AAE204895B90025DE21 /* Sighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3638AA8204895B80025DE21 /* Sighting.swift */; };
+		E3638AAF204895B90025DE21 /* DetailsFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3638AA9204895B80025DE21 /* DetailsFormViewController.swift */; };
+		E3638AB0204895B90025DE21 /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3638AAA204895B80025DE21 /* CaptureViewController.swift */; };
+		E3638AB1204895B90025DE21 /* SightingFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3638AAB204895B80025DE21 /* SightingFormViewController.swift */; };
+		E3638AB2204895B90025DE21 /* SubmissionNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3638AAC204895B90025DE21 /* SubmissionNavigationController.swift */; };
+		E3638AB3204895B90025DE21 /* SpeciesSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3638AAD204895B90025DE21 /* SpeciesSelectionViewController.swift */; };
+		E3638AB5204895EB0025DE21 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3638AB4204895EB0025DE21 /* Constants.swift */; };
+		F65FEAC0201FC5A00011B0C7 /* NosePickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65FEABF201FC5A00011B0C7 /* NosePickerItem.swift */; };
+		F68F4B98201A6DF100630068 /* NosePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68F4B97201A6DF100630068 /* NosePicker.swift */; };
+		F6B99BE32047B1F60033939D /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B99BE22047B1F60033939D /* Modal.swift */; };
+		F6B99BE52047B2240033939D /* CustomModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B99BE42047B2240033939D /* CustomModal.swift */; };
+		F6B99BE7204879C40033939D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B99BE6204879C40033939D /* CardView.swift */; };
 		F6C90B892009134A00039933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C90B882009134A00039933 /* AppDelegate.swift */; };
 		F6C90B8B2009134A00039933 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C90B8A2009134A00039933 /* ViewController.swift */; };
 		F6C90B8E2009134A00039933 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6C90B8C2009134A00039933 /* Main.storyboard */; };
@@ -41,13 +46,18 @@
 		59E890187ACD2297CE725851 /* Pods-foe-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foe-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-foe-iosTests/Pods-foe-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		830A560FEB860970E861BB38 /* Pods-foe-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foe-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-foe-ios/Pods-foe-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		9DA9DF25072E139B10984B8A /* Pods_foe_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_foe_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E3459A6C20292FC7007858F4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		E35FF544202397D700C223FE /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CaptureViewController.swift; path = "/Users/dinahshi/dev/foe-ios/foe-ios/CaptureViewController.swift"; sourceTree = "<absolute>"; };
-		E35FF546202397FA00C223FE /* SpeciesSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpeciesSelectionViewController.swift; path = "/Users/dinahshi/dev/foe-ios/foe-ios/SpeciesSelectionViewController.swift"; sourceTree = "<absolute>"; };
-		E35FF5482023A16A00C223FE /* DetailsFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFormViewController.swift; sourceTree = "<group>"; };
-		E3FAFBCC202397B900106595 /* Sighting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sighting.swift; path = "/Users/dinahshi/dev/foe-ios/foe-ios/Sighting.swift"; sourceTree = "<absolute>"; };
-		E3FAFBCD202397B900106595 /* SightingFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SightingFormViewController.swift; path = "/Users/dinahshi/dev/foe-ios/foe-ios/SightingFormViewController.swift"; sourceTree = "<absolute>"; };
-		E3FAFBCE202397B900106595 /* SubmissionNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SubmissionNavigationController.swift; path = "/Users/dinahshi/dev/foe-ios/foe-ios/SubmissionNavigationController.swift"; sourceTree = "<absolute>"; };
+		E3638AA8204895B80025DE21 /* Sighting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sighting.swift; sourceTree = "<group>"; };
+		E3638AA9204895B80025DE21 /* DetailsFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsFormViewController.swift; sourceTree = "<group>"; };
+		E3638AAA204895B80025DE21 /* CaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
+		E3638AAB204895B80025DE21 /* SightingFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SightingFormViewController.swift; sourceTree = "<group>"; };
+		E3638AAC204895B90025DE21 /* SubmissionNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmissionNavigationController.swift; sourceTree = "<group>"; };
+		E3638AAD204895B90025DE21 /* SpeciesSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeciesSelectionViewController.swift; sourceTree = "<group>"; };
+		E3638AB4204895EB0025DE21 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F65FEABF201FC5A00011B0C7 /* NosePickerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NosePickerItem.swift; sourceTree = "<group>"; };
+		F68F4B97201A6DF100630068 /* NosePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NosePicker.swift; sourceTree = "<group>"; };
+		F6B99BE22047B1F60033939D /* Modal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
+		F6B99BE42047B2240033939D /* CustomModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModal.swift; sourceTree = "<group>"; };
+		F6B99BE6204879C40033939D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		F6C90B852009134A00039933 /* foe-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "foe-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6C90B882009134A00039933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6C90B8A2009134A00039933 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -123,19 +133,24 @@
 		F6C90B872009134A00039933 /* foe-ios */ = {
 			isa = PBXGroup;
 			children = (
-				E35FF5482023A16A00C223FE /* DetailsFormViewController.swift */,
-				E35FF546202397FA00C223FE /* SpeciesSelectionViewController.swift */,
-				E35FF544202397D700C223FE /* CaptureViewController.swift */,
-				E3FAFBCC202397B900106595 /* Sighting.swift */,
-				E3FAFBCD202397B900106595 /* SightingFormViewController.swift */,
-				E3FAFBCE202397B900106595 /* SubmissionNavigationController.swift */,
+				E3638AAA204895B80025DE21 /* CaptureViewController.swift */,
+				E3638AA9204895B80025DE21 /* DetailsFormViewController.swift */,
+				E3638AA8204895B80025DE21 /* Sighting.swift */,
+				E3638AAB204895B80025DE21 /* SightingFormViewController.swift */,
+				E3638AAD204895B90025DE21 /* SpeciesSelectionViewController.swift */,
+				E3638AAC204895B90025DE21 /* SubmissionNavigationController.swift */,
+				F6B99BE22047B1F60033939D /* Modal.swift */,
 				F6C90B882009134A00039933 /* AppDelegate.swift */,
 				F6C90B8A2009134A00039933 /* ViewController.swift */,
 				F6C90B8C2009134A00039933 /* Main.storyboard */,
 				F6C90B8F2009134A00039933 /* Assets.xcassets */,
 				F6C90B912009134A00039933 /* LaunchScreen.storyboard */,
 				F6C90B942009134A00039933 /* Info.plist */,
-				E3459A6C20292FC7007858F4 /* Constants.swift */,
+				F68F4B97201A6DF100630068 /* NosePicker.swift */,
+				F65FEABF201FC5A00011B0C7 /* NosePickerItem.swift */,
+				F6B99BE42047B2240033939D /* CustomModal.swift */,
+				F6B99BE6204879C40033939D /* CardView.swift */,
+				E3638AB4204895EB0025DE21 /* Constants.swift */,
 			);
 			path = "foe-ios";
 			sourceTree = "<group>";
@@ -200,7 +215,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = Blueprint;
 				TargetAttributes = {
 					F6C90B842009134A00039933 = {
@@ -369,14 +384,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6C90B8B2009134A00039933 /* ViewController.swift in Sources */,
-				E35FF545202397D700C223FE /* CaptureViewController.swift in Sources */,
-				E3FAFBD3202397BB00106595 /* SightingFormViewController.swift in Sources */,
-				E35FF5492023A16A00C223FE /* DetailsFormViewController.swift in Sources */,
-				E3FAFBD4202397BB00106595 /* SubmissionNavigationController.swift in Sources */,
-				E35FF547202397FA00C223FE /* SpeciesSelectionViewController.swift in Sources */,
-				E3FAFBD2202397BB00106595 /* Sighting.swift in Sources */,
+				F6B99BE32047B1F60033939D /* Modal.swift in Sources */,
+				F65FEAC0201FC5A00011B0C7 /* NosePickerItem.swift in Sources */,
+				F68F4B98201A6DF100630068 /* NosePicker.swift in Sources */,
 				F6C90B892009134A00039933 /* AppDelegate.swift in Sources */,
-				E3459A6D20292FC7007858F4 /* Constants.swift in Sources */,
+				E3638AB1204895B90025DE21 /* SightingFormViewController.swift in Sources */,
+				F6B99BE7204879C40033939D /* CardView.swift in Sources */,
+				E3638AB2204895B90025DE21 /* SubmissionNavigationController.swift in Sources */,
+				E3638AAF204895B90025DE21 /* DetailsFormViewController.swift in Sources */,
+				E3638AAE204895B90025DE21 /* Sighting.swift in Sources */,
+				E3638AB3204895B90025DE21 /* SpeciesSelectionViewController.swift in Sources */,
+				E3638AB5204895EB0025DE21 /* Constants.swift in Sources */,
+				F6B99BE52047B2240033939D /* CustomModal.swift in Sources */,
+				E3638AB0204895B90025DE21 /* CaptureViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,7 +448,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -436,7 +458,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -479,7 +505,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -487,7 +515,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
