@@ -15,12 +15,13 @@
 		E3638AB1204895B90025DE21 /* SightingFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3638AAB204895B80025DE21 /* SightingFormViewController.swift */; };
 		E3638AB2204895B90025DE21 /* SubmissionNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3638AAC204895B90025DE21 /* SubmissionNavigationController.swift */; };
 		E3638AB3204895B90025DE21 /* SpeciesSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3638AAD204895B90025DE21 /* SpeciesSelectionViewController.swift */; };
-		E3638AB5204895EB0025DE21 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3638AB4204895EB0025DE21 /* Constants.swift */; };
 		F65FEAC0201FC5A00011B0C7 /* NosePickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65FEABF201FC5A00011B0C7 /* NosePickerItem.swift */; };
 		F68F4B98201A6DF100630068 /* NosePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68F4B97201A6DF100630068 /* NosePicker.swift */; };
 		F6B99BE32047B1F60033939D /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B99BE22047B1F60033939D /* Modal.swift */; };
 		F6B99BE52047B2240033939D /* CustomModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B99BE42047B2240033939D /* CustomModal.swift */; };
 		F6B99BE7204879C40033939D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B99BE6204879C40033939D /* CardView.swift */; };
+		F6B99BE9204899B00033939D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B99BE8204899B00033939D /* Constants.swift */; };
+		F6B99BEB20489ADD0033939D /* LinkListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B99BEA20489ADD0033939D /* LinkListView.swift */; };
 		F6C90B892009134A00039933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C90B882009134A00039933 /* AppDelegate.swift */; };
 		F6C90B8B2009134A00039933 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C90B8A2009134A00039933 /* ViewController.swift */; };
 		F6C90B8E2009134A00039933 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6C90B8C2009134A00039933 /* Main.storyboard */; };
@@ -52,12 +53,13 @@
 		E3638AAB204895B80025DE21 /* SightingFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SightingFormViewController.swift; sourceTree = "<group>"; };
 		E3638AAC204895B90025DE21 /* SubmissionNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmissionNavigationController.swift; sourceTree = "<group>"; };
 		E3638AAD204895B90025DE21 /* SpeciesSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeciesSelectionViewController.swift; sourceTree = "<group>"; };
-		E3638AB4204895EB0025DE21 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F65FEABF201FC5A00011B0C7 /* NosePickerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NosePickerItem.swift; sourceTree = "<group>"; };
 		F68F4B97201A6DF100630068 /* NosePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NosePicker.swift; sourceTree = "<group>"; };
 		F6B99BE22047B1F60033939D /* Modal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
 		F6B99BE42047B2240033939D /* CustomModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModal.swift; sourceTree = "<group>"; };
 		F6B99BE6204879C40033939D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		F6B99BE8204899B00033939D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F6B99BEA20489ADD0033939D /* LinkListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkListView.swift; sourceTree = "<group>"; };
 		F6C90B852009134A00039933 /* foe-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "foe-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6C90B882009134A00039933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6C90B8A2009134A00039933 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -150,7 +152,8 @@
 				F65FEABF201FC5A00011B0C7 /* NosePickerItem.swift */,
 				F6B99BE42047B2240033939D /* CustomModal.swift */,
 				F6B99BE6204879C40033939D /* CardView.swift */,
-				E3638AB4204895EB0025DE21 /* Constants.swift */,
+				F6B99BEA20489ADD0033939D /* LinkListView.swift */,
+				F6B99BE8204899B00033939D /* Constants.swift */,
 			);
 			path = "foe-ios";
 			sourceTree = "<group>";
@@ -220,7 +223,7 @@
 				TargetAttributes = {
 					F6C90B842009134A00039933 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 4TRZ7YCVD3;
+						DevelopmentTeam = X9J33NSWJL;
 						ProvisioningStyle = Automatic;
 					};
 					F6C90B982009134A00039933 = {
@@ -394,7 +397,8 @@
 				E3638AAF204895B90025DE21 /* DetailsFormViewController.swift in Sources */,
 				E3638AAE204895B90025DE21 /* Sighting.swift in Sources */,
 				E3638AB3204895B90025DE21 /* SpeciesSelectionViewController.swift in Sources */,
-				E3638AB5204895EB0025DE21 /* Constants.swift in Sources */,
+				F6B99BE9204899B00033939D /* Constants.swift in Sources */,
+				F6B99BEB20489ADD0033939D /* LinkListView.swift in Sources */,
 				F6B99BE52047B2240033939D /* CustomModal.swift in Sources */,
 				E3638AB0204895B90025DE21 /* CaptureViewController.swift in Sources */,
 			);
@@ -550,10 +554,10 @@
 			baseConfigurationReference = 830A560FEB860970E861BB38 /* Pods-foe-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4TRZ7YCVD3;
+				DEVELOPMENT_TEAM = X9J33NSWJL;
 				INFOPLIST_FILE = "foe-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.blueprint.foe-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blueprint.foe-ios-john";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -564,10 +568,10 @@
 			baseConfigurationReference = 1C83638E0486B243AC5E60A9 /* Pods-foe-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4TRZ7YCVD3;
+				DEVELOPMENT_TEAM = X9J33NSWJL;
 				INFOPLIST_FILE = "foe-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.blueprint.foe-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blueprint.foe-ios-john";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
