@@ -11,6 +11,9 @@ import FBSDKLoginKit
 
 class ViewController: UIViewController, FBSDKLoginButtonDelegate {
 
+    //Define Outlets
+    @IBOutlet weak var landingScrollView: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,18 +30,27 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         let landingCardView = CardView(title: "Looks like a beautiful day to spot some bees!", caption: "", subtitle: "Welcome!")
         
         if #available(iOS 11.0, *) {
-            landingCardView.frame.origin = CGPoint(x: 0, y:view.safeAreaInsets.top)
+            landingScrollView.frame.origin = CGPoint(x: 0, y:view.safeAreaInsets.top)
         } else {
             // Fallback on earlier versions
-            landingCardView.frame.origin = CGPoint(x: 0, y:0)
+            landingScrollView.frame.origin = CGPoint(x: 0, y:0)
         }
-        view.addSubview(landingCardView)
+        
+        landingCardView.frame.origin = CGPoint(x: 0, y: 0)
+        
+        landingScrollView.addSubview(landingCardView)
         
         let LLView = LinkListView(title: "Useful Links", links: links)
         
         LLView.frame.origin = CGPoint(x: 0, y: landingCardView.frame.height)
         
-        view.addSubview(LLView)
+        landingScrollView.addSubview(LLView)
+        
+        landingScrollView.contentSize = CGSize(width: view.frame.width, height: landingCardView.frame.height + LLView.frame.height)
+        
+        landingScrollView.showsVerticalScrollIndicator = false
+        landingScrollView.alwaysBounceVertical = true
+        
     }
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
