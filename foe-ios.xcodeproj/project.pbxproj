@@ -12,7 +12,6 @@
 		E3638AAE204895B90025DE21 /* Sighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3638AA8204895B80025DE21 /* Sighting.swift */; };
 		E3638AAF204895B90025DE21 /* DetailsFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3638AA9204895B80025DE21 /* DetailsFormViewController.swift */; };
 		E3638AB0204895B90025DE21 /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3638AAA204895B80025DE21 /* CaptureViewController.swift */; };
-		E3638AB1204895B90025DE21 /* SightingFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3638AAB204895B80025DE21 /* SightingFormViewController.swift */; };
 		E3638AB2204895B90025DE21 /* SubmissionNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3638AAC204895B90025DE21 /* SubmissionNavigationController.swift */; };
 		E3638AB3204895B90025DE21 /* SpeciesSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3638AAD204895B90025DE21 /* SpeciesSelectionViewController.swift */; };
 		F65FEAC0201FC5A00011B0C7 /* NosePickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65FEABF201FC5A00011B0C7 /* NosePickerItem.swift */; };
@@ -50,7 +49,6 @@
 		E3638AA8204895B80025DE21 /* Sighting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sighting.swift; sourceTree = "<group>"; };
 		E3638AA9204895B80025DE21 /* DetailsFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsFormViewController.swift; sourceTree = "<group>"; };
 		E3638AAA204895B80025DE21 /* CaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
-		E3638AAB204895B80025DE21 /* SightingFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SightingFormViewController.swift; sourceTree = "<group>"; };
 		E3638AAC204895B90025DE21 /* SubmissionNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmissionNavigationController.swift; sourceTree = "<group>"; };
 		E3638AAD204895B90025DE21 /* SpeciesSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeciesSelectionViewController.swift; sourceTree = "<group>"; };
 		F65FEABF201FC5A00011B0C7 /* NosePickerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NosePickerItem.swift; sourceTree = "<group>"; };
@@ -138,7 +136,6 @@
 				E3638AAA204895B80025DE21 /* CaptureViewController.swift */,
 				E3638AA9204895B80025DE21 /* DetailsFormViewController.swift */,
 				E3638AA8204895B80025DE21 /* Sighting.swift */,
-				E3638AAB204895B80025DE21 /* SightingFormViewController.swift */,
 				E3638AAD204895B90025DE21 /* SpeciesSelectionViewController.swift */,
 				E3638AAC204895B90025DE21 /* SubmissionNavigationController.swift */,
 				F6B99BE22047B1F60033939D /* Modal.swift */,
@@ -391,7 +388,6 @@
 				F65FEAC0201FC5A00011B0C7 /* NosePickerItem.swift in Sources */,
 				F68F4B98201A6DF100630068 /* NosePicker.swift in Sources */,
 				F6C90B892009134A00039933 /* AppDelegate.swift in Sources */,
-				E3638AB1204895B90025DE21 /* SightingFormViewController.swift in Sources */,
 				F6B99BE7204879C40033939D /* CardView.swift in Sources */,
 				E3638AB2204895B90025DE21 /* SubmissionNavigationController.swift in Sources */,
 				E3638AAF204895B90025DE21 /* DetailsFormViewController.swift in Sources */,
