@@ -81,5 +81,6 @@ class LinkListView: UIView {
         }
         
         frame.size = CGSize(width: LinkListViewWidth, height: currentTop)
+        backgroundColor = UIColor.white
     }
 }

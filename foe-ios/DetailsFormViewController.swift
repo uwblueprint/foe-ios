@@ -60,7 +60,6 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
         sighting = navController.getSighting()
         
         let submitButton = UIBarButtonItem(title: "Submit", style: UIBarButtonItemStyle.plain, target: self, action: "submit")
-        self.navigationItem.backBarButtonItem?.title = "Back"
         self.navigationItem.rightBarButtonItem = submitButton
         self.navigationItem.title = "Step 3: Geotag"
 

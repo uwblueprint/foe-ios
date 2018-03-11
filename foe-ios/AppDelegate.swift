@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GMSPlacesClient.provideAPIKey(GoogleAPIKey)
         
+        UIApplication.shared.statusBarStyle = .default
+        
         return true
     }
     

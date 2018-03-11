@@ -68,6 +68,8 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate,
         navController.navigationBar.tintColor = UIColor(red:0.12, green:0.75, blue:0.39, alpha:1.0)
         navController.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Avenir", size: 14)!, NSForegroundColorAttributeName : UIColor.white ]
         self.navigationItem.title = "Step 1: Capture".uppercased()
+        
+        UIApplication.shared.statusBarStyle = .lightContent
 
         let cancelButton =  UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(gotoPreviousScreen))
         self.navigationItem.leftBarButtonItem = cancelButton
@@ -78,15 +80,13 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate,
     override func viewWillDisappear(_ animated: Bool) {
         let navController = self.navigationController as! SubmissionNavigationController
         navController.setSighting(sighting: sighting!)
+        super.viewWillDisappear(animated)
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
     }
 
     //MARK: Outlets

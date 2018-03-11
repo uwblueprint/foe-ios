@@ -108,12 +108,13 @@ class SpeciesSelectionViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationItem.title = "Step 2: Identify".uppercased()
         //set nav controller to light mode
+        
         let navController = self.navigationController as! SubmissionNavigationController
         navController.navigationBar.barTintColor = UIColor.white
         navController.navigationBar.tintColor = UIColor(red:0.12, green:0.75, blue:0.39, alpha:1.0)
-        navController.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Avenir", size: 14)!, NSForegroundColorAttributeName : UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0) ]
-        self.navigationItem.title = "Step 2: Identify".uppercased()
+        self.navigationController!.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Avenir", size: 14)!, NSForegroundColorAttributeName : UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0) ]
         
         let nextButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.plain, target: self, action: "goToNextScreen")
         self.navigationItem.backBarButtonItem?.title = "Back"
@@ -149,6 +150,9 @@ class SpeciesSelectionViewController: UIViewController {
     // MARK: - Actions
     
     func goToNextScreen() {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        self.navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "detailsFormViewController") as! UIViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }

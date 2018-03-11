@@ -15,6 +15,9 @@ class ViewController: UIViewController, UITabBarDelegate, FBSDKLoginButtonDelega
     @IBOutlet weak var landingScrollView: UIScrollView!
     @IBOutlet weak var tabBar: UITabBar!
     
+    override func viewWillAppear(_ animated: Bool) {
+        tabBar.selectedItem = tabBar.items![0]
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,7 +31,6 @@ class ViewController: UIViewController, UITabBarDelegate, FBSDKLoginButtonDelega
 //        let alert = CustomModal(title: "Which bee?", caption: "Tap the patterns below to determine which species your bee is.", image: UIImage(named: "picker-illustration")!)
         
         tabBar.delegate = self
-    
         renderScrollView()
     }
     
@@ -56,7 +58,7 @@ class ViewController: UIViewController, UITabBarDelegate, FBSDKLoginButtonDelega
         landingScrollView.contentSize = CGSize(width: view.frame.width, height: landingCardView.frame.height + LLView.frame.height)
         
         landingScrollView.showsVerticalScrollIndicator = false
-        landingScrollView.alwaysBounceVertical = true
+        landingScrollView.alwaysBounceVertical = false
     }
     
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
@@ -65,8 +67,6 @@ class ViewController: UIViewController, UITabBarDelegate, FBSDKLoginButtonDelega
             let vc = self.storyboard!.instantiateViewController(withIdentifier: "submissionNavigationController")
             self.present(vc, animated: true)
         case "Learn":
-//            let vc = self.storyboard!.instantiateViewController(withIdentifier: "speciesSelectionViewController")
-//            self.present(vc, animated: true)
             print("pressed learn");
         default:
             break
