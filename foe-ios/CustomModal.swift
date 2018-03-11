@@ -12,9 +12,9 @@ class CustomModal: UIView, Modal {
     var backgroundView = UIView()
     var dialogView = UIView()
     
-    convenience init(title:String, caption: String, image:UIImage) {
+    convenience init(title:String, caption: String, dismissText: String, image:UIImage) {
         self.init(frame: UIScreen.main.bounds)
-        initialize(title: title, caption: caption, image: image)
+        initialize(title: title, caption: caption, dismissText: dismissText, image: image)
         
     }
     override init(frame: CGRect) {
@@ -25,7 +25,7 @@ class CustomModal: UIView, Modal {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func initialize(title: String, caption: String, image: UIImage) {
+    func initialize(title: String, caption: String, dismissText: String, image: UIImage) {
         dialogView.clipsToBounds = true
         
         backgroundView.frame = frame
@@ -63,7 +63,7 @@ class CustomModal: UIView, Modal {
         let primaryCTA = UIView()
         
         let CTAActionLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 54, height: 20))
-        CTAActionLabel.text = "Got it"
+        CTAActionLabel.text = dismissText
         CTAActionLabel.font = UIFont(name: "Avenir-Heavy", size: 16)
         CTAActionLabel.textColor = UIColor(red:0.12, green:0.75, blue:0.39, alpha:1.0)
         

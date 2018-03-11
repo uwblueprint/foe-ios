@@ -60,7 +60,7 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
         let navController = self.navigationController as! SubmissionNavigationController
         sighting = navController.getSighting()
         
-        let submitButton = UIBarButtonItem(title: "Submit", style: UIBarButtonItemStyle.plain, target: self, action: "submit")
+        let submitButton = UIBarButtonItem(title: "Submit", style: UIBarButtonItemStyle.plain, target: self, action: #selector(DetailsFormViewController.submit))
         self.navigationItem.backBarButtonItem?.title = "Back"
         self.navigationItem.rightBarButtonItem = submitButton
         self.navigationItem.title = "Step 3: Geotag"
@@ -109,6 +109,15 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     func setSightingWeather(weather: String) {
         sighting?.setWeather(weather: weather)
+    }
+    
+    func submit() {
+        // TODO: post to server
+        let alert = CustomModal(title: "Buzz buzz!", caption: "That's thank you in bee!", dismissText: "Finish", image: UIImage(named: "default-home-illustration")!)
+        alert.show(animated: true)
+        
+//        let vc = self.storyboard!.instantiateViewController(withIdentifier: "homeViewController")
+//        self.present(vc, animated: false)
     }
     
     private func setupHabitatPicker() {

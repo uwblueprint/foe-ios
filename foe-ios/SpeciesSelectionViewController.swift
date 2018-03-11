@@ -89,7 +89,7 @@ class SpeciesSelectionViewController: UIViewController {
         
         updateButtons()
         
-        let alert = CustomModal(title: "Which bee?", caption: "Tap the patterns below to determine which species your bee is.", image: UIImage(named: "picker-illustration")!)
+        let alert = CustomModal(title: "Which bee?", caption: "Tap the patterns below to determine which species your bee is.", dismissText: "Got it", image: UIImage(named: "picker-illustration")!)
         
         alert.show(animated: true)
     }
@@ -98,8 +98,7 @@ class SpeciesSelectionViewController: UIViewController {
         for i in 0..<self.partsButtons.count {
             if i == self.activePartIndex {
                 self.partsButtons[i].setTitleColor(UIColor(red:0.12, green:0.75, blue:0.39, alpha:1.0), for: UIControlState.normal)
-            }
-            else {
+            } else {
                 self.partsButtons[i].setTitleColor(UIColor(red:0.74, green:0.74, blue:0.74, alpha:1.0), for: UIControlState.normal)
             }
         }
