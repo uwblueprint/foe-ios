@@ -20,8 +20,7 @@ import UIKit
     let padding = 16
     var n = 10
     var callback : ((String)->())? = nil
-    
-    var activeButton : Int = 0
+    var activeButtonIdentifier : String = ""
     
     //MARK: Initialization
     
@@ -47,7 +46,7 @@ import UIKit
     
     //MARK: Button Action
     
-    func loadNewButtons (newItems: [NosePickerItem], activeId: String) {
+    func loadNewButtons (newItems: [NosePickerItem]) {
         //remove previous buttons from view
         for i in 0..<self.items.count {
             buttons[i].removeFromSuperview()
@@ -56,36 +55,23 @@ import UIKit
         buttons.removeAll()
         
         self.items = newItems
-        self.setButtonFromIdentifier(id:activeId)
         setupButtons()
         updateSelectedView()
     }
     
-    func ratingButtonTapped(button: UIButton) {
+    func speciesButtonTapped(button: UIButton) {
         print("\(self.items[button.tag].getIdentifier()) pressed")
-        self.activeButton = button.tag
+        self.activeButtonIdentifier = items[button.tag].getIdentifier()
         updateSelectedView()
         
-        self.callback!(self.getActiveIdentifier())
+        self.callback!(activeButtonIdentifier)
     }
     
     //MARK: Private Methods
-    private func getActiveIdentifier() -> String {
-        return items[self.activeButton].getIdentifier()
-    }
-    
-    private func setButtonFromIdentifier(id: String)  {
-        for i in 0..<self.n {
-            if (items[i].getIdentifier() == id) {
-                self.activeButton = i
-                break
-            }
-        }
-    }
-    
+  
     private func updateSelectedView() {
         for i in 0..<buttons.count {
-            if (i == self.activeButton) {
+            if (items[buttons[i].tag].getIdentifier() == activeButtonIdentifier) {
                 buttons[i].layer.borderWidth = 4
                 buttons[i].layer.borderColor = UIColor(red:0.12, green:0.75, blue:0.39, alpha:1.0).cgColor
             } else {
@@ -93,6 +79,7 @@ import UIKit
             }
         }
     }
+  
     private func setupButtons() {
         self.n = items.count
         self.contentSize =  CGSize (width: ((w + padding) * n) + padding, height: h)
@@ -106,19 +93,11 @@ import UIKit
             self.backgroundColor = UIColor.white
             
             button.tag = i
-            button.addTarget(self, action: #selector(NosePicker.ratingButtonTapped(button:)), for: .touchUpInside)
+            button.addTarget(self, action: #selector(NosePicker.speciesButtonTapped(button:)), for: .touchUpInside)
             
             self.addSubview(button)
             
             buttons.append(button)
         }
     }
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
 }

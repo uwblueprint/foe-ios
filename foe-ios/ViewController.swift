@@ -9,10 +9,11 @@
 import UIKit
 import FBSDKLoginKit
 
-class ViewController: UIViewController, FBSDKLoginButtonDelegate {
+class ViewController: UIViewController, UITabBarDelegate, FBSDKLoginButtonDelegate {
 
     //Define Outlets
     @IBOutlet weak var landingScrollView: UIScrollView!
+    @IBOutlet weak var tabBar: UITabBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,12 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
 //        // Do any additional setup after loading the view, typically from a nib.
 //        let alert = CustomModal(title: "Which bee?", caption: "Tap the patterns below to determine which species your bee is.", image: UIImage(named: "picker-illustration")!)
         
+        tabBar.delegate = self
+    
+        renderScrollView()
+    }
+    
+    private func renderScrollView() {
         let links : [String] = ["Visit Friends of Earth", "Learn about the Bee Cause", "Donate to the campaign" ]
         let landingCardView = CardView(title: "Looks like a beautiful day to spot some bees!", caption: "", subtitle: "Welcome!")
         
@@ -50,6 +57,20 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         landingScrollView.showsVerticalScrollIndicator = false
         landingScrollView.alwaysBounceVertical = true
+    }
+    
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        switch item.title! {
+        case "Submit":
+            let vc = self.storyboard!.instantiateViewController(withIdentifier: "submissionNavigationController")
+            self.present(vc, animated: true)
+        case "Learn":
+//            let vc = self.storyboard!.instantiateViewController(withIdentifier: "speciesSelectionViewController")
+//            self.present(vc, animated: true)
+            print("pressed learn");
+        default:
+            break
+        }
         
     }
     

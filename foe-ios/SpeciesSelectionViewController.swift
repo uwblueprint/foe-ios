@@ -11,9 +11,8 @@ import UIKit
 class SpeciesSelectionViewController: UIViewController {
 
     var sighting: Sighting?
-    var thoraxItems: [NosePickerItem]?
-    var abdomenItems: [NosePickerItem]?
-    var faceItems: [NosePickerItem]?
+    var easternItems: [NosePickerItem]?
+    var westernItems: [NosePickerItem]?
     
     var partsPicker : NosePicker?
     var activePartIndex : Int = 0
@@ -21,41 +20,56 @@ class SpeciesSelectionViewController: UIViewController {
     var pickers = [[NosePickerItem]]()
     
     func initializePickers() {
-        let abdomenImageNames = [
-            "ab_byb",
-            "ab_yry",
-            "ab_yyy",
-            "ab_yb",
-            "ab_yby",
-            "ab_red_tail",
-            "ab_white_tail",
-            "ab_y_stripe"
+        let easternImageNames = [
+            "affinis",
+            "auricomus",
+            "bimaculatus",
+            "borealis",
+            "citrinus",
+            "fervidus",
+            "flavifrons",
+            "griseocollis",
+            "impatiens",
+            "nevadensis",
+            "pensylvanicus",
+            "perplexus",
+            "rufocinctus",
+            "sandersoni",
+            "sylvicola",
+            "ternarius",
+            "terricola",
+            "vagans"
         ]
         
-        let thoraxImageNames = [
-            "thorax_yyy",
-            "thorax_ybb",
-            "thorax_yby",
-            "thorax_bdot",
-            "thorax_whsh"
+        let westernImageNames = [
+            "bifarius",
+            "borealis",
+            "centralis",
+            "cryptarum",
+            "flavifrons",
+            "griseocollis",
+            "huntii",
+            "impatiens",
+            "melanopygus",
+            "mixtus",
+            "nevadensis",
+            "occidentalis",
+            "perplexus",
+            "rufocinctus",
+            "ternarius",
+            "terricola",
+            "vosnesenski"
         ]
+
+        easternItems = easternImageNames.map{ NosePickerItem( image: UIImage(named: $0)!, identifier: $0 ) }
+        westernItems = westernImageNames.map{ NosePickerItem( image: UIImage(named: $0)!, identifier: $0 ) }
         
-        let faceImageNames = [
-            "face_black",
-            "face_yellow"
-        ]
-        
-        faceItems = faceImageNames.map{ NosePickerItem( image: UIImage(named: $0)!, identifier: $0 ) }
-        thoraxItems = thoraxImageNames.map{ NosePickerItem( image: UIImage(named: $0)!, identifier: $0 ) }
-        abdomenItems = abdomenImageNames.map{ NosePickerItem( image: UIImage(named: $0)!, identifier: $0 ) }
-        
-        pickers.append(faceItems!)
-        pickers.append(thoraxItems!)
-        pickers.append(abdomenItems!)
+        pickers.append(easternItems!)
+        pickers.append(westernItems!)
     }
 
-    private func setPartWithIdentifier(id: String) {
-        sighting?.setPartIdentifier(index: activePartIndex, val: id)
+    private func setSightingSpecies(id: String) {
+        sighting?.setSpecies(species: id)
     }
     
     override func viewDidLoad() {
@@ -66,11 +80,10 @@ class SpeciesSelectionViewController: UIViewController {
         sighting = navController.getSighting()
         
         //add buttons and set initial state to face
-        self.partsButtons.append(faceButton)
-        self.partsButtons.append(thoraxButton)
-        self.partsButtons.append(abdomenButton)
+        self.partsButtons.append(easternButton)
+        self.partsButtons.append(westernButton)
         
-        partsPicker = NosePicker(frame: CGRect(x: 0, y: partsLabelsRow.frame.maxY, width: view.frame.width, height: 96), items: faceItems!, updateCallback: self.setPartWithIdentifier)
+        partsPicker = NosePicker(frame: CGRect(x: 0, y: partsLabelsRow.frame.maxY, width: view.frame.width, height: 96), items: easternItems!, updateCallback: self.setSightingSpecies)
         
         view.addSubview(partsPicker!)
         
@@ -91,7 +104,7 @@ class SpeciesSelectionViewController: UIViewController {
             }
         }
         
-        partsPicker?.loadNewButtons(newItems: pickers[self.activePartIndex], activeId: sighting!.getPartIdentifier(index: activePartIndex)!)
+        partsPicker?.loadNewButtons(newItems: pickers[self.activePartIndex])
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -120,25 +133,18 @@ class SpeciesSelectionViewController: UIViewController {
     
     @IBOutlet weak var previewImage: UIImageView!
     @IBOutlet weak var partsLabelsRow: UIStackView!
-    @IBOutlet weak var faceButton: UIButton!
-    @IBOutlet weak var thoraxButton: UIButton!
-    @IBOutlet weak var abdomenButton: UIButton!
+    @IBOutlet weak var easternButton: UIButton!
+    @IBOutlet weak var westernButton: UIButton!
     
-    @IBAction func faceButtonTouched(_ sender: Any) {
+    @IBAction func easternButtonClicked(_ sender: Any) {
         self.activePartIndex = 0
         updateButtons()
     }
     
-    @IBAction func thoraxButtonTouched(_ sender: Any) {
+    @IBAction func westernButtonClicked(_ sender: Any) {
         self.activePartIndex = 1
         updateButtons()
     }
-    
-    @IBAction func abdomenButtonTouched(_ sender: Any) {
-        self.activePartIndex = 2
-        updateButtons()
-    }
-    
     
     // MARK: - Actions
     
@@ -146,15 +152,4 @@ class SpeciesSelectionViewController: UIViewController {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "detailsFormViewController") as! UIViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
