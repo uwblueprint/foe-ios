@@ -17,8 +17,10 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var binomialNameLabel: UILabel!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var habitatPickerTextField: UITextField!
+    @IBOutlet weak var weatherPickerView: UIView!
     
     var sighting: Sighting?
+    var weatherPicker: NosePicker?
     var habitatPicker = UIPickerView()
     var habitatPickerData: [String] = [String]()
     
@@ -50,8 +52,7 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
         "bombus_mixtus": "Fuzzy-horned bumble bee",
         "bombus_centralis": "Central bumble bee",
         "bombus_bohemicus": "Gypsy cuckoo bumble bee",
-        ]
-
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +75,7 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
         }
         
         setupHabitatPicker()
+        setupWeatherPicker()
     }
 
     @IBAction func locationPickerClicked(_ sender: Any) {
@@ -104,6 +106,19 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
         sighting?.setHabitat(habitat: habitatPickerData[row])
     }
     
+    func setSightingWeather(weather: String) {
+        sighting?.setWeather(weather: weather)
+    }
+    
+    func submit() {
+        // TODO: post to server
+        let alert = CustomModal(title: "Buzz buzz!", caption: "That's thank you in bee!", dismissText: "Finish", image: UIImage(named: "default-home-illustration")!)
+        alert.show(animated: true)
+        
+//        let vc = self.storyboard!.instantiateViewController(withIdentifier: "homeViewController")
+//        self.present(vc, animated: false)
+    }
+    
     private func setupHabitatPicker() {
         habitatPickerData =  ["house_garden", "park", "swap", "public_garden", "lake", "lawn"]
         habitatPicker.delegate = self
@@ -111,6 +126,20 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
         habitatPickerTextField.inputView = habitatPicker
     }
     
+    private func setupWeatherPicker() {
+        let weatherImageNames = [
+            "sunny",
+            "partly-sunny",
+            "overcast",
+            "rainy"
+        ]
+        
+        var weatherItems = weatherImageNames.map { NosePickerItem(image: UIImage(named: $0)!, identifier: $0) }
+        weatherPicker = NosePicker(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 96), items: weatherItems, updateCallback: self.setSightingWeather)
+        
+        weatherPickerView.addSubview(weatherPicker!)
+    }
+
     private func snakecaseToCapitalized(str: String) -> String {
         return str.components(separatedBy: "_")
             .map { return $0.lowercased().capitalized }

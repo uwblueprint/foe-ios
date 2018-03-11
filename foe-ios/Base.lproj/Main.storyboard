@@ -22,7 +22,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="foe_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="foe_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -400,7 +400,6 @@
                             <constraint firstItem="shc-Jf-tjO" firstAttribute="leading" secondItem="pV9-1u-Qqt" secondAttribute="leading" id="ZnA-fp-mas"/>
                             <constraint firstItem="f7O-0m-X8B" firstAttribute="top" secondItem="T9Z-ga-DOj" secondAttribute="bottom" constant="8" id="Zs1-Xk-wdK"/>
                             <constraint firstItem="YBS-rT-UqH" firstAttribute="leading" secondItem="pV9-1u-Qqt" secondAttribute="leading" id="cFG-e7-u1H"/>
-                            <constraint firstItem="pV9-1u-Qqt" firstAttribute="trailing" secondItem="YBS-rT-UqH" secondAttribute="trailing" id="dBp-xt-sjp"/>
                             <constraint firstItem="pV9-1u-Qqt" firstAttribute="trailing" secondItem="f7O-0m-X8B" secondAttribute="trailing" id="ib7-am-RRp"/>
                             <constraint firstItem="T9Z-ga-DOj" firstAttribute="leading" secondItem="pV9-1u-Qqt" secondAttribute="leading" constant="16" id="kNz-ki-w6X"/>
                             <constraint firstItem="Mvg-lc-zCV" firstAttribute="leading" secondItem="pV9-1u-Qqt" secondAttribute="leading" constant="16" id="lrL-yL-j0Q"/>
@@ -417,6 +416,7 @@
                         <outlet property="habitatPickerTextField" destination="i0c-rh-cA6" id="rUb-bF-a7y"/>
                         <outlet property="locationTextField" destination="zLh-zM-HkR" id="ytH-7C-gLb"/>
                         <outlet property="previewImage" destination="AxT-UO-JYg" id="SGt-I5-GAW"/>
+                        <outlet property="weatherPickerView" destination="YBS-rT-UqH" id="NpB-Fj-1DS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nlk-vz-PSo" userLabel="First Responder" sceneMemberID="firstResponder"/>
