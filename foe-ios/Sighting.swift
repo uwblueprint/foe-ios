@@ -13,6 +13,7 @@ import GooglePlaces
 class Sighting {
   private var image: UIImage?
   private var habitat: String?
+  private var weather: String?
   private var location: GMSPlace?
   private var species: String = "unidentified"
   
@@ -38,6 +39,11 @@ class Sighting {
 
   func setHabitat(habitat: String) {
       self.habitat = habitat
+  }
+    
+  func setWeather(weather: String) {
+      self.weather = weather
+    print("weather set to " + weather)
   }
 
   func setLocation(location: GMSPlace) {
