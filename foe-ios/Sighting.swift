@@ -14,14 +14,14 @@ class Sighting {
   private var image: UIImage?
   private var habitat: String?
   private var location: GMSPlace?
-  private var species: String?
+  private var species: String = "unidentified"
   
   func setSpecies(species: String) {
     self.species = species
   }
   
   func getSpecies() -> String {
-    return species!
+    return species
   }
 
   func setImage(image: UIImage) {

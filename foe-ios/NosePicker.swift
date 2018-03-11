@@ -20,7 +20,7 @@ import UIKit
     let padding = 16
     var n = 10
     var callback : ((String)->())? = nil
-    var activeButtonIdentifier : String = "unidentified"
+    var activeButtonIdentifier : String = ""
     
     //MARK: Initialization
     
