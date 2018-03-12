@@ -35,7 +35,10 @@ class ViewController: UIViewController, UITabBarDelegate, FBSDKLoginButtonDelega
     }
     
     private func renderScrollView() {
-        let links : [String] = ["Visit Friends of Earth", "Learn about the Bee Cause", "Donate to the campaign" ]
+        let links : [String:String] = [
+            "Visit Friends of Earth":"http://foecanada.org/",
+            "Learn about the Bee Cause": "http://foecanada.org/en/issues/the-bee-cause/",
+            "Donate to the campaign":"https://foecanada.org/en/donate/" ]
         let landingCardView = CardView(title: "Looks like a beautiful day to spot some bees!", caption: "", subtitle: "Welcome!")
         
         if #available(iOS 11.0, *) {

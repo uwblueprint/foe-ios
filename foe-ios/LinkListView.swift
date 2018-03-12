@@ -10,9 +10,10 @@ import UIKit
 
 class LinkListView: UIView {
     let title : String = ""
-    let links = [String]()
+    var links : [String:String]
     
     override init(frame: CGRect) {
+        links = [String:String]()
         super.init(frame: frame)
     }
     
@@ -20,13 +21,20 @@ class LinkListView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(title:String, links: [String]) {
+    func openLinkURL(_ sender: Any) {
+        let button = sender as! UIButton
+        let key = button.titleLabel!.text as String!
+        let url = links[key!]
+        UIApplication.shared.open(NSURL(string:url!)! as URL)
+    }
+    
+    convenience init(title:String, links: [String:String]) {
         self.init(frame: UIScreen.main.bounds)
+        self.links = links
         initialize(title: title, links: links)
     }
     
-    func initialize(title: String, links: [String]) {
-        
+    func initialize(title: String, links: [String:String]) {
         let LinkListViewWidth = frame.width
         let padding : CGFloat = 24
         
@@ -40,20 +48,22 @@ class LinkListView: UIView {
         addSubview(subtitleLabel)
         
         var currentTop = subtitleLabel.frame.height + subtitleLabel.frame.origin.y + 4
-
         
-        for i in 0..<links.count {
-            
+        let linkKeys = Array(links.keys)
+        
+        for i in 0..<linkKeys.count {
             print("currentTop: \(currentTop)")
             let primaryCTA = UIView()
             
-            let CTAActionLabel = UILabel()
+            let CTAActionLabel = UIButton()
             CTAActionLabel.frame.origin = CGPoint(x: padding, y: 16)
             CTAActionLabel.frame.size = CGSize(width: 300, height: 22)
-            CTAActionLabel.text = links[i]
-            CTAActionLabel.font = UIFont(name: "Avenir-Heavy", size: 16)
-            CTAActionLabel.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
-            
+            CTAActionLabel.setTitle(linkKeys[i], for: .normal)
+            CTAActionLabel.titleLabel!.font = UIFont(name: "Avenir-Heavy", size: 16)
+            CTAActionLabel.setTitleColor(UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0), for: .normal)
+            CTAActionLabel.setTitleColor(UIColor(red:0.20, green:0.20, blue:0.20, alpha:0.5), for: .highlighted)
+            CTAActionLabel.contentHorizontalAlignment = .left
+            CTAActionLabel.addTarget(self, action: #selector(openLinkURL(_:)), for: .touchUpInside)
             primaryCTA.addSubview(CTAActionLabel)
             
             let CTAIconImage = UIImageView()
@@ -75,6 +85,7 @@ class LinkListView: UIView {
             primaryCTA.frame.size = CGSize(width: LinkListViewWidth, height: CTAActionLabel.frame.height + 32 + 2)
             primaryCTA.frame.origin = CGPoint(x: 0, y: currentTop)
             
+            //add URL
             addSubview(primaryCTA)
             
             currentTop += primaryCTA.frame.height
