@@ -89,7 +89,7 @@ class SpeciesSelectionViewController: UIViewController {
         
         updateButtons()
         
-        let alert = CustomModal(title: "Which bee?", caption: "Tap the patterns below to determine which species your bee is.", dismissText: "Got it", image: UIImage(named: "picker-illustration")!)
+        let alert = CustomModal(title: "Which bee?", caption: "Select the species below that best matches your photo!", dismissText: "Got it", image: UIImage(named: "picker-illustration")!)
         
         alert.show(animated: true)
     }
