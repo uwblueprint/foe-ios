@@ -18,6 +18,7 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var habitatPickerTextField: UITextField!
     @IBOutlet weak var weatherPickerView: UIView!
+    @IBOutlet weak var locationPickerView: UIView!
     
     var sighting: Sighting?
     var weatherPicker: NosePicker?
@@ -56,7 +57,7 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let navController = self.navigationController as! SubmissionNavigationController
         sighting = navController.getSighting()
         
@@ -76,12 +77,26 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
         
         setupHabitatPicker()
         setupWeatherPicker()
+        
+        locationTextField.isUserInteractionEnabled = false
+        locationPickerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openAutoComplete)))
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
     }
-
-    @IBAction func locationPickerClicked(_ sender: Any) {
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func openAutoComplete() {
         let autocompleteController = GMSAutocompleteViewController()
         autocompleteController.delegate = self
         present(autocompleteController, animated: true, completion: nil)
+    }
+    
+    @IBAction func locationPickerClicked(_ sender: Any) {
+        openAutoComplete()
     }
     
     override func didReceiveMemoryWarning() {

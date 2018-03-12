@@ -148,6 +148,19 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate,
     func gotoPreviousScreen() {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    func cropToPreviewLayer(originalImage: UIImage) -> UIImage {
+        let outputRect = videoPreviewLayer!.metadataOutputRectOfInterest(for: videoPreviewLayer!.bounds)
+        var cgImage = originalImage.cgImage!
+        let width = CGFloat(cgImage.width)
+        let height = CGFloat(cgImage.height)
+        let cropRect = CGRect(x: outputRect.origin.x * width, y: outputRect.origin.y * height, width: outputRect.size.width * width, height: outputRect.size.height * height)
+        
+        cgImage = cgImage.cropping(to: cropRect)!
+        let croppedUIImage = UIImage(cgImage: cgImage, scale: 1.0, orientation: originalImage.imageOrientation)
+        
+        return croppedUIImage
+    }
 
 }
 
@@ -173,10 +186,11 @@ extension CaptureViewController : AVCapturePhotoCaptureDelegate {
         // Initialise a UIImage with our image data
         let capturedImage = UIImage.init(data: imageData , scale: 1.0)
         if let image = capturedImage {
+            let croppedImage = cropToPreviewLayer(originalImage: image)
             // Save our captured image to photos album
-            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+            UIImageWriteToSavedPhotosAlbum(croppedImage, nil, nil, nil)
 
-            sighting?.setImage(image: image)
+            sighting?.setImage(image: croppedImage)
         }
         goToNextScreen()
     }

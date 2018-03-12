@@ -59,6 +59,7 @@ class ViewController: UIViewController, UITabBarDelegate, FBSDKLoginButtonDelega
         
         landingScrollView.showsVerticalScrollIndicator = false
         landingScrollView.alwaysBounceVertical = false
+        landingScrollView.bounces = false
     }
     
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
