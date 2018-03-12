@@ -132,8 +132,7 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     func goToHome() {
-        let vc = self.storyboard!.instantiateViewController(withIdentifier: "homeViewController")
-        self.present(vc, animated: false)
+        self.dismiss(animated:true)
     }
     
     private func setupHabitatPicker() {
