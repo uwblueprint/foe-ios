@@ -113,11 +113,13 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     func submit() {
         // TODO: post to server
-        let alert = CustomModal(title: "Buzz buzz!", caption: "That's thank you in bee!", dismissText: "Finish", image: UIImage(named: "default-home-illustration")!)
+        let alert = CustomModal(title: "Buzz buzz!", caption: "That's thank you in bee!", dismissText: "Finish", image: UIImage(named: "default-home-illustration")!, onDismiss: goToHome)
         alert.show(animated: true)
-        
-//        let vc = self.storyboard!.instantiateViewController(withIdentifier: "homeViewController")
-//        self.present(vc, animated: false)
+    }
+    
+    func goToHome() {
+        let vc = self.storyboard!.instantiateViewController(withIdentifier: "homeViewController")
+        self.present(vc, animated: false)
     }
     
     private func setupHabitatPicker() {

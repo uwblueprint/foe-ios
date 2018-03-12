@@ -43,7 +43,6 @@ class Sighting {
     
   func setWeather(weather: String) {
       self.weather = weather
-    print("weather set to " + weather)
   }
 
   func setLocation(location: GMSPlace) {

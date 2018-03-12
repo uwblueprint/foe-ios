@@ -43,8 +43,7 @@ class LinkListView: UIView {
 
         
         for i in 0..<links.count {
-            
-            print("currentTop: \(currentTop)")
+
             let primaryCTA = UIView()
             
             let CTAActionLabel = UILabel()
