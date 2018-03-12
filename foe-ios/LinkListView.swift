@@ -52,7 +52,7 @@ class LinkListView: UIView {
         let linkKeys = Array(links.keys)
         
         for i in 0..<linkKeys.count {
-            print("currentTop: \(currentTop)")
+
             let primaryCTA = UIView()
             
             let CTAActionLabel = UIButton()

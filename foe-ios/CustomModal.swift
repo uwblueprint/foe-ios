@@ -11,10 +11,11 @@ import UIKit
 class CustomModal: UIView, Modal {
     var backgroundView = UIView()
     var dialogView = UIView()
+    var onDismiss : (() -> Void)? = nil
     
-    convenience init(title:String, caption: String, dismissText: String, image:UIImage) {
+    convenience init(title:String, caption: String, dismissText: String, image:UIImage, onDismiss: (() -> Void)? = nil) {
         self.init(frame: UIScreen.main.bounds)
-        initialize(title: title, caption: caption, dismissText: dismissText, image: image)
+        initialize(title: title, caption: caption, dismissText: dismissText, image: image, onDismiss: onDismiss)
         
     }
     override init(frame: CGRect) {
@@ -25,7 +26,8 @@ class CustomModal: UIView, Modal {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func initialize(title: String, caption: String, dismissText: String, image: UIImage) {
+    func initialize(title: String, caption: String, dismissText: String, image: UIImage, onDismiss: (() -> Void)? = nil) {
+        self.onDismiss = onDismiss
         dialogView.clipsToBounds = true
         
         backgroundView.frame = frame
@@ -88,10 +90,12 @@ class CustomModal: UIView, Modal {
         dialogView.frame.size = CGSize(width: frame.width-24*2, height: dialogViewHeight)
         dialogView.backgroundColor = UIColor.white
         addSubview(dialogView)
-        
     }
     
     func didTappedOnBackgroundView(){
         dismiss(animated: true)
+        if (self.onDismiss != nil) {
+            self.onDismiss!()
+        }
     }
 }
