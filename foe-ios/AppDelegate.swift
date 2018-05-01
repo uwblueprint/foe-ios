@@ -11,10 +11,9 @@ import FBSDKCoreKit
 import GooglePlaces
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate {
 
     var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -31,6 +30,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
         
         return handled
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        if viewController is SubmissionNavigationController {
+            if let newVC = tabBarController.storyboard?.instantiateViewController(withIdentifier: "submissionNavigationController") {
+                tabBarController.present(newVC, animated: true)
+                return false
+            }
+        }
+        
+        return true
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
