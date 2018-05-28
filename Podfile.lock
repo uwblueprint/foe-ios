@@ -17,6 +17,14 @@ DEPENDENCIES:
   - FBSDKLoginKit
   - GooglePlaces
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Bolts
+    - FBSDKCoreKit
+    - FBSDKLoginKit
+    - GoogleMaps
+    - GooglePlaces
+
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   FBSDKCoreKit: 6f139173dc63a1deaff4430a55f2fe5bb222d2af
@@ -24,6 +32,6 @@ SPEC CHECKSUMS:
   GoogleMaps: c087b8e5dfe87ca6ebf59adb9b4894a4146bec4f
   GooglePlaces: dd70d9d71ea1c7944846afe67de3712c99b30a77
 
-PODFILE CHECKSUM: f1b583a68819597a3338c5f36610243b95bf521a
+PODFILE CHECKSUM: f4c627f75efec51de8f52abfe0524310779b7e2d
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.5.0

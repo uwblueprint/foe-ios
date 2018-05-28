@@ -15,6 +15,11 @@
 		E3638AB2204895B90025DE21 /* SubmissionNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3638AAC204895B90025DE21 /* SubmissionNavigationController.swift */; };
 		E3638AB3204895B90025DE21 /* SpeciesSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3638AAD204895B90025DE21 /* SpeciesSelectionViewController.swift */; };
 		F65FEAC0201FC5A00011B0C7 /* NosePickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65FEABF201FC5A00011B0C7 /* NosePickerItem.swift */; };
+		F66326BB20BC825D004933FB /* SightingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326BA20BC825D004933FB /* SightingTableViewCell.swift */; };
+		F66326BD20BC8341004933FB /* SightingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326BC20BC8341004933FB /* SightingTableViewController.swift */; };
+		F66326BF20BC9DE7004933FB /* SightingHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326BE20BC9DE7004933FB /* SightingHeaderTableViewCell.swift */; };
+		F67D397620916FD700311545 /* FBSDKLoginKit in Resources */ = {isa = PBXBuildFile; fileRef = F67D397520916FD700311545 /* FBSDKLoginKit */; };
+		F67D39782091810500311545 /* MainUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67D39772091810500311545 /* MainUITabBarController.swift */; };
 		F68F4B98201A6DF100630068 /* NosePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68F4B97201A6DF100630068 /* NosePicker.swift */; };
 		F6B99BE32047B1F60033939D /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B99BE22047B1F60033939D /* Modal.swift */; };
 		F6B99BE52047B2240033939D /* CustomModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B99BE42047B2240033939D /* CustomModal.swift */; };
@@ -52,6 +57,11 @@
 		E3638AAC204895B90025DE21 /* SubmissionNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmissionNavigationController.swift; sourceTree = "<group>"; };
 		E3638AAD204895B90025DE21 /* SpeciesSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeciesSelectionViewController.swift; sourceTree = "<group>"; };
 		F65FEABF201FC5A00011B0C7 /* NosePickerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NosePickerItem.swift; sourceTree = "<group>"; };
+		F66326BA20BC825D004933FB /* SightingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingTableViewCell.swift; sourceTree = "<group>"; };
+		F66326BC20BC8341004933FB /* SightingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingTableViewController.swift; sourceTree = "<group>"; };
+		F66326BE20BC9DE7004933FB /* SightingHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		F67D397520916FD700311545 /* FBSDKLoginKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FBSDKLoginKit; path = Pods/FBSDKLoginKit; sourceTree = "<group>"; };
+		F67D39772091810500311545 /* MainUITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUITabBarController.swift; sourceTree = "<group>"; };
 		F68F4B97201A6DF100630068 /* NosePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NosePicker.swift; sourceTree = "<group>"; };
 		F6B99BE22047B1F60033939D /* Modal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
 		F6B99BE42047B2240033939D /* CustomModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModal.swift; sourceTree = "<group>"; };
@@ -102,6 +112,7 @@
 		D33A0CA7210E3792AD187707 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				F67D397520916FD700311545 /* FBSDKLoginKit */,
 				830A560FEB860970E861BB38 /* Pods-foe-ios.debug.xcconfig */,
 				1C83638E0486B243AC5E60A9 /* Pods-foe-ios.release.xcconfig */,
 				59E890187ACD2297CE725851 /* Pods-foe-iosTests.debug.xcconfig */,
@@ -142,6 +153,8 @@
 				F6C90B882009134A00039933 /* AppDelegate.swift */,
 				F6C90B8A2009134A00039933 /* ViewController.swift */,
 				F6C90B8C2009134A00039933 /* Main.storyboard */,
+				F66326BE20BC9DE7004933FB /* SightingHeaderTableViewCell.swift */,
+				F66326BC20BC8341004933FB /* SightingTableViewController.swift */,
 				F6C90B8F2009134A00039933 /* Assets.xcassets */,
 				F6C90B912009134A00039933 /* LaunchScreen.storyboard */,
 				F6C90B942009134A00039933 /* Info.plist */,
@@ -151,6 +164,8 @@
 				F6B99BE6204879C40033939D /* CardView.swift */,
 				F6B99BEA20489ADD0033939D /* LinkListView.swift */,
 				F6B99BE8204899B00033939D /* Constants.swift */,
+				F67D39772091810500311545 /* MainUITabBarController.swift */,
+				F66326BA20BC825D004933FB /* SightingTableViewCell.swift */,
 			);
 			path = "foe-ios";
 			sourceTree = "<group>";
@@ -195,8 +210,6 @@
 				F6C90B952009134A00039933 /* Sources */,
 				F6C90B962009134A00039933 /* Frameworks */,
 				F6C90B972009134A00039933 /* Resources */,
-				DE3C66A7B4ACF9A6C0BABB1A /* [CP] Embed Pods Frameworks */,
-				20E4ABA7056D6CFDA35A1713 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -215,7 +228,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Blueprint;
 				TargetAttributes = {
 					F6C90B842009134A00039933 = {
@@ -254,6 +267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F67D397620916FD700311545 /* FBSDKLoginKit in Resources */,
 				F6C90B932009134A00039933 /* LaunchScreen.storyboard in Resources */,
 				F6C90B902009134A00039933 /* Assets.xcassets in Resources */,
 				F6C90B8E2009134A00039933 /* Main.storyboard in Resources */,
@@ -270,21 +284,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		20E4ABA7056D6CFDA35A1713 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-foe-iosTests/Pods-foe-iosTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4DA778E9138EF6B8D461151A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -336,26 +335,11 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-foe-ios/Pods-foe-ios-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DE3C66A7B4ACF9A6C0BABB1A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-foe-iosTests/Pods-foe-iosTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E453CA4C281A7EA35D76E669 /* [CP] Check Pods Manifest.lock */ = {
@@ -384,10 +368,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6C90B8B2009134A00039933 /* ViewController.swift in Sources */,
+				F66326BD20BC8341004933FB /* SightingTableViewController.swift in Sources */,
 				F6B99BE32047B1F60033939D /* Modal.swift in Sources */,
 				F65FEAC0201FC5A00011B0C7 /* NosePickerItem.swift in Sources */,
 				F68F4B98201A6DF100630068 /* NosePicker.swift in Sources */,
 				F6C90B892009134A00039933 /* AppDelegate.swift in Sources */,
+				F67D39782091810500311545 /* MainUITabBarController.swift in Sources */,
+				F66326BB20BC825D004933FB /* SightingTableViewCell.swift in Sources */,
 				F6B99BE7204879C40033939D /* CardView.swift in Sources */,
 				E3638AB2204895B90025DE21 /* SubmissionNavigationController.swift in Sources */,
 				E3638AAF204895B90025DE21 /* DetailsFormViewController.swift in Sources */,
@@ -395,6 +382,7 @@
 				E3638AB3204895B90025DE21 /* SpeciesSelectionViewController.swift in Sources */,
 				F6B99BE9204899B00033939D /* Constants.swift in Sources */,
 				F6B99BEB20489ADD0033939D /* LinkListView.swift in Sources */,
+				F66326BF20BC9DE7004933FB /* SightingHeaderTableViewCell.swift in Sources */,
 				F6B99BE52047B2240033939D /* CustomModal.swift in Sources */,
 				E3638AB0204895B90025DE21 /* CaptureViewController.swift in Sources */,
 			);
@@ -452,6 +440,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -459,6 +448,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -509,6 +499,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -516,6 +507,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
