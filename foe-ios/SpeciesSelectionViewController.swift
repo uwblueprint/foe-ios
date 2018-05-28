@@ -72,6 +72,12 @@ class SpeciesSelectionViewController: UIViewController {
         sighting?.setSpecies(species: id)
     }
     
+    override func viewDidLayoutSubviews() {
+        partsPicker = NosePicker(frame: CGRect(x: 0, y: partsLabelsRow.frame.maxY , width: view.frame.width, height: 96), items: easternItems!, updateCallback: self.setSightingSpecies)
+        
+        view.addSubview(partsPicker!)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initializePickers()
@@ -82,10 +88,6 @@ class SpeciesSelectionViewController: UIViewController {
         //add buttons and set initial state to face
         self.partsButtons.append(easternButton)
         self.partsButtons.append(westernButton)
-        
-        partsPicker = NosePicker(frame: CGRect(x: 0, y: partsLabelsRow.frame.maxY, width: view.frame.width, height: 96), items: easternItems!, updateCallback: self.setSightingSpecies)
-        
-        view.addSubview(partsPicker!)
         
         updateButtons()
         

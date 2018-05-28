@@ -13,11 +13,10 @@ class ViewController: UIViewController, UITabBarDelegate, FBSDKLoginButtonDelega
 
     //Define Outlets
     @IBOutlet weak var landingScrollView: UIScrollView!
-    @IBOutlet weak var tabBar: UITabBar!
     
-    override func viewWillAppear(_ animated: Bool) {
-        tabBar.selectedItem = tabBar.items![0]
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        tabBar.selectedItem = tabBar.items![0]
+//    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,7 +29,8 @@ class ViewController: UIViewController, UITabBarDelegate, FBSDKLoginButtonDelega
 //        // Do any additional setup after loading the view, typically from a nib.
 //        let alert = CustomModal(title: "Which bee?", caption: "Tap the patterns below to determine which species your bee is.", image: UIImage(named: "picker-illustration")!)
         
-        tabBar.delegate = self
+        self.tabBarController?.delegate = UIApplication.shared.delegate as? UITabBarControllerDelegate
+        
         renderScrollView()
     }
     
@@ -65,18 +65,18 @@ class ViewController: UIViewController, UITabBarDelegate, FBSDKLoginButtonDelega
         landingScrollView.bounces = false
     }
     
-    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        switch item.title! {
-        case "Submit":
-            let vc = self.storyboard!.instantiateViewController(withIdentifier: "submissionNavigationController")
-            self.present(vc, animated: true)
-        case "Learn":
-            print("pressed learn");
-        default:
-            break
-        }
-        
-    }
+//    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+//        switch item.title! {
+//        case "Submit":
+//            let vc = self.storyboard!.instantiateViewController(withIdentifier: "submissionNavigationController")
+//            self.present(vc, animated: true)
+//        case "Learn":
+//            print("pressed learn");
+//        default:
+//            break
+//        }
+//
+//    }
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if error != nil {
