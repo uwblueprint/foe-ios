@@ -11,6 +11,10 @@ import FBSDKLoginKit
 
 class ViewController: UIViewController, UITabBarDelegate, FBSDKLoginButtonDelegate {
 
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
+    
     //Define Outlets
     @IBOutlet weak var landingScrollView: UIScrollView!
     
@@ -38,7 +42,9 @@ class ViewController: UIViewController, UITabBarDelegate, FBSDKLoginButtonDelega
         let links : [String:String] = [
             "Visit Friends of Earth":"http://foecanada.org/",
             "Learn about the Bee Cause": "http://foecanada.org/en/issues/the-bee-cause/",
-            "Donate to the campaign":"https://foecanada.org/en/donate/" ]
+            "Donate to the campaign":"https://foecanada.org/en/donate/",
+            "About Blueprint":"https://uwblueprint.org/" ]
+        
         let landingCardView = CardView(title: "Looks like a beautiful day to spot some bees!", caption: "", subtitle: "Welcome!")
         
         if #available(iOS 11.0, *) {

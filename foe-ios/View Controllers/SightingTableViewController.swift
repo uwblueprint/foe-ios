@@ -9,42 +9,64 @@
 import UIKit
 
 class SightingTableViewController: UITableViewController {
+    
+    var statusBarShouldBeHidden = false
+    
+    override var prefersStatusBarHidden: Bool {
+        return statusBarShouldBeHidden
+    }
+    
+    //MARK: Outlets
     @IBOutlet weak var headerView: UIView!
+    var activeCell = false
     var navigationBarOriginalOffset : CGFloat?
     
     var sightings = [Sighting]()
     
-    let exampleSighting = Sighting()
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationBarOriginalOffset = headerView.frame.origin.y
-    }
-    
-    func loadStaticData () {
-        exampleSighting.setImage(image: UIImage(named:"default-home-illustration")!)
-        exampleSighting.setSpecies(species: "Common Eastern Bumblebee")
-        
-        for _ in 0..<5 {
-            sightings += [exampleSighting]
+        statusBarShouldBeHidden = false
+        UIView.animate(withDuration: 0.25) {
+            self.setNeedsStatusBarAppearanceUpdate()
         }
     }
     
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(scrollView.contentOffset.y)
+    func loadStaticData () {
+        let exampleSighting = Sighting()
+        exampleSighting.setImage(image: UIImage(named:"default-home-illustration")!)
+        exampleSighting.setSpecies(species: "Common eastern bumblebee")
+        
+        let sighting_2 = Sighting()
+        sighting_2.setImage(image: UIImage(named:"bee-sample-image")!)
+        sighting_2.setSpecies(species: "Black and gold bumblebee")
         
         
-        headerView.frame.origin.y = 40
-        
-//        if(scrollView.contentOffset.y <= -30.0) {
-//            headerView.frame.origin.y = navigationBarOriginalOffset! + 14 + (-30 +  scrollView.contentOffset.y * -1)
-//        }
-        print("header y: \(headerView.frame.origin.y)")
+        sightings += [exampleSighting, sighting_2, exampleSighting, sighting_2, exampleSighting]
     }
     
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SightingDetailViewController") as! SightingDetailViewController
+        
+        controller.sightingModel = sightings[indexPath.row]
+        statusBarShouldBeHidden = true
+        UIView.animate(withDuration: 0.25) {
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
+        
+        self.present(controller, animated: true, completion: nil)
+        
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        self.tableView.delaysContentTouches = false
+        
         loadStaticData()
 
         print("work")
@@ -86,7 +108,9 @@ class SightingTableViewController: UITableViewController {
         cell.dateLabel.text = "June 1"
         cell.locationLabel.text = "Mississauga, ON"
         cell.photoImageView.image = sighting.getImage()
+        cell.speciesLabel.text = sighting.getSpecies()
         cell.statusLabel.text = "Pending"
+       
         
         cell.selectionStyle = UITableViewCellSelectionStyle.none
 
