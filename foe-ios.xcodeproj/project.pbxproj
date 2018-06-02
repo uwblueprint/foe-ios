@@ -128,9 +128,8 @@
 			children = (
 				F66326D020BF5708004933FB /* Sighting.swift */,
 			);
-			name = Models;
-			path = "/Users/johnsington/uw/blueprint/foe-ios/foe-ios/foe-ios/Models";
-			sourceTree = "<absolute>";
+			path = Models;
+			sourceTree = "<group>";
 		};
 		F66326D820BF5708004933FB /* Views */ = {
 			isa = PBXGroup;
@@ -142,9 +141,8 @@
 				F66326D620BF5708004933FB /* Modal.swift */,
 				F66326D720BF5708004933FB /* CustomModal.swift */,
 			);
-			name = Views;
-			path = "/Users/johnsington/uw/blueprint/foe-ios/foe-ios/foe-ios/Views";
-			sourceTree = "<absolute>";
+			path = Views;
+			sourceTree = "<group>";
 		};
 		F66326E020BF5708004933FB /* View Controllers */ = {
 			isa = PBXGroup;
@@ -158,9 +156,8 @@
 				F66326DF20BF5708004933FB /* SightingTableViewController.swift */,
 				F62527AF20BF738D006475AC /* SightingDetailViewController.swift */,
 			);
-			name = "View Controllers";
-			path = "/Users/johnsington/uw/blueprint/foe-ios/foe-ios/foe-ios/View Controllers";
-			sourceTree = "<absolute>";
+			path = "View Controllers";
+			sourceTree = "<group>";
 		};
 		F66326E320BF5708004933FB /* Cells */ = {
 			isa = PBXGroup;
@@ -168,9 +165,8 @@
 				F66326E120BF5708004933FB /* SightingHeaderTableViewCell.swift */,
 				F66326E220BF5708004933FB /* SightingTableViewCell.swift */,
 			);
-			name = Cells;
-			path = "/Users/johnsington/uw/blueprint/foe-ios/foe-ios/foe-ios/Cells";
-			sourceTree = "<absolute>";
+			path = Cells;
+			sourceTree = "<group>";
 		};
 		F6C90B7C2009134A00039933 = {
 			isa = PBXGroup;
