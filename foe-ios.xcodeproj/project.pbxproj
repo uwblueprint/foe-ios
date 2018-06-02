@@ -12,7 +12,7 @@
 		F625279F20BF57F3006475AC /* SightingHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326E120BF5708004933FB /* SightingHeaderTableViewCell.swift */; };
 		F62527A020BF57F3006475AC /* SightingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326E220BF5708004933FB /* SightingTableViewCell.swift */; };
 		F62527A120BF57F3006475AC /* Sighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326D020BF5708004933FB /* Sighting.swift */; };
-		F62527A220BF57F3006475AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326D920BF5708004933FB /* ViewController.swift */; };
+		F62527A220BF57F3006475AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326D920BF5708004933FB /* HomeViewController.swift */; };
 		F62527A320BF57F3006475AC /* MainUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326DA20BF5708004933FB /* MainUITabBarController.swift */; };
 		F62527A420BF57F3006475AC /* DetailsFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326DB20BF5708004933FB /* DetailsFormViewController.swift */; };
 		F62527A520BF57F3006475AC /* SpeciesSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326DC20BF5708004933FB /* SpeciesSelectionViewController.swift */; };
@@ -60,7 +60,7 @@
 		F66326D520BF5708004933FB /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		F66326D620BF5708004933FB /* Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
 		F66326D720BF5708004933FB /* CustomModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModal.swift; sourceTree = "<group>"; };
-		F66326D920BF5708004933FB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F66326D920BF5708004933FB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F66326DA20BF5708004933FB /* MainUITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUITabBarController.swift; sourceTree = "<group>"; };
 		F66326DB20BF5708004933FB /* DetailsFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFormViewController.swift; sourceTree = "<group>"; };
 		F66326DC20BF5708004933FB /* SpeciesSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesSelectionViewController.swift; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 		F66326E020BF5708004933FB /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F66326D920BF5708004933FB /* ViewController.swift */,
+				F66326D920BF5708004933FB /* HomeViewController.swift */,
 				F66326DA20BF5708004933FB /* MainUITabBarController.swift */,
 				F66326DB20BF5708004933FB /* DetailsFormViewController.swift */,
 				F66326DC20BF5708004933FB /* SpeciesSelectionViewController.swift */,
@@ -406,6 +406,7 @@
 				F62527A020BF57F3006475AC /* SightingTableViewCell.swift in Sources */,
 				F62527A120BF57F3006475AC /* Sighting.swift in Sources */,
 				F62527A220BF57F3006475AC /* ViewController.swift in Sources */,
+				F62527A220BF57F3006475AC /* HomeViewController.swift in Sources */,
 				F62527A320BF57F3006475AC /* MainUITabBarController.swift in Sources */,
 				F62527A420BF57F3006475AC /* DetailsFormViewController.swift in Sources */,
 				F62527A520BF57F3006475AC /* SpeciesSelectionViewController.swift in Sources */,
