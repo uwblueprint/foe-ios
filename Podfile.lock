@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.7.2)
   - Bolts (1.9.0):
     - Bolts/AppLinks (= 1.9.0)
     - Bolts/Tasks (= 1.9.0)
@@ -14,24 +15,18 @@ PODS:
     - GoogleMaps/Base (= 2.5.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.7)
   - FBSDKLoginKit
   - GooglePlaces
 
-SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - Bolts
-    - FBSDKCoreKit
-    - FBSDKLoginKit
-    - GoogleMaps
-    - GooglePlaces
-
 SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   FBSDKCoreKit: 6f139173dc63a1deaff4430a55f2fe5bb222d2af
   FBSDKLoginKit: 56a057ca6822535ea0faa25f57a7c41edb697fd4
   GoogleMaps: c087b8e5dfe87ca6ebf59adb9b4894a4146bec4f
   GooglePlaces: dd70d9d71ea1c7944846afe67de3712c99b30a77
 
-PODFILE CHECKSUM: f4c627f75efec51de8f52abfe0524310779b7e2d
+PODFILE CHECKSUM: 9d2a73c5a381054c64170de0b32ea5bd24307776
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.3.1
