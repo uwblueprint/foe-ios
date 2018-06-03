@@ -688,6 +688,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="U1R-2l-eLy" id="AVN-kf-Urx"/>
                         <outlet property="passwordTextField" destination="WQN-JL-NWA" id="kg8-Bh-ACg"/>
+                        <segue destination="nL4-iz-goL" kind="showDetail" identifier="showHomeSegue" animates="NO" id="6rG-vp-hlP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n78-TV-scs" userLabel="First Responder" sceneMemberID="firstResponder"/>
