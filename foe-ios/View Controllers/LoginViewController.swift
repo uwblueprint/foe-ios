@@ -12,12 +12,11 @@ import SwiftKeychainWrapper
 
 class LoginViewController: UIViewController {
 
-    // TODO: update URL "https://foe-api.herokuapp.com/auth"
-    private var API_URL: String = "http://0a77732f.ngrok.io"
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        
+        
     }
 
     // TODO: validation of inputs: email has domain, password must be >= 8 chars
@@ -59,7 +58,6 @@ class LoginViewController: UIViewController {
             "password": passwordTextField.text!
         ]
         
-        // TODO: update URL "https://foe-api.herokuapp.com/auth"
         Alamofire.request(
             "\(API_URL)/auth/sign_in",
             method: .post,
@@ -93,6 +91,6 @@ class LoginViewController: UIViewController {
     }
 
     private func goToHome() {
-        performSegue(withIdentifier: "showHomeSegue", sender: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 }
