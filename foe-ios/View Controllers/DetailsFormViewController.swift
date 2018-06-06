@@ -7,7 +7,9 @@
 //
 
 import UIKit
+import Alamofire
 import GooglePlaces
+import SwiftKeychainWrapper
 
 class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -122,17 +124,15 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
 
     func submit() {
-        // TODO: post to server
-        let alert = CustomModal(title: "Buzz buzz!", caption: "That's thank you in bee!", dismissText: "Finish", image: UIImage(named: "default-home-illustration")!, onDismiss: goToHome)
-        alert.show(animated: true)
+        postToServer()
     }
 
-    func goToHome() {
+    private func goToHome() {
         self.dismiss(animated:true)
     }
 
     private func setupHabitatPicker() {
-        habitatPickerData =  ["house_garden", "park", "swap", "public_garden", "lake", "lawn"]
+        habitatPickerData =  ["back_yard", "balcony/container_garden", "community_garden", "city_park", "rural", "golf_course", "roadside", "woodland", "farmland", "school_grounds", "other"]
         habitatPicker.delegate = self
         habitatPicker.dataSource = self
         habitatPickerTextField.inputView = habitatPicker
@@ -156,6 +156,58 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
         return str.components(separatedBy: "_")
             .map { return $0.lowercased().capitalized }
             .joined(separator: " ")
+    }
+
+    private func postToServer() {
+        let headers: HTTPHeaders = [
+            "access-token": KeychainWrapper.standard.string(forKey: "accessToken")!,
+            "token-type": "Bearer",
+            "client": KeychainWrapper.standard.string(forKey: "client")!,
+            "uid": KeychainWrapper.standard.string(forKey: "uid")!
+        ]
+        let parameters: Parameters = [
+            "sighting": sighting!.toDict()
+        ]
+        
+        Alamofire.request(
+            "\(API_URL)/sightings",
+            method: .post,
+            parameters: parameters,
+            encoding: JSONEncoding.default,
+            headers: headers
+        ).validate().responseJSON { response in
+            if
+                let accessToken = response.response?.allHeaderFields["access-token"] as! String?,
+                let client = response.response?.allHeaderFields["client"] as! String?,
+                let uid = response.response?.allHeaderFields["uid"] as! String?
+            {
+                print("accessToken: \(accessToken)")
+                KeychainWrapper.standard.set(accessToken, forKey: "accessToken")
+                KeychainWrapper.standard.set(client, forKey: "client")
+                KeychainWrapper.standard.set(uid, forKey: "uid")
+            }
+
+            switch response.result {
+            case .success:
+                print("Successfully posted sighting")
+                if let json = response.result.value {
+                    print("JSON: \(json)") // serialized json response
+                }
+                
+                let alert = CustomModal(
+                    title: "Buzz buzz!",
+                    caption: "That's thank you in bee!",
+                    dismissText: "Finish",
+                    image: UIImage(named: "default-home-illustration")!,
+                    onDismiss: self.goToHome
+                )
+                alert.show(animated: true)
+            case .failure(let error):
+                // TODO(dinah): discuss submission errors with john
+                print("Validation failure on POST /sightings")
+                print(error)
+            }
+        }
     }
 }
 

@@ -48,4 +48,26 @@ class Sighting {
   func setLocation(location: GMSPlace) {
       self.location = location
   }
+
+    func toDict() -> Dictionary<String, Any> {
+        let dict: [String: Any] = [
+            "weather": weather!,
+            "habitat": habitat!,
+            "species": species == "unidentified" ? species : "bombus_\(species)",
+            "date": formatDate(date: Date()),
+            "latitude": location!.coordinate.latitude,
+            "longitude": location!.coordinate.longitude,
+            "image": [
+                "file": "data:image/png;base64,\(UIImagePNGRepresentation(image!)!.base64EncodedString())"
+            ]
+        ]
+        return dict
+    }
+
+    private func formatDate(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        return formatter.string(from: date)
+    }
 }
