@@ -57,7 +57,7 @@ class LoginViewController: UIViewController {
             "email": emailTextField.text!,
             "password": passwordTextField.text!
         ]
-        
+
         Alamofire.request(
             "\(API_URL)/auth/sign_in",
             method: .post,
@@ -67,21 +67,7 @@ class LoginViewController: UIViewController {
                 switch response.result {
                 case .success:
                     print("Successfully logged in")
-
-                    if
-                        let accessToken = response.response?.allHeaderFields["access-token"] as! String?,
-                        let client = response.response?.allHeaderFields["client"] as! String?,
-                        let uid = response.response?.allHeaderFields["uid"] as! String?
-                    {
-                        print("accessToken: \(accessToken)")
-                        KeychainWrapper.standard.set(accessToken, forKey: "accessToken")
-                        KeychainWrapper.standard.set(client, forKey: "client")
-                        KeychainWrapper.standard.set(uid, forKey: "uid")
-                    }
-                    
-                    let retrieved: String = KeychainWrapper.standard.string(forKey: "accessToken")!
-                    print("retrieved from keychain: \(retrieved)")
-
+                    ServerGateway.rotateTokens(response)
                     self.goToHome()
                 case .failure(let error):
                     print("Validation failure on login")
@@ -90,7 +76,7 @@ class LoginViewController: UIViewController {
         }
     }
 
-    private func goToHome() {
+    func goToHome() {
         self.dismiss(animated: true, completion: nil)
     }
 }

@@ -11,6 +11,7 @@
 		CA88D7C1AA27005C2F980B6E /* Pods_foe_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DA9DF25072E139B10984B8A /* Pods_foe_ios.framework */; };
 		E39B40EB20C2E84B0037EAEA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B40EA20C2E84B0037EAEA /* LoginViewController.swift */; };
 		E39B40F120C486E20037EAEA /* InitialNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B40F020C486E10037EAEA /* InitialNavigationController.swift */; };
+		E39B40F320C6F9A60037EAEA /* ServerGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B40F220C6F9A60037EAEA /* ServerGateway.swift */; };
 		F625279F20BF57F3006475AC /* SightingHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326E120BF5708004933FB /* SightingHeaderTableViewCell.swift */; };
 		F62527A020BF57F3006475AC /* SightingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326E220BF5708004933FB /* SightingTableViewCell.swift */; };
 		F62527A120BF57F3006475AC /* Sighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326D020BF5708004933FB /* Sighting.swift */; };
@@ -56,6 +57,7 @@
 		9DA9DF25072E139B10984B8A /* Pods_foe_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_foe_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E39B40EA20C2E84B0037EAEA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E39B40F020C486E10037EAEA /* InitialNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialNavigationController.swift; sourceTree = "<group>"; };
+		E39B40F220C6F9A60037EAEA /* ServerGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerGateway.swift; sourceTree = "<group>"; };
 		F62527AF20BF738D006475AC /* SightingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingDetailViewController.swift; sourceTree = "<group>"; };
 		F66326D020BF5708004933FB /* Sighting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sighting.swift; sourceTree = "<group>"; };
 		F66326D220BF5708004933FB /* NosePickerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NosePickerItem.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				F6C90B912009134A00039933 /* LaunchScreen.storyboard */,
 				F6C90B942009134A00039933 /* Info.plist */,
 				F6B99BE8204899B00033939D /* Constants.swift */,
+				E39B40F220C6F9A60037EAEA /* ServerGateway.swift */,
 			);
 			path = "foe-ios";
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				F62527AC20BF57F3006475AC /* CardView.swift in Sources */,
 				F62527AD20BF57F3006475AC /* Modal.swift in Sources */,
 				F62527AE20BF57F3006475AC /* CustomModal.swift in Sources */,
+				E39B40F320C6F9A60037EAEA /* ServerGateway.swift in Sources */,
 				F6C90B892009134A00039933 /* AppDelegate.swift in Sources */,
 				F6B99BE9204899B00033939D /* Constants.swift in Sources */,
 			);

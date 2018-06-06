@@ -169,31 +169,11 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
             "sighting": sighting!.toDict()
         ]
         
-        Alamofire.request(
-            "\(API_URL)/sightings",
+        ServerGateway.authenticatedRequest(
+            url: "/sightings",
             method: .post,
             parameters: parameters,
-            encoding: JSONEncoding.default,
-            headers: headers
-        ).validate().responseJSON { response in
-            if
-                let accessToken = response.response?.allHeaderFields["access-token"] as! String?,
-                let client = response.response?.allHeaderFields["client"] as! String?,
-                let uid = response.response?.allHeaderFields["uid"] as! String?
-            {
-                print("accessToken: \(accessToken)")
-                KeychainWrapper.standard.set(accessToken, forKey: "accessToken")
-                KeychainWrapper.standard.set(client, forKey: "client")
-                KeychainWrapper.standard.set(uid, forKey: "uid")
-            }
-
-            switch response.result {
-            case .success:
-                print("Successfully posted sighting")
-                if let json = response.result.value {
-                    print("JSON: \(json)") // serialized json response
-                }
-                
+            success: {
                 let alert = CustomModal(
                     title: "Buzz buzz!",
                     caption: "That's thank you in bee!",
@@ -202,12 +182,9 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
                     onDismiss: self.goToHome
                 )
                 alert.show(animated: true)
-            case .failure(let error):
-                // TODO(dinah): discuss submission errors with john
-                print("Validation failure on POST /sightings")
-                print(error)
-            }
-        }
+            },
+            failure: {}
+        )
     }
 }
 
