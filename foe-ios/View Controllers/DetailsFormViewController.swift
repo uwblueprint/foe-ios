@@ -141,9 +141,9 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
     private func setupWeatherPicker() {
         let weatherImageNames = [
             "sunny",
-            "partly-sunny",
-            "overcast",
-            "rainy"
+            "partly_cloudy",
+            "cloudy",
+            "rain"
         ]
 
         var weatherItems = weatherImageNames.map { NosePickerItem(image: UIImage(named: $0)!, identifier: $0) }
