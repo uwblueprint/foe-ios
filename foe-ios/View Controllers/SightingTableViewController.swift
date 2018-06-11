@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GooglePlaces
 
 class SightingTableViewController: UITableViewController {
     
@@ -19,30 +20,50 @@ class SightingTableViewController: UITableViewController {
     //MARK: Outlets
     @IBOutlet weak var headerView: UIView!
     var activeCell = false
-    var navigationBarOriginalOffset : CGFloat?
     
     var sightings = [Sighting]()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationBarOriginalOffset = headerView.frame.origin.y
-        statusBarShouldBeHidden = false
-        UIView.animate(withDuration: 0.25) {
-            self.setNeedsStatusBarAppearanceUpdate()
-        }
     }
     
-    func loadStaticData () {
+    func loadStaticPlace () {
+        let placeIds = ["ChIJBaxtrQH0K4gRkicxTySDDbw", "ChIJP_Ie6gb0K4gRzYmW4JFMrcY"]
+        let placesClient = GMSPlacesClient.init()
+        
+        placesClient.lookUpPlaceID(placeIds[1], callback: { (place, error) -> Void in
+            if let error = error {
+                print("lookup place id query error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let place = place else {
+                print("No place details for \(placeIds[1])")
+                return
+            }
+            
+            self.loadStaticData(place: place)
+            print("Place name \(place.name)")
+        })
+    }
+    
+    func loadStaticData (place: GMSPlace) {
         let exampleSighting = Sighting()
-        exampleSighting.setImage(image: UIImage(named:"default-home-illustration")!)
-        exampleSighting.setSpecies(species: "Common eastern bumblebee")
+        exampleSighting.setImage(image: UIImage(named:"bee-sample-image-1")!)
+        exampleSighting.setSpecies(species: "bimaculatus")
+        exampleSighting.setLocation(location: place)
+        exampleSighting.setHabitat(habitat: "Fast food restaurant")
+        exampleSighting.setWeather(weather: "sunny")
         
         let sighting_2 = Sighting()
-        sighting_2.setImage(image: UIImage(named:"bee-sample-image")!)
-        sighting_2.setSpecies(species: "Black and gold bumblebee")
-        
+        sighting_2.setImage(image: UIImage(named:"bee-sample-image-0")!)
+        sighting_2.setSpecies(species: "melanopygus")
+        sighting_2.setLocation(location: place)
+        sighting_2.setHabitat(habitat: "Garden")
+        sighting_2.setWeather(weather: "overcast")
         
         sightings += [exampleSighting, sighting_2, exampleSighting, sighting_2, exampleSighting]
+        tableView.reloadData()
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -66,8 +87,8 @@ class SightingTableViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         self.tableView.delaysContentTouches = false
-        
-        loadStaticData()
+
+        loadStaticPlace()
 
         print("work")
         // Uncomment the following line to preserve selection between presentations
@@ -105,11 +126,17 @@ class SightingTableViewController: UITableViewController {
         
         let sighting = sightings[indexPath.row]
         
-        cell.dateLabel.text = "June 1"
-        cell.locationLabel.text = "Mississauga, ON"
+        cell.locationLabel.text = sighting.getLocationName()
         cell.photoImageView.image = sighting.getImage()
-        cell.speciesLabel.text = sighting.getSpecies()
+        cell.speciesLabel.text = SpeciesMap.getCommonName(sighting: sighting)
         cell.statusLabel.text = "Pending"
+        
+        let dateFormatter = DateFormatter()
+        
+        // set to US English locale and format as "<Month Name> <Number>"
+        dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.setLocalizedDateFormatFromTemplate("MMMMd")
+        cell.dateLabel.text = dateFormatter.string(from: sighting.getDate())
        
         
         cell.selectionStyle = UITableViewCellSelectionStyle.none

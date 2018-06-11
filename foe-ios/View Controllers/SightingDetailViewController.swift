@@ -8,12 +8,24 @@
 
 import UIKit
 
+
 class SightingDetailViewController: UIViewController {
     
     var sightingModel = Sighting()
     
     //MARK: Outlets
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var speciesImageBGView: UIView!
+    @IBOutlet weak var speciesNameLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var weatherDescriptionLabel: UILabel!
+    @IBOutlet weak var weatherImageView: UIImageView!
+    @IBOutlet weak var habitatLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var binomialNameLabel: UILabel!
+    @IBOutlet weak var speciesImageView: UIImageView!
+    @IBOutlet weak var closeButton: UIButton!
+    
     
     var statusBarShouldBeHidden = true
     
@@ -33,16 +45,37 @@ class SightingDetailViewController: UIViewController {
         return .slide
     }
     
+    func renderInformation() {
+        speciesNameLabel.text = SpeciesMap.getCommonName(sighting: self.sightingModel)
+        binomialNameLabel.text = SpeciesMap.getBinomialName(sighting: self.sightingModel)
+        habitatLabel.text = self.sightingModel.getHabitat()
+        weatherImageView.image = UIImage(named: self.sightingModel.getWeather())!
+        weatherDescriptionLabel.text = self.sightingModel.getWeather().capitalizingFirstLetter()
+        locationLabel.text = self.sightingModel.getLocationName()
+        
+        let dateFormatter = DateFormatter()
+        
+        // set to US English locale and format as "<Month Name> <Number>"
+        dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.setLocalizedDateFormatFromTemplate("MMMMd")
+        dateLabel.text = dateFormatter.string(from: self.sightingModel.getDate())
+        
+        //set species image
+        speciesImageView.image = UIImage(named: self.sightingModel.getSpecies())!
+        
+    }
+    
     override func viewDidLoad() {
         print("view created")
         super.viewDidLoad()
+        
+        renderInformation()
+        
 
         // Do any additional setup after loading the view.
         
         photoImageView.image = sightingModel.getImage()
-        
-        // set photo's top constraint = device screen top
-        NSLayoutConstraint(item: photoImageView, attribute: .top, relatedBy: .equal, toItem: topLayoutGuide, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
+        speciesImageBGView.layer.cornerRadius = speciesImageBGView.frame.width/2
         
         let gradientView = UIView(frame: photoImageView.frame)
         
@@ -56,6 +89,17 @@ class SightingDetailViewController: UIViewController {
         gradientView.layer.insertSublayer(gradient, at: 0)
         photoImageView.addSubview(gradientView)
         photoImageView.bringSubview(toFront: gradientView)
+        
+        let blur = UIVisualEffectView(effect: UIBlurEffect(style: .prominent))
+        blur.frame = closeButton.bounds
+        blur.layer.cornerRadius = 16
+        blur.clipsToBounds = true
+        blur.isUserInteractionEnabled = false //This allows touches to forward to the button.
+        closeButton.insertSubview(blur, at: 0)
+        closeButton.bringSubview(toFront: closeButton.imageView!)
+        
+        
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,4 +118,14 @@ class SightingDetailViewController: UIViewController {
     }
     */
 
+}
+
+extension String {
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).uppercased() + dropFirst()
+    }
+    
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
+    }
 }

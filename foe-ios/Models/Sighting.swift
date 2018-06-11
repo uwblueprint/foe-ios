@@ -12,10 +12,11 @@ import GooglePlaces
 
 class Sighting {
   private var image: UIImage?
-  private var habitat: String?
+  private var habitat: String = ""
   private var weather: String?
   private var location: GMSPlace?
   private var species: String = "unidentified"
+  private var date: Date = Date.init()
   
   func setSpecies(species: String) {
     self.species = species
@@ -34,18 +35,32 @@ class Sighting {
   }
 
   func getHabitat() -> String {
-      return habitat!
+    return habitat
   }
 
   func setHabitat(habitat: String) {
-      self.habitat = habitat
+    self.habitat = habitat
   }
     
   func setWeather(weather: String) {
-      self.weather = weather
+    self.weather = weather
+  }
+
+  func getWeather() -> String {
+    return self.weather!
   }
 
   func setLocation(location: GMSPlace) {
-      self.location = location
+    self.location = location
   }
+    
+  func getLocationName() -> String {
+    return (self.location != nil) ? self.location!.name : ""
+  }
+    
+  func getDate() -> Date {
+     return self.date
+  }
+    
+    
 }

@@ -19,6 +19,10 @@ class SpeciesSelectionViewController: UIViewController {
     var partsButtons = [UIButton]()
     var pickers = [[NosePickerItem]]()
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
+    
     func initializePickers() {
         let easternImageNames = [
             "affinis",

@@ -71,8 +71,8 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
             commonNameLabel.text = "Unidentified"
             binomialNameLabel.text = "N/A"
         } else {
-            commonNameLabel.text = speciesCommonNameMapping["bombus_" + (sighting?.getSpecies())!]
-            binomialNameLabel.text = "Bombus " + (sighting?.getSpecies())!
+            commonNameLabel.text = SpeciesMap.getCommonName(sighting: sighting!)
+            binomialNameLabel.text = SpeciesMap.getBinomialName(sighting: sighting!)
         }
         
         setupHabitatPicker()
