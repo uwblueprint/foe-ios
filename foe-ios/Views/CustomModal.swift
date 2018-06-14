@@ -13,7 +13,7 @@ class CustomModal: UIView, Modal {
     var dialogView = UIView()
     var onDismiss : (() -> Void)? = nil
     
-    convenience init(title:String, caption: String, dismissText: String, image:UIImage, onDismiss: (() -> Void)? = nil) {
+    convenience init(title:String, caption: String, dismissText: String, image: UIImage?, onDismiss: (() -> Void)? = nil) {
         self.init(frame: UIScreen.main.bounds)
         initialize(title: title, caption: caption, dismissText: dismissText, image: image, onDismiss: onDismiss)
         
@@ -26,7 +26,7 @@ class CustomModal: UIView, Modal {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func initialize(title: String, caption: String, dismissText: String, image: UIImage, onDismiss: (() -> Void)? = nil) {
+    func initialize(title: String, caption: String, dismissText: String, image: UIImage?, onDismiss: (() -> Void)? = nil) {
         self.onDismiss = onDismiss
         dialogView.clipsToBounds = true
         
@@ -39,7 +39,12 @@ class CustomModal: UIView, Modal {
         let dialogViewWidth = frame.width - 24 * 2
         
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: dialogViewWidth, height: 240))
-        imageView.image = image
+        if (image == nil) {
+            imageView.frame = CGRect(x:0, y:0, width: dialogViewWidth, height: 0)
+        }
+        else {
+            imageView.image = image
+        }
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         dialogView.addSubview(imageView)
@@ -54,7 +59,7 @@ class CustomModal: UIView, Modal {
         
         let captionLabel = UILabel()
         captionLabel.frame.origin = CGPoint(x: 24, y: titleLabel.frame.height + titleLabel.frame.origin.y + 4)
-        captionLabel.frame.size = CGSize(width: dialogViewWidth - 24, height: 22 * 2)
+        captionLabel.frame.size = CGSize(width: dialogViewWidth - 32, height: 22 * 2)
         captionLabel.numberOfLines = 0
         captionLabel.text = caption
         captionLabel.contentMode = .scaleToFill

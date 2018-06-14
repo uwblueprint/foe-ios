@@ -109,6 +109,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         postLogin()
     }
 
+    func showLoginError(msg: String) {
+        let alert = CustomModal(title: "Error", caption: msg, dismissText: "Okay", image: nil, onDismiss: nil)
+        alert.show(animated: true)
+    }
+    
     @IBAction func signupButtonClicked(_ sender: Any) {
         let parameters: Parameters = [
             "email": emailTextField.text!,
@@ -127,6 +132,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 let alert = CustomModal(title: "Welcome!", caption: "Sign-up complete--a confirmation was sent to your email.", dismissText: "Done", image: UIImage(named: "default-home-illustration")!, onDismiss: self.postLogin)
                 alert.show(animated: true)
             case .failure(let error):
+                self.showLoginError(msg: "A server problem was encountered, please try again.")
                 print("Validation failure on signup")
                 print(error)
             }
@@ -181,6 +187,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     ServerGateway.rotateTokens(response)
                     self.goToHome()
                 case .failure(let error):
+                    self.showLoginError(msg: "A server problem was encountered, please try again.")
                     print("Validation failure on login")
                     // TODO: handle errors
                 }
