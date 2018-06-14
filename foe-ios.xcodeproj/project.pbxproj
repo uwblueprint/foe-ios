@@ -254,8 +254,6 @@
 				F6C90B952009134A00039933 /* Sources */,
 				F6C90B962009134A00039933 /* Frameworks */,
 				F6C90B972009134A00039933 /* Resources */,
-				CFDC4C64B46051BBC0C1DE9B /* [CP] Embed Pods Frameworks */,
-				B86B24B312D66703F27AEDA8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -385,41 +383,11 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-foe-ios/Pods-foe-ios-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B86B24B312D66703F27AEDA8 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-foe-iosTests/Pods-foe-iosTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CFDC4C64B46051BBC0C1DE9B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-foe-iosTests/Pods-foe-iosTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E453CA4C281A7EA35D76E669 /* [CP] Check Pods Manifest.lock */ = {
