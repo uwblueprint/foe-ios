@@ -27,6 +27,7 @@ class SightingTableViewController: UITableViewController {
         super.viewWillAppear(animated)
     }
     
+    // TODO(dinah): remove all static data
     func loadStaticPlace () {
         let placeIds = ["ChIJBaxtrQH0K4gRkicxTySDDbw", "ChIJP_Ie6gb0K4gRzYmW4JFMrcY"]
         let placesClient = GMSPlacesClient.init()

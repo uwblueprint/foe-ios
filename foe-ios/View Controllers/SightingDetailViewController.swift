@@ -50,7 +50,7 @@ class SightingDetailViewController: UIViewController {
         binomialNameLabel.text = SpeciesMap.getBinomialName(sighting: self.sightingModel)
         habitatLabel.text = self.sightingModel.getHabitat()
         weatherImageView.image = UIImage(named: self.sightingModel.getWeather())!
-        weatherDescriptionLabel.text = self.sightingModel.getWeather().capitalizingFirstLetter()
+        weatherDescriptionLabel.text = self.sightingModel.getWeather().capitalized
         locationLabel.text = self.sightingModel.getLocationName()
         
         let dateFormatter = DateFormatter()
@@ -97,35 +97,10 @@ class SightingDetailViewController: UIViewController {
         blur.isUserInteractionEnabled = false //This allows touches to forward to the button.
         closeButton.insertSubview(blur, at: 0)
         closeButton.bringSubview(toFront: closeButton.imageView!)
-        
-        
-
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
-
-extension String {
-    func capitalizingFirstLetter() -> String {
-        return prefix(1).uppercased() + dropFirst()
-    }
-    
-    mutating func capitalizeFirstLetter() {
-        self = self.capitalizingFirstLetter()
     }
 }

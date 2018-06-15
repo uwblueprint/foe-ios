@@ -12,7 +12,7 @@ import GooglePlaces
 
 class Sighting {
   private var image: UIImage?
-  private var habitat: String = ""
+  private var habitat: String?
   private var weather: String?
   private var location: GMSPlace?
   private var species: String = "unidentified"
@@ -35,7 +35,7 @@ class Sighting {
   }
 
   func getHabitat() -> String {
-    return habitat
+    return (self.location == nil) ? "" : self.location!.name
   }
 
   func setHabitat(habitat: String) {
@@ -55,7 +55,7 @@ class Sighting {
   }
 
   func getLocationName() -> String {
-    return (self.location != nil) ? self.location!.name : ""
+    return (self.location == nil) ? "" : self.location!.name
   }
 
   func getDate() -> Date {
