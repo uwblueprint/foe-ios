@@ -16,11 +16,12 @@ class Sighting {
   private var weather: String?
   private var location: GMSPlace?
   private var species: String = "unidentified"
-  
+  private var date: Date = Date.init()
+
   func setSpecies(species: String) {
     self.species = species
   }
-  
+
   func getSpecies() -> String {
     return species
   }
@@ -34,19 +35,31 @@ class Sighting {
   }
 
   func getHabitat() -> String {
-      return habitat!
+    return (self.location == nil) ? "" : self.location!.name
   }
 
   func setHabitat(habitat: String) {
-      self.habitat = habitat
+    self.habitat = habitat
   }
-    
+
   func setWeather(weather: String) {
-      self.weather = weather
+    self.weather = weather
+  }
+
+  func getWeather() -> String {
+    return self.weather!
   }
 
   func setLocation(location: GMSPlace) {
-      self.location = location
+    self.location = location
+  }
+
+  func getLocationName() -> String {
+    return (self.location == nil) ? "" : self.location!.name
+  }
+
+  func getDate() -> Date {
+     return self.date
   }
 
     func toDict() -> Dictionary<String, Any> {
@@ -67,7 +80,7 @@ class Sighting {
     private func formatDate(date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        
+
         return formatter.string(from: date)
     }
 }

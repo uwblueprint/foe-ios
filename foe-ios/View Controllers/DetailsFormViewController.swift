@@ -73,8 +73,8 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
             commonNameLabel.text = "Unidentified"
             binomialNameLabel.text = "N/A"
         } else {
-            commonNameLabel.text = speciesCommonNameMapping["bombus_" + (sighting?.getSpecies())!]
-            binomialNameLabel.text = "Bombus " + (sighting?.getSpecies())!
+            commonNameLabel.text = SpeciesMap.getCommonName(sighting: sighting!)
+            binomialNameLabel.text = SpeciesMap.getBinomialName(sighting: sighting!)
         }
 
         setupHabitatPicker()
@@ -111,11 +111,11 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return snakecaseToCapitalized(str: habitatPickerData[row])
+        return snakecaseToCapitalized(habitatPickerData[row])
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        habitatPickerTextField.text = snakecaseToCapitalized(str: habitatPickerData[row])
+        habitatPickerTextField.text = snakecaseToCapitalized(habitatPickerData[row])
         sighting?.setHabitat(habitat: habitatPickerData[row])
     }
 
@@ -150,12 +150,6 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
         weatherPicker = NosePicker(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 96), items: weatherItems, updateCallback: self.setSightingWeather)
 
         weatherPickerView.addSubview(weatherPicker!)
-    }
-
-    private func snakecaseToCapitalized(str: String) -> String {
-        return str.components(separatedBy: "_")
-            .map { return $0.lowercased().capitalized }
-            .joined(separator: " ")
     }
 
     private func postToServer() {

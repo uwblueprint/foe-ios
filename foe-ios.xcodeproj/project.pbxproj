@@ -30,6 +30,7 @@
 		F62527AE20BF57F3006475AC /* CustomModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326D720BF5708004933FB /* CustomModal.swift */; };
 		F62527B020BF738D006475AC /* SightingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62527AF20BF738D006475AC /* SightingDetailViewController.swift */; };
 		F67D397620916FD700311545 /* FBSDKLoginKit in Resources */ = {isa = PBXBuildFile; fileRef = F67D397520916FD700311545 /* FBSDKLoginKit */; };
+		F6A733F020CE206300450D84 /* SpeciesMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A733EF20CE206300450D84 /* SpeciesMap.swift */; };
 		F6B99BE9204899B00033939D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B99BE8204899B00033939D /* Constants.swift */; };
 		F6C90B892009134A00039933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C90B882009134A00039933 /* AppDelegate.swift */; };
 		F6C90B8E2009134A00039933 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6C90B8C2009134A00039933 /* Main.storyboard */; };
@@ -76,6 +77,7 @@
 		F66326E120BF5708004933FB /* SightingHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		F66326E220BF5708004933FB /* SightingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingTableViewCell.swift; sourceTree = "<group>"; };
 		F67D397520916FD700311545 /* FBSDKLoginKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FBSDKLoginKit; path = Pods/FBSDKLoginKit; sourceTree = "<group>"; };
+		F6A733EF20CE206300450D84 /* SpeciesMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesMap.swift; sourceTree = "<group>"; };
 		F6B99BE8204899B00033939D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F6C90B852009134A00039933 /* foe-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "foe-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6C90B882009134A00039933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				F66326D020BF5708004933FB /* Sighting.swift */,
+				F6A733EF20CE206300450D84 /* SpeciesMap.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				F62527B020BF738D006475AC /* SightingDetailViewController.swift in Sources */,
 				F62527A920BF57F3006475AC /* NosePickerItem.swift in Sources */,
 				F62527AA20BF57F3006475AC /* LinkListView.swift in Sources */,
+				F6A733F020CE206300450D84 /* SpeciesMap.swift in Sources */,
 				F62527AB20BF57F3006475AC /* NosePicker.swift in Sources */,
 				F62527AC20BF57F3006475AC /* CardView.swift in Sources */,
 				F62527AD20BF57F3006475AC /* Modal.swift in Sources */,
