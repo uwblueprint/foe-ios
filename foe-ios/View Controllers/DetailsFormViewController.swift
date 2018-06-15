@@ -7,7 +7,9 @@
 //
 
 import UIKit
+import Alamofire
 import GooglePlaces
+import SwiftKeychainWrapper
 
 class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -19,12 +21,12 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var habitatPickerTextField: UITextField!
     @IBOutlet weak var weatherPickerView: UIView!
     @IBOutlet weak var locationPickerView: UIView!
-    
+
     var sighting: Sighting?
     var weatherPicker: NosePicker?
     var habitatPicker = UIPickerView()
     var habitatPickerData: [String] = [String]()
-    
+
     var speciesCommonNameMapping = [
         "bombus_impatiens": "Common eastern bumble bee",
         "bombus_tenarius": "Tri-coloured bumble bee",
@@ -57,16 +59,16 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let navController = self.navigationController as! SubmissionNavigationController
         sighting = navController.getSighting()
-        
+
         let submitButton = UIBarButtonItem(title: "Submit", style: UIBarButtonItemStyle.plain, target: self, action: "submit")
         self.navigationItem.rightBarButtonItem = submitButton
         self.navigationItem.title = "Step 3: Geotag"
 
         previewImage.image = sighting?.getImage()
-        
+
         if (sighting?.getSpecies() == "unidentified") {
             commonNameLabel.text = "Unidentified"
             binomialNameLabel.text = "N/A"
@@ -74,85 +76,79 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
             commonNameLabel.text = speciesCommonNameMapping["bombus_" + (sighting?.getSpecies())!]
             binomialNameLabel.text = "Bombus " + (sighting?.getSpecies())!
         }
-        
+
         setupHabitatPicker()
         setupWeatherPicker()
-        
+
         locationTextField.isUserInteractionEnabled = false
         locationPickerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openAutoComplete)))
-        
+
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
     }
-    
-    func dismissKeyboard() {
-        view.endEditing(true)
-    }
-    
+
     func openAutoComplete() {
         let autocompleteController = GMSAutocompleteViewController()
         autocompleteController.delegate = self
         present(autocompleteController, animated: true, completion: nil)
     }
-    
+
     @IBAction func locationPickerClicked(_ sender: Any) {
         openAutoComplete()
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return habitatPickerData.count
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return snakecaseToCapitalized(str: habitatPickerData[row])
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         habitatPickerTextField.text = snakecaseToCapitalized(str: habitatPickerData[row])
         sighting?.setHabitat(habitat: habitatPickerData[row])
     }
-    
+
     func setSightingWeather(weather: String) {
         sighting?.setWeather(weather: weather)
     }
-    
+
     func submit() {
-        // TODO: post to server
-        let alert = CustomModal(title: "Buzz buzz!", caption: "That's thank you in bee!", dismissText: "Finish", image: UIImage(named: "default-home-illustration")!, onDismiss: goToHome)
-        alert.show(animated: true)
+        postToServer()
     }
-    
-    func goToHome() {
+
+    private func goToHome() {
         self.dismiss(animated:true)
     }
-    
+
     private func setupHabitatPicker() {
-        habitatPickerData =  ["house_garden", "park", "swap", "public_garden", "lake", "lawn"]
+        habitatPickerData =  ["back_yard", "balcony/container_garden", "community_garden", "city_park", "rural", "golf_course", "roadside", "woodland", "farmland", "school_grounds", "other"]
         habitatPicker.delegate = self
         habitatPicker.dataSource = self
         habitatPickerTextField.inputView = habitatPicker
     }
-    
+
     private func setupWeatherPicker() {
         let weatherImageNames = [
             "sunny",
-            "partly-sunny",
-            "overcast",
-            "rainy"
+            "partly_cloudy",
+            "cloudy",
+            "rain"
         ]
-        
+
         var weatherItems = weatherImageNames.map { NosePickerItem(image: UIImage(named: $0)!, identifier: $0) }
         weatherPicker = NosePicker(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 96), items: weatherItems, updateCallback: self.setSightingWeather)
-        
+
         weatherPickerView.addSubview(weatherPicker!)
     }
 
@@ -161,34 +157,63 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
             .map { return $0.lowercased().capitalized }
             .joined(separator: " ")
     }
+
+    private func postToServer() {
+        let headers: HTTPHeaders = [
+            "access-token": KeychainWrapper.standard.string(forKey: "accessToken")!,
+            "token-type": "Bearer",
+            "client": KeychainWrapper.standard.string(forKey: "client")!,
+            "uid": KeychainWrapper.standard.string(forKey: "uid")!
+        ]
+        let parameters: Parameters = [
+            "sighting": sighting!.toDict()
+        ]
+        
+        ServerGateway.authenticatedRequest(
+            url: "/sightings",
+            method: .post,
+            parameters: parameters,
+            success: {
+                let alert = CustomModal(
+                    title: "Buzz buzz!",
+                    caption: "That's thank you in bee!",
+                    dismissText: "Finish",
+                    image: UIImage(named: "default-home-illustration")!,
+                    onDismiss: self.goToHome
+                )
+                alert.show(animated: true)
+            },
+            failure: {}
+        )
+    }
 }
 
 extension DetailsFormViewController: GMSAutocompleteViewControllerDelegate {
-    
+
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         locationTextField.text = place.name
         sighting?.setLocation(location: place)
         dismiss(animated: true, completion: nil)
     }
-    
+
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
         // TODO: handle the error.
         print("Error: ", error.localizedDescription)
     }
-    
+
     // User canceled the operation.
     func wasCancelled(_ viewController: GMSAutocompleteViewController) {
         dismiss(animated: true, completion: nil)
     }
-    
+
     // Turn the network activity indicator on and off again.
     func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
-    
+
     func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
-    
+
 }

@@ -9,7 +9,7 @@
 import UIKit
 import FBSDKLoginKit
 
-class ViewController: UIViewController, UITabBarDelegate, FBSDKLoginButtonDelegate {
+class HomeViewController: UIViewController, UITabBarDelegate, FBSDKLoginButtonDelegate {
 
     override var prefersStatusBarHidden: Bool {
         return false
@@ -23,13 +23,7 @@ class ViewController: UIViewController, UITabBarDelegate, FBSDKLoginButtonDelega
 //    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        let loginButton = FBSDKLoginButton()
-//        view.addSubview(loginButton)
-//        //frame's are obselete, please use constraints instead because its 2016 after all
-//        loginButton.frame = CGRect(x: 16, y: 50, width: view.frame.width - 32, height: 50)
-//
-//        loginButton.delegate = self
+
 //        // Do any additional setup after loading the view, typically from a nib.
 //        let alert = CustomModal(title: "Which bee?", caption: "Tap the patterns below to determine which species your bee is.", image: UIImage(named: "picker-illustration")!)
         
@@ -104,7 +98,17 @@ class ViewController: UIViewController, UITabBarDelegate, FBSDKLoginButtonDelega
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
 
-
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
 
