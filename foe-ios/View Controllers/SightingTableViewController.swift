@@ -26,7 +26,7 @@ class SightingTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
-        
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SightingDetailViewController") as! SightingDetailViewController
         
@@ -43,6 +43,7 @@ class SightingTableViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         self.tableView.delaysContentTouches = false
+        self.tableView.addSubview(self.pullToRefreshControl)
 
         fetchSightings()
 
@@ -98,6 +99,18 @@ class SightingTableViewController: UITableViewController {
         cell.selectionStyle = UITableViewCellSelectionStyle.none
 
         return cell
+    }
+    
+    lazy var pullToRefreshControl: UIRefreshControl = {
+        let pullToRefreshControl = UIRefreshControl()
+        pullToRefreshControl.addTarget(self, action:
+            #selector(SightingTableViewController.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        return pullToRefreshControl
+    }()
+    
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
+        fetchSightings()
     }
     
     
