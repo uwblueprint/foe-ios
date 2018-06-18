@@ -26,47 +26,7 @@ class SightingTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
-    
-    // TODO(dinah): remove all static data
-    func loadStaticPlace () {
-        let placeIds = ["ChIJBaxtrQH0K4gRkicxTySDDbw", "ChIJP_Ie6gb0K4gRzYmW4JFMrcY"]
-        let placesClient = GMSPlacesClient.init()
         
-        placesClient.lookUpPlaceID(placeIds[1], callback: { (place, error) -> Void in
-            if let error = error {
-                print("lookup place id query error: \(error.localizedDescription)")
-                return
-            }
-            
-            guard let place = place else {
-                print("No place details for \(placeIds[1])")
-                return
-            }
-            
-            self.loadStaticData(place: place)
-            print("Place name \(place.name)")
-        })
-    }
-    
-    func loadStaticData (place: GMSPlace) {
-        let exampleSighting = Sighting()
-        exampleSighting.setImage(image: UIImage(named:"bee-sample-image-1")!)
-        exampleSighting.setSpecies(species: "bombus_bimaculatus")
-        exampleSighting.setLocation(location: place)
-        exampleSighting.setHabitat(habitat: "Fast food restaurant")
-        exampleSighting.setWeather(weather: "sunny")
-        
-        let sighting_2 = Sighting()
-        sighting_2.setImage(image: UIImage(named:"bee-sample-image-0")!)
-        sighting_2.setSpecies(species: "bombus_melanopygus")
-        sighting_2.setLocation(location: place)
-        sighting_2.setHabitat(habitat: "Garden")
-        sighting_2.setWeather(weather: "partly_cloudy")
-        
-        sightings += [exampleSighting, sighting_2, exampleSighting, sighting_2, exampleSighting]
-        tableView.reloadData()
-    }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SightingDetailViewController") as! SightingDetailViewController
         
