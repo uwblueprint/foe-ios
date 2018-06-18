@@ -839,32 +839,97 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKf-Sq-4GA" customClass="LabeledOutlineTextView" customModule="foe_ios" customModuleProvider="target">
-                                <rect key="frame" x="40" y="92" width="295" height="64"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKf-Sq-4GA" userLabel="nameInput" customClass="LabeledOutlineTextView" customModule="foe_ios" customModuleProvider="target">
+                                <rect key="frame" x="40" y="92" width="295" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="4yZ-Tb-hmS"/>
+                                    <constraint firstAttribute="height" constant="60" id="4yZ-Tb-hmS"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="nibName" value="LabeledOutlineTextView"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Email"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="inputPlaceholderText" value="Enter Email"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="NAME"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="inputPlaceholderText" value="Johnny Appleseed"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="index">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VHW-MF-OJ6" userLabel="emailInput" customClass="LabeledOutlineTextView" customModule="foe_ios" customModuleProvider="target">
+                                <rect key="frame" x="40" y="176" width="295" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="vcQ-Pq-dSm"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="nibName" value="LabeledOutlineTextView"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="EMAIL"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="inputPlaceholderText" value="bees@knees.com"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="index">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRz-62-5lf" userLabel="emailInput" customClass="LabeledOutlineTextView" customModule="foe_ios" customModuleProvider="target">
+                                <rect key="frame" x="40" y="260" width="295" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="hEu-9A-IF9"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="nibName" value="LabeledOutlineTextView"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="PASSWORD"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="inputPlaceholderText" value="Minimum 8 characters"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSecure" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="index">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4y-4f-b5F" userLabel="emailInput" customClass="LabeledOutlineTextView" customModule="foe_ios" customModuleProvider="target">
+                                <rect key="frame" x="40" y="344" width="295" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Xyd-4g-aw1"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="nibName" value="LabeledOutlineTextView"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="RE-ENTER PASSWORD"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="inputPlaceholderText" value="Minimum 8 characters"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSecure" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="index">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="LKf-Sq-4GA" firstAttribute="width" secondItem="5zK-pt-Hse" secondAttribute="width" constant="-80" id="0Uz-lk-OLp"/>
+                            <constraint firstItem="w4y-4f-b5F" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="1zp-ya-GC5"/>
+                            <constraint firstItem="VHW-MF-OJ6" firstAttribute="width" secondItem="5zK-pt-Hse" secondAttribute="width" constant="-80" id="363-F4-FwB"/>
+                            <constraint firstItem="w4y-4f-b5F" firstAttribute="width" secondItem="5zK-pt-Hse" secondAttribute="width" constant="-80" id="3HL-NZ-i5G"/>
+                            <constraint firstItem="kRz-62-5lf" firstAttribute="top" secondItem="VHW-MF-OJ6" secondAttribute="bottom" constant="24" id="Ejt-lh-Dcv"/>
                             <constraint firstItem="LKf-Sq-4GA" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="JHQ-5y-1Z6"/>
+                            <constraint firstItem="kRz-62-5lf" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="MbZ-cy-uO6"/>
                             <constraint firstItem="LKf-Sq-4GA" firstAttribute="top" secondItem="tWh-rY-Y9m" secondAttribute="bottom" constant="20" id="NBS-14-X4H"/>
                             <constraint firstItem="tWh-rY-Y9m" firstAttribute="top" secondItem="Ndh-Fb-c7o" secondAttribute="bottom" constant="24" id="UNh-6G-rMg"/>
                             <constraint firstItem="tWh-rY-Y9m" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="Vqd-xw-JJq"/>
+                            <constraint firstItem="kRz-62-5lf" firstAttribute="width" secondItem="5zK-pt-Hse" secondAttribute="width" constant="-80" id="jg7-4U-RSC"/>
+                            <constraint firstItem="w4y-4f-b5F" firstAttribute="top" secondItem="kRz-62-5lf" secondAttribute="bottom" constant="24" id="neQ-SA-F1F"/>
+                            <constraint firstItem="VHW-MF-OJ6" firstAttribute="top" secondItem="LKf-Sq-4GA" secondAttribute="bottom" constant="24" id="qas-KU-yO0"/>
+                            <constraint firstItem="VHW-MF-OJ6" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="wWt-gX-YJz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextView" destination="kRz-62-5lf" id="mci-fR-Ul2"/>
+                        <outlet property="nameTextView" destination="LKf-Sq-4GA" id="vRg-Hk-jd8"/>
+                        <outlet property="passwordTextView" destination="w4y-4f-b5F" id="yyJ-y6-Hsu"/>
+                        <outlet property="reenteredPasswordTextView" destination="w4y-4f-b5F" id="IUM-iH-lzo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0nI-Pt-QUm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-860" y="3342"/>
+            <point key="canvasLocation" x="-860" y="3341.3793103448279"/>
         </scene>
         <!--Initial Navigation Controller-->
         <scene sceneID="urt-jK-c8I">

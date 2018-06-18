@@ -22,6 +22,8 @@ import UIKit
     @IBInspectable var labelText : String = "Label"
     @IBInspectable var inputPlaceholderText : String = "Enter here"
     @IBInspectable var nibName: String?
+    @IBInspectable var isSecure: Bool = false
+    @IBInspectable var index: Int = 0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,11 +52,19 @@ import UIKit
         label.text = labelText
         inputTextField.placeholder = inputPlaceholderText
         inputTextField.delegate = self
+        inputTextField.isSecureTextEntry = isSecure
+        inputTextField.tag = index
+        self.tag = index
         addSubview(view)
         view.frame = self.bounds
         view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         contentView = view
     }
+    
+    func getTextField() -> UITextField {
+        return inputTextField
+    }
+    
     
     func loadViewFromNib() -> UIView? {
         guard let nibName = nibName else { return nil }
@@ -83,22 +93,27 @@ import UIKit
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         renderInputActiveState(isActive: false)
-        activeTextField?.resignFirstResponder()
-        print("here")
-        return true
+        
+        // Try to find next responder
+        if let nextField = self.superview?.viewWithTag(textField.tag + 1) as? LabeledOutlineTextView {
+            nextField.getTextField().becomeFirstResponder()
+        } else {
+            // Not found, so remove keyboard.
+            textField.resignFirstResponder()
+        }
+        // Do not add a line break
+        return false
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         activeTextField?.resignFirstResponder()
         renderInputActiveState(isActive: false)
-        print("callled here")
     }
     
     // MARK: - Actions
     
     @IBAction func editingDidBegin(_ sender: Any) {
         renderInputActiveState(isActive: true)
-        print("went here!")
     }
     
 }
