@@ -12,6 +12,9 @@
 		E39B40EB20C2E84B0037EAEA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B40EA20C2E84B0037EAEA /* LoginViewController.swift */; };
 		E39B40F120C486E20037EAEA /* InitialNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B40F020C486E10037EAEA /* InitialNavigationController.swift */; };
 		E39B40F320C6F9A60037EAEA /* ServerGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B40F220C6F9A60037EAEA /* ServerGateway.swift */; };
+		F61511B020D82963006A4FB3 /* LabeledOutlineTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F61511AF20D82963006A4FB3 /* LabeledOutlineTextView.xib */; };
+		F61511B220D82B24006A4FB3 /* LabeledOutlineTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61511B120D82B24006A4FB3 /* LabeledOutlineTextView.swift */; };
+		F61511B420D83C88006A4FB3 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61511B320D83C88006A4FB3 /* SignupViewController.swift */; };
 		F625279F20BF57F3006475AC /* SightingHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326E120BF5708004933FB /* SightingHeaderTableViewCell.swift */; };
 		F62527A020BF57F3006475AC /* SightingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326E220BF5708004933FB /* SightingTableViewCell.swift */; };
 		F62527A120BF57F3006475AC /* Sighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326D020BF5708004933FB /* Sighting.swift */; };
@@ -58,6 +61,9 @@
 		E39B40EA20C2E84B0037EAEA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E39B40F020C486E10037EAEA /* InitialNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialNavigationController.swift; sourceTree = "<group>"; };
 		E39B40F220C6F9A60037EAEA /* ServerGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerGateway.swift; sourceTree = "<group>"; };
+		F61511AF20D82963006A4FB3 /* LabeledOutlineTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabeledOutlineTextView.xib; sourceTree = "<group>"; };
+		F61511B120D82B24006A4FB3 /* LabeledOutlineTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledOutlineTextView.swift; sourceTree = "<group>"; };
+		F61511B320D83C88006A4FB3 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		F62527AF20BF738D006475AC /* SightingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingDetailViewController.swift; sourceTree = "<group>"; };
 		F66326D020BF5708004933FB /* Sighting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sighting.swift; sourceTree = "<group>"; };
 		F66326D220BF5708004933FB /* NosePickerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NosePickerItem.swift; sourceTree = "<group>"; };
@@ -146,6 +152,8 @@
 				F66326D520BF5708004933FB /* CardView.swift */,
 				F66326D620BF5708004933FB /* Modal.swift */,
 				F66326D720BF5708004933FB /* CustomModal.swift */,
+				F61511AF20D82963006A4FB3 /* LabeledOutlineTextView.xib */,
+				F61511B120D82B24006A4FB3 /* LabeledOutlineTextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -163,6 +171,7 @@
 				F66326DF20BF5708004933FB /* SightingTableViewController.swift */,
 				F62527AF20BF738D006475AC /* SightingDetailViewController.swift */,
 				E39B40F020C486E10037EAEA /* InitialNavigationController.swift */,
+				F61511B320D83C88006A4FB3 /* SignupViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -313,6 +322,7 @@
 			files = (
 				F67D397620916FD700311545 /* FBSDKLoginKit in Resources */,
 				F6C90B932009134A00039933 /* LaunchScreen.storyboard in Resources */,
+				F61511B020D82963006A4FB3 /* LabeledOutlineTextView.xib in Resources */,
 				F6C90B902009134A00039933 /* Assets.xcassets in Resources */,
 				F6C90B8E2009134A00039933 /* Main.storyboard in Resources */,
 			);
@@ -421,6 +431,7 @@
 				F62527A220BF57F3006475AC /* HomeViewController.swift in Sources */,
 				E39B40F120C486E20037EAEA /* InitialNavigationController.swift in Sources */,
 				F62527A320BF57F3006475AC /* MainUITabBarController.swift in Sources */,
+				F61511B220D82B24006A4FB3 /* LabeledOutlineTextView.swift in Sources */,
 				F62527A420BF57F3006475AC /* DetailsFormViewController.swift in Sources */,
 				F62527A520BF57F3006475AC /* SpeciesSelectionViewController.swift in Sources */,
 				F62527A620BF57F3006475AC /* CaptureViewController.swift in Sources */,
@@ -432,6 +443,7 @@
 				F62527AA20BF57F3006475AC /* LinkListView.swift in Sources */,
 				F62527AB20BF57F3006475AC /* NosePicker.swift in Sources */,
 				F62527AC20BF57F3006475AC /* CardView.swift in Sources */,
+				F61511B420D83C88006A4FB3 /* SignupViewController.swift in Sources */,
 				F62527AD20BF57F3006475AC /* Modal.swift in Sources */,
 				F62527AE20BF57F3006475AC /* CustomModal.swift in Sources */,
 				E39B40F320C6F9A60037EAEA /* ServerGateway.swift in Sources */,
