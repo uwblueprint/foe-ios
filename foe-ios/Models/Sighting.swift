@@ -66,7 +66,7 @@ class Sighting {
         let dict: [String: Any] = [
             "weather": weather!,
             "habitat": habitat!,
-            "species": species == "unidentified" ? species : "bombus_\(species)",
+            "species": species,
             "date": formatDate(date: Date()),
             "latitude": location!.coordinate.latitude,
             "longitude": location!.coordinate.longitude,

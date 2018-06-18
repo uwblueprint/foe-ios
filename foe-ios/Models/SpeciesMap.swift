@@ -40,11 +40,7 @@ class SpeciesMap {
         "bombus_bohemicus": "Gypsy cuckoo bumble bee",
         ]
     
-    static func getBinomialName(sighting:Sighting) -> String {
-        return "Bombus " + sighting.getSpecies()
-    }
-    
     static func getCommonName(sighting:Sighting) -> String {
-        return map["bombus_" + sighting.getSpecies()]!
+        return map[sighting.getSpecies()]!
     }
 }

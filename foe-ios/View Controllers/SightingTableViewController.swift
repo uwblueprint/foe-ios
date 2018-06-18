@@ -51,17 +51,17 @@ class SightingTableViewController: UITableViewController {
     func loadStaticData (place: GMSPlace) {
         let exampleSighting = Sighting()
         exampleSighting.setImage(image: UIImage(named:"bee-sample-image-1")!)
-        exampleSighting.setSpecies(species: "bimaculatus")
+        exampleSighting.setSpecies(species: "bombus_bimaculatus")
         exampleSighting.setLocation(location: place)
         exampleSighting.setHabitat(habitat: "Fast food restaurant")
         exampleSighting.setWeather(weather: "sunny")
         
         let sighting_2 = Sighting()
         sighting_2.setImage(image: UIImage(named:"bee-sample-image-0")!)
-        sighting_2.setSpecies(species: "melanopygus")
+        sighting_2.setSpecies(species: "bombus_melanopygus")
         sighting_2.setLocation(location: place)
         sighting_2.setHabitat(habitat: "Garden")
-        sighting_2.setWeather(weather: "overcast")
+        sighting_2.setWeather(weather: "partly_cloudy")
         
         sightings += [exampleSighting, sighting_2, exampleSighting, sighting_2, exampleSighting]
         tableView.reloadData()

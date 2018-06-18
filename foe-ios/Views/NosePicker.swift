@@ -60,7 +60,6 @@ import UIKit
     }
     
     func speciesButtonTapped(button: UIButton) {
-        print("\(self.items[button.tag].getIdentifier()) pressed")
         self.activeButtonIdentifier = items[button.tag].getIdentifier()
         updateSelectedView()
         

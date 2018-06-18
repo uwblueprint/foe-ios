@@ -47,10 +47,10 @@ class SightingDetailViewController: UIViewController {
     
     func renderInformation() {
         speciesNameLabel.text = SpeciesMap.getCommonName(sighting: self.sightingModel)
-        binomialNameLabel.text = SpeciesMap.getBinomialName(sighting: self.sightingModel)
+        binomialNameLabel.text = snakecaseToCapitalized(sightingModel.getSpecies())
         habitatLabel.text = self.sightingModel.getHabitat()
         weatherImageView.image = UIImage(named: self.sightingModel.getWeather())!
-        weatherDescriptionLabel.text = self.sightingModel.getWeather().capitalized
+        weatherDescriptionLabel.text = snakecaseToCapitalized(self.sightingModel.getWeather())
         locationLabel.text = self.sightingModel.getLocationName()
         
         let dateFormatter = DateFormatter()

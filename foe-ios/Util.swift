@@ -9,7 +9,8 @@
 import Foundation
 
 func snakecaseToCapitalized(_ str: String) -> String {
-    return str.components(separatedBy: "_")
-        .map { return $0.lowercased().capitalized }
+    let lowercased = str.components(separatedBy: "_")
+        .map { return $0.lowercased() }
         .joined(separator: " ")
+    return lowercased.prefix(1).capitalized + lowercased.dropFirst()
 }
