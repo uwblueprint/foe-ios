@@ -14,6 +14,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     var frameView : UIView!
     var activeTextField : UITextField?
+    let center: NotificationCenter = NotificationCenter.default
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +46,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     func setupKeyboardNotificationCenter() {
-        let center: NotificationCenter = NotificationCenter.default
         center.addObserver(self, selector: #selector(keyboardDidShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         center.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
@@ -114,31 +114,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         alert.show(animated: true)
     }
     
-    @IBAction func signupButtonClicked(_ sender: Any) {
-        let parameters: Parameters = [
-            "email": emailTextField.text!,
-            "password": passwordTextField.text!
-        ]
-        
-        Alamofire.request(
-            "\(API_URL)/auth",
-             method: .post,
-             parameters: parameters,
-             encoding: JSONEncoding.default
-        ).validate().responseJSON { response in
-            switch response.result {
-            case .success:
-                print("Successfully signed up")
-                let alert = CustomModal(title: "Welcome!", caption: "Sign-up complete--a confirmation was sent to your email.", dismissText: "Done", image: UIImage(named: "default-home-illustration")!, onDismiss: self.postLogin)
-                alert.show(animated: true)
-            case .failure(let error):
-                self.showLoginError(msg: "A server problem was encountered, please try again.")
-                print("Validation failure on signup")
-                print(error)
-            }
-        }
-    }
-    
     func renderInputActiveState(label: UILabel, outline: UIView, isActive: Bool) {
         let color : UIColor = isActive ? UIColor(red:0.12, green:0.75, blue:0.39, alpha:1.0) : UIColor(red:0.88, green:0.88, blue:0.88, alpha:1.0)
         
@@ -149,6 +124,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         UIView.transition(with: outline, duration: 0.2, options: .transitionCrossDissolve, animations: {
             outline.backgroundColor = color
         }, completion: nil)
+    }
+    
+    @IBAction func signupTouchedUpInside(_ sender: Any) {
+        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignupViewController") as! SignupViewController
+        self.present(controller, animated: true, completion: nil)
     }
     
     @IBAction func emailEditingDidBegin(_ sender: Any) {
@@ -194,6 +174,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        center.removeObserver(self, name: .UIKeyboardWillShow , object: nil)
+    }
     func goToHome() {
         self.dismiss(animated: true, completion: nil)
     }

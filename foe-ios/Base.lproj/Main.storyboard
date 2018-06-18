@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="i7x-PC-SQr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8iC-xj-q5R">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -711,7 +711,7 @@
                                     <color key="titleColor" red="0.1176470588" green="0.75294117650000003" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="signupButtonClicked:" destination="DFB-7n-Ymh" eventType="touchUpInside" id="GPU-uw-UBW"/>
+                                    <action selector="signupTouchedUpInside:" destination="DFB-7n-Ymh" eventType="touchUpInside" id="LIH-OS-0K5"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sky_background_grey" translatesAutoresizingMaskIntoConstraints="NO" id="F0P-II-2TQ" userLabel="skyImageView">
@@ -824,7 +824,7 @@
         <!--Signup View Controller-->
         <scene sceneID="lHG-Wf-C0d">
             <objects>
-                <viewController id="i7x-PC-SQr" customClass="SignupViewController" customModule="foe_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignupViewController" id="i7x-PC-SQr" customClass="SignupViewController" customModule="foe_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ndh-Fb-c7o"/>
                         <viewControllerLayoutGuide type="bottom" id="pwv-8M-CBi"/>
@@ -901,6 +901,33 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uC-wr-1kI">
+                                <rect key="frame" x="40" y="581" width="295" height="54"/>
+                                <color key="backgroundColor" red="0.1176470588" green="0.75294117650000003" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="A7W-tt-1Db"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonClicked:" destination="DFB-7n-Ymh" eventType="touchUpInside" id="IFV-15-OkY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLp-SM-LsY">
+                                <rect key="frame" x="295" y="38" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Azd-hd-tYy"/>
+                                    <constraint firstAttribute="width" constant="40" id="Q7G-qG-1sf"/>
+                                </constraints>
+                                <state key="normal" image="close-icon-green"/>
+                                <connections>
+                                    <action selector="closeButtonTouchedUpInside:" destination="i7x-PC-SQr" eventType="touchUpInside" id="sG3-dL-8uS"/>
+                                    <action selector="handleSightingCloseButton:" destination="Lld-jF-kvC" eventType="touchUpInside" id="oCF-hU-rza"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -912,19 +939,26 @@
                             <constraint firstItem="LKf-Sq-4GA" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="JHQ-5y-1Z6"/>
                             <constraint firstItem="kRz-62-5lf" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="MbZ-cy-uO6"/>
                             <constraint firstItem="LKf-Sq-4GA" firstAttribute="top" secondItem="tWh-rY-Y9m" secondAttribute="bottom" constant="20" id="NBS-14-X4H"/>
+                            <constraint firstItem="rLp-SM-LsY" firstAttribute="trailing" secondItem="LKf-Sq-4GA" secondAttribute="trailing" id="Qkh-7L-Civ"/>
                             <constraint firstItem="tWh-rY-Y9m" firstAttribute="top" secondItem="Ndh-Fb-c7o" secondAttribute="bottom" constant="24" id="UNh-6G-rMg"/>
                             <constraint firstItem="tWh-rY-Y9m" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="Vqd-xw-JJq"/>
+                            <constraint firstItem="rLp-SM-LsY" firstAttribute="centerY" secondItem="tWh-rY-Y9m" secondAttribute="centerY" id="jDh-6Y-xkw"/>
                             <constraint firstItem="kRz-62-5lf" firstAttribute="width" secondItem="5zK-pt-Hse" secondAttribute="width" constant="-80" id="jg7-4U-RSC"/>
                             <constraint firstItem="w4y-4f-b5F" firstAttribute="top" secondItem="kRz-62-5lf" secondAttribute="bottom" constant="24" id="neQ-SA-F1F"/>
+                            <constraint firstItem="5uC-wr-1kI" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="pSt-Vk-d34"/>
                             <constraint firstItem="VHW-MF-OJ6" firstAttribute="top" secondItem="LKf-Sq-4GA" secondAttribute="bottom" constant="24" id="qas-KU-yO0"/>
+                            <constraint firstItem="pwv-8M-CBi" firstAttribute="top" secondItem="5uC-wr-1kI" secondAttribute="bottom" constant="32" id="v6N-qQ-fl2"/>
                             <constraint firstItem="VHW-MF-OJ6" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="wWt-gX-YJz"/>
+                            <constraint firstItem="5uC-wr-1kI" firstAttribute="width" secondItem="5zK-pt-Hse" secondAttribute="width" constant="-80" id="y5z-ZU-Ldc"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="closeButton" destination="rLp-SM-LsY" id="55n-o2-aCn"/>
                         <outlet property="emailTextView" destination="kRz-62-5lf" id="mci-fR-Ul2"/>
                         <outlet property="nameTextView" destination="LKf-Sq-4GA" id="vRg-Hk-jd8"/>
                         <outlet property="passwordTextView" destination="w4y-4f-b5F" id="yyJ-y6-Hsu"/>
                         <outlet property="reenteredPasswordTextView" destination="w4y-4f-b5F" id="IUM-iH-lzo"/>
+                        <outlet property="signupButton" destination="5uC-wr-1kI" id="TLH-aW-Ael"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0nI-Pt-QUm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -993,6 +1027,7 @@
         <image name="capture-icon" width="30" height="31"/>
         <image name="capture_button" width="134" height="134"/>
         <image name="close-icon" width="17" height="17"/>
+        <image name="close-icon-green" width="13" height="13"/>
         <image name="facebook-icon" width="20" height="20"/>
         <image name="home-icon" width="29" height="29"/>
         <image name="icon_photo_library" width="90" height="88"/>
