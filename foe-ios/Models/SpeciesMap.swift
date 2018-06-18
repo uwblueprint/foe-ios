@@ -40,7 +40,13 @@ class SpeciesMap {
         "bombus_bohemicus": "Gypsy cuckoo bumble bee",
         ]
     
-    static func getCommonName(sighting:Sighting) -> String {
-        return map[sighting.getSpecies()]!
+    static func getCommonName(_ species:String) -> String {
+        if (species == "unidentified") { return "Unidentified" }
+        return map[species]!
+    }
+    
+    static func getDisplayBinomialName(_ species:String) -> String {
+        let name = (species == "unidentified") ? "N/A" : species
+        return snakecaseToCapitalized(name)
     }
 }

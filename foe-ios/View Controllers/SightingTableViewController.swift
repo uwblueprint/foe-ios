@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Alamofire
 import GooglePlaces
 
 class SightingTableViewController: UITableViewController {
     
+    var sightings = [Sighting]()
     var statusBarShouldBeHidden = false
     
     override var prefersStatusBarHidden: Bool {
@@ -20,8 +22,6 @@ class SightingTableViewController: UITableViewController {
     //MARK: Outlets
     @IBOutlet weak var headerView: UIView!
     var activeCell = false
-    
-    var sightings = [Sighting]()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -67,10 +67,6 @@ class SightingTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-    }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SightingDetailViewController") as! SightingDetailViewController
         
@@ -81,7 +77,6 @@ class SightingTableViewController: UITableViewController {
         }
         
         self.present(controller, animated: true, completion: nil)
-        
     }
 
     override func viewDidLoad() {
@@ -89,7 +84,7 @@ class SightingTableViewController: UITableViewController {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         self.tableView.delaysContentTouches = false
 
-        loadStaticPlace()
+        fetchSightings()
 
         print("work")
         // Uncomment the following line to preserve selection between presentations
@@ -129,7 +124,7 @@ class SightingTableViewController: UITableViewController {
         
         cell.locationLabel.text = sighting.getLocationName()
         cell.photoImageView.image = sighting.getImage()
-        cell.speciesLabel.text = SpeciesMap.getCommonName(sighting: sighting)
+        cell.speciesLabel.text = SpeciesMap.getCommonName(sighting.getSpecies())
         cell.statusLabel.text = "Pending"
         
         let dateFormatter = DateFormatter()
@@ -182,14 +177,24 @@ class SightingTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func fetchSightings() {
+        ServerGateway.authenticatedRequest(
+            url: "/sightings",
+            method: .get,
+            parameters: nil,
+            success: { (_ response: DataResponse<Any>) in
+                let rawSightings = response.result.value as! Array<Any>
+                print("raw: \(rawSightings)")
+                
+                self.sightings = rawSightings.map { json in
+                    let dict = json as! NSDictionary
+                    return Sighting(json: dict as! [String: Any])
+                }
+                self.tableView.reloadData()
+            },
+            failure: { _ in }
+        )
     }
-    */
-
+    
+    
 }

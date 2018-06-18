@@ -15,9 +15,28 @@ class Sighting {
   private var habitat: String?
   private var weather: String?
   private var location: GMSPlace?
+  private var locationName: String?
   private var species: String = "unidentified"
   private var date: Date = Date.init()
 
+    init() { }
+
+    init(json: [String: Any]) {
+        guard
+            let habitat = json["habitat"] as? String,
+            let weather = json["weather"] as? String,
+            let species = json["species"] as? String
+        else { return }
+        
+        self.habitat = habitat
+        self.weather = weather
+        self.species = species
+        self.date = stringToDate(json["date"] as! String)
+        self.locationName = json["location_name"] as? String
+        
+        downloadImage(link: json["image_url"] as! String)
+    }
+    
   func setSpecies(species: String) {
     self.species = species
   }
@@ -82,5 +101,35 @@ class Sighting {
         formatter.dateFormat = "yyyy-MM-dd"
 
         return formatter.string(from: date)
+    }
+    
+    private func stringToDate(_ str: String) -> Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+
+        return formatter.date(from: str)!
+    }
+    
+    func downloadImage(link: String) {
+        guard let url = URL(string: link) else { return }
+        downloadImage(url: url)
+    }
+    
+    func downloadImage(url: URL) {
+        // TODO(dinah): replace with default sample image
+        self.image = UIImage(named: "bee-sample-image-1")
+        
+        // Adapted from https://stackoverflow.com/questions/24231680/loading-downloading-image-from-url-on-swift
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() {
+                self.image = image
+            }
+        }.resume()
     }
 }

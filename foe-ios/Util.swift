@@ -7,10 +7,23 @@
 //
 
 import Foundation
+import UIKit
 
 func snakecaseToCapitalized(_ str: String) -> String {
     let lowercased = str.components(separatedBy: "_")
         .map { return $0.lowercased() }
         .joined(separator: " ")
     return lowercased.prefix(1).capitalized + lowercased.dropFirst()
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
