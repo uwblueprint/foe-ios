@@ -285,7 +285,7 @@
 				TargetAttributes = {
 					F6C90B842009134A00039933 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 4TRZ7YCVD3;
+						DevelopmentTeam = X9J33NSWJL;
 						ProvisioningStyle = Automatic;
 					};
 					F6C90B982009134A00039933 = {
@@ -634,10 +634,10 @@
 			baseConfigurationReference = 830A560FEB860970E861BB38 /* Pods-foe-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4TRZ7YCVD3;
+				DEVELOPMENT_TEAM = X9J33NSWJL;
 				INFOPLIST_FILE = "foe-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.blueprint.foe-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blueprint.foe-ios-john";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -648,10 +648,10 @@
 			baseConfigurationReference = 1C83638E0486B243AC5E60A9 /* Pods-foe-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4TRZ7YCVD3;
+				DEVELOPMENT_TEAM = X9J33NSWJL;
 				INFOPLIST_FILE = "foe-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.blueprint.foe-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blueprint.foe-ios-john";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
