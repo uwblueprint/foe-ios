@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nL4-iz-goL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Bpu-Ik-TBV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -60,7 +60,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="scrollIndicatorInsets" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
                         <color key="separatorColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="MzA-9W-eBg">
+                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="MzA-9W-eBg">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -103,7 +103,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vmy-cz-x8M" userLabel="SightingCell">
                                             <rect key="frame" x="24" y="0.0" width="327" height="334"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DV4-21-Jmv">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder-image" translatesAutoresizingMaskIntoConstraints="NO" id="DV4-21-Jmv">
                                                     <rect key="frame" x="0.0" y="0.0" width="327" height="260"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="260" id="lwD-5p-IXN"/>
@@ -324,7 +324,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XkH-93-QXG">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder-image" translatesAutoresizingMaskIntoConstraints="NO" id="XkH-93-QXG">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                 <color key="backgroundColor" red="0.15201822916666666" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -377,7 +377,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNj-aP-f7V" userLabel="speciesBgView">
                                 <rect key="frame" x="24" y="324" width="40" height="40"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="alZ-Ho-nb9">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder-image" translatesAutoresizingMaskIntoConstraints="NO" id="alZ-Ho-nb9">
                                         <rect key="frame" x="4" y="4" width="32" height="32"/>
                                     </imageView>
                                 </subviews>
@@ -819,13 +819,13 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IDENTIFIED SPECIES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdY-wp-bix">
                                         <rect key="frame" x="128" y="24" width="156.5" height="22"/>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
-                                        <color key="textColor" red="0.50980392159999999" green="0.50980392159999999" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.74117647058823533" green="0.74117647058823533" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Common Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXf-jw-WPr">
                                         <rect key="frame" x="128" y="54" width="117" height="22"/>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Binomial Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPM-be-Mpb">
@@ -1169,7 +1169,7 @@ and EULA Agreement.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0nI-Pt-QUm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-860" y="3341.3793103448279"/>
+            <point key="canvasLocation" x="-159" y="2577"/>
         </scene>
         <!--Initial Navigation Controller-->
         <scene sceneID="urt-jK-c8I">
@@ -1259,5 +1259,6 @@ and EULA Agreement.</string>
         <image name="logo-transparent-icon" width="59" height="58"/>
         <image name="me-icon" width="19" height="29"/>
         <image name="partly-sunny" width="62" height="62"/>
+        <image name="placeholder-image" width="327" height="261"/>
     </resources>
 </document>
