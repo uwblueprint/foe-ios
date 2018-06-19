@@ -16,6 +16,8 @@
 		F61511B020D82963006A4FB3 /* LabeledOutlineTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F61511AF20D82963006A4FB3 /* LabeledOutlineTextView.xib */; };
 		F61511B220D82B24006A4FB3 /* LabeledOutlineTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61511B120D82B24006A4FB3 /* LabeledOutlineTextView.swift */; };
 		F61511B420D83C88006A4FB3 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61511B320D83C88006A4FB3 /* SignupViewController.swift */; };
+		F61511B620D97815006A4FB3 /* emptyHistoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F61511B520D97814006A4FB3 /* emptyHistoryView.xib */; };
+		F61511B820D97A21006A4FB3 /* emptyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61511B720D97A21006A4FB3 /* emptyHistoryView.swift */; };
 		F625279F20BF57F3006475AC /* SightingHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326E120BF5708004933FB /* SightingHeaderTableViewCell.swift */; };
 		F62527A020BF57F3006475AC /* SightingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326E220BF5708004933FB /* SightingTableViewCell.swift */; };
 		F62527A120BF57F3006475AC /* Sighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326D020BF5708004933FB /* Sighting.swift */; };
@@ -67,6 +69,8 @@
 		F61511AF20D82963006A4FB3 /* LabeledOutlineTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabeledOutlineTextView.xib; sourceTree = "<group>"; };
 		F61511B120D82B24006A4FB3 /* LabeledOutlineTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledOutlineTextView.swift; sourceTree = "<group>"; };
 		F61511B320D83C88006A4FB3 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		F61511B520D97814006A4FB3 /* emptyHistoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = emptyHistoryView.xib; sourceTree = "<group>"; };
+		F61511B720D97A21006A4FB3 /* emptyHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = emptyHistoryView.swift; sourceTree = "<group>"; };
 		F62527AF20BF738D006475AC /* SightingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingDetailViewController.swift; sourceTree = "<group>"; };
 		F66326D020BF5708004933FB /* Sighting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sighting.swift; sourceTree = "<group>"; };
 		F66326D220BF5708004933FB /* NosePickerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NosePickerItem.swift; sourceTree = "<group>"; };
@@ -159,6 +163,8 @@
 				F66326D720BF5708004933FB /* CustomModal.swift */,
 				F61511AF20D82963006A4FB3 /* LabeledOutlineTextView.xib */,
 				F61511B120D82B24006A4FB3 /* LabeledOutlineTextView.swift */,
+				F61511B520D97814006A4FB3 /* emptyHistoryView.xib */,
+				F61511B720D97A21006A4FB3 /* emptyHistoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -327,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F67D397620916FD700311545 /* FBSDKLoginKit in Resources */,
+				F61511B620D97815006A4FB3 /* emptyHistoryView.xib in Resources */,
 				F6C90B932009134A00039933 /* LaunchScreen.storyboard in Resources */,
 				F61511B020D82963006A4FB3 /* LabeledOutlineTextView.xib in Resources */,
 				F6C90B902009134A00039933 /* Assets.xcassets in Resources */,
@@ -436,6 +443,7 @@
 				F62527A120BF57F3006475AC /* Sighting.swift in Sources */,
 				F62527A220BF57F3006475AC /* HomeViewController.swift in Sources */,
 				E39B40F120C486E20037EAEA /* InitialNavigationController.swift in Sources */,
+				F61511B820D97A21006A4FB3 /* emptyHistoryView.swift in Sources */,
 				F62527A320BF57F3006475AC /* MainUITabBarController.swift in Sources */,
 				F61511B220D82B24006A4FB3 /* LabeledOutlineTextView.swift in Sources */,
 				F62527A420BF57F3006475AC /* DetailsFormViewController.swift in Sources */,

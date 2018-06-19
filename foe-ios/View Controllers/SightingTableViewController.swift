@@ -11,15 +11,15 @@ import GooglePlaces
 
 class SightingTableViewController: UITableViewController {
     
-    var statusBarShouldBeHidden = false
-    
     override var prefersStatusBarHidden: Bool {
-        return statusBarShouldBeHidden
+        return statusBarHidden
     }
     
     //MARK: Outlets
     @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var sightingCountLabel: UILabel!
     var activeCell = false
+    var isLoaded = false
     
     var sightings = [Sighting]()
     
@@ -63,7 +63,15 @@ class SightingTableViewController: UITableViewController {
         sighting_2.setHabitat(habitat: "Garden")
         sighting_2.setWeather(weather: "partly_cloudy")
         
-        sightings += [exampleSighting, sighting_2, exampleSighting, sighting_2, exampleSighting]
+        sightings = [exampleSighting, sighting_2, exampleSighting, sighting_2, exampleSighting]
+        isLoaded = true
+        self.tableView.isScrollEnabled = true
+        sightingCountLabel.text = "\(sightings.count) sightings"
+        
+        if (sightings.count == 0) {
+            renderEmptyState()
+        }
+        
         tableView.reloadData()
     }
     
@@ -72,10 +80,14 @@ class SightingTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (!isLoaded) {
+             return
+        }
+        
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SightingDetailViewController") as! SightingDetailViewController
         
         controller.sightingModel = sightings[indexPath.row]
-        statusBarShouldBeHidden = true
+        statusBarHidden = true
         UIView.animate(withDuration: 0.25) {
             self.setNeedsStatusBarAppearanceUpdate()
         }
@@ -83,20 +95,30 @@ class SightingTableViewController: UITableViewController {
         self.present(controller, animated: true, completion: nil)
         
     }
-
+    
+    func renderEmptyState() {
+        self.tableView.backgroundView = emptyHistoryView()
+        sightingCountLabel.text = "No sightings"
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        UIView.animate(withDuration: 0.25) {
+            statusBarHidden = false
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         self.tableView.delaysContentTouches = false
+        self.tableView.isScrollEnabled = false
+        
+        //load placeholder cells for to improve perceived responsiveness
+        sightings += [Sighting(), Sighting()]
+
 
         loadStaticPlace()
-
-        print("work")
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -120,12 +142,19 @@ class SightingTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellIdentifier = "SightingTableViewCell"
+        let placeholderIdentifier = "SightingTableViewPlaceholderCell"
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SightingTableViewCell else {
             fatalError("dequeued cell is not an instance of SightingTableViewCell")
         }
         
+        let placeholder = tableView.dequeueReusableCell(withIdentifier: placeholderIdentifier, for: indexPath)
+        
         let sighting = sightings[indexPath.row]
+        
+        if (!self.isLoaded) {
+            return placeholder
+        }
         
         cell.locationLabel.text = sighting.getLocationName()
         cell.photoImageView.image = sighting.getImage()

@@ -11,6 +11,7 @@ import UIKit
 class SubmissionNavigationController: UINavigationController {
 
     var sighting = Sighting()
+    public var barStyle : UIStatusBarStyle = .lightContent
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +32,18 @@ class SubmissionNavigationController: UINavigationController {
         self.sighting = sighting
     }
     
+    func setStatusBartoDefault() {
+        barStyle = .default
+        setNeedsStatusBarAppearanceUpdate()
+    }
+    
+    func setStatusBartoLight() {
+        barStyle = .lightContent
+        setNeedsStatusBarAppearanceUpdate()
+    }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        return barStyle
     }
 
     /*

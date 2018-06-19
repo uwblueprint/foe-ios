@@ -19,10 +19,6 @@ class SpeciesSelectionViewController: UIViewController {
     var partsButtons = [UIButton]()
     var pickers = [[NosePickerItem]]()
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .default
-    }
-    
     func initializePickers() {
         let easternImageNames = [
             "bombus_affinis",
@@ -88,6 +84,7 @@ class SpeciesSelectionViewController: UIViewController {
         
         let navController = self.navigationController as! SubmissionNavigationController
         sighting = navController.getSighting()
+        
         
         //add buttons and set initial state to face
         self.partsButtons.append(easternButton)
