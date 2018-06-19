@@ -639,13 +639,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACq-Oz-o5D">
-                                <rect key="frame" x="40" y="523.5" width="295" height="54"/>
+                                <rect key="frame" x="40" y="539.5" width="295" height="54"/>
                                 <color key="backgroundColor" red="0.1176470588" green="0.75294117650000003" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="V4e-Fr-CVA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
-                                <state key="normal" title="Sign in with Email">
+                                <state key="normal" title="Sign in">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -654,10 +654,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zeG-Qn-AXA">
-                                <rect key="frame" x="40" y="593" width="295" height="34"/>
+                                <rect key="frame" x="40" y="609" width="295" height="34"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
-                                <state key="normal" title="Sign up with Email">
-                                    <color key="titleColor" red="0.1176470588" green="0.75294117650000003" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Create an account">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="signupTouchedUpInside:" destination="DFB-7n-Ymh" eventType="touchUpInside" id="LIH-OS-0K5"/>
@@ -670,26 +670,26 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-transparent-icon" translatesAutoresizingMaskIntoConstraints="NO" id="fT0-wP-P03" userLabel="logoImageView">
-                                <rect key="frame" x="158.5" y="114" width="58" height="58"/>
+                                <rect key="frame" x="158.5" y="130" width="58" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="58" id="Y3g-aW-jcx"/>
                                     <constraint firstAttribute="height" constant="58" id="wSb-DT-7rv"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friends of Earth Canada presents" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viF-hH-xEN">
-                                <rect key="frame" x="94.5" y="196" width="187.5" height="16.5"/>
+                                <rect key="frame" x="94.5" y="212" width="187.5" height="16.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="12"/>
                                 <color key="textColor" red="0.50980392156862742" green="0.50980392156862742" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Great Canadian Bumblebee Count" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SPG-mz-YjO" userLabel="titleLabel">
-                                <rect key="frame" x="40" y="220.5" width="295" height="55"/>
+                                <rect key="frame" x="40" y="236.5" width="295" height="55"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
                                 <color key="textColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HD2-sz-I0r" userLabel="nameInput" customClass="LabeledOutlineTextView" customModule="foe_ios" customModuleProvider="target">
-                                <rect key="frame" x="40" y="339.5" width="295" height="60"/>
+                                <rect key="frame" x="40" y="355.5" width="295" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="oNS-91-qiG"/>
@@ -705,7 +705,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SlL-2z-vn8" userLabel="passwordInput" customClass="LabeledOutlineTextView" customModule="foe_ios" customModuleProvider="target">
-                                <rect key="frame" x="40" y="423.5" width="295" height="60"/>
+                                <rect key="frame" x="40" y="439.5" width="295" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Elg-n3-dWd"/>
@@ -728,7 +728,7 @@
                             <constraint firstItem="SPG-mz-YjO" firstAttribute="centerX" secondItem="t05-tb-3Hg" secondAttribute="centerX" id="Cfy-Hh-c26"/>
                             <constraint firstItem="ACq-Oz-o5D" firstAttribute="leading" secondItem="t05-tb-3Hg" secondAttribute="leading" constant="40" id="E4r-Bu-bMe"/>
                             <constraint firstItem="zeG-Qn-AXA" firstAttribute="width" secondItem="XOu-5G-2PV" secondAttribute="width" constant="-80" id="KiT-z3-c7V"/>
-                            <constraint firstItem="t05-tb-3Hg" firstAttribute="bottom" secondItem="zeG-Qn-AXA" secondAttribute="bottom" constant="40" id="RiL-1Q-yev"/>
+                            <constraint firstItem="t05-tb-3Hg" firstAttribute="bottom" secondItem="zeG-Qn-AXA" secondAttribute="bottom" constant="24" id="RiL-1Q-yev"/>
                             <constraint firstItem="ACq-Oz-o5D" firstAttribute="width" secondItem="XOu-5G-2PV" secondAttribute="width" constant="-80" id="XpF-JG-iFv"/>
                             <constraint firstItem="HD2-sz-I0r" firstAttribute="leading" secondItem="t05-tb-3Hg" secondAttribute="leading" constant="40" id="Y1i-I2-5ot"/>
                             <constraint firstItem="viF-hH-xEN" firstAttribute="top" secondItem="fT0-wP-P03" secondAttribute="bottom" constant="24" id="abc-JW-evx"/>
@@ -771,14 +771,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tWh-rY-Y9m">
-                                <rect key="frame" x="40" y="44" width="131" height="28"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create an Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tWh-rY-Y9m">
+                                <rect key="frame" x="40" y="44" width="174" height="28"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKf-Sq-4GA" userLabel="nameInput" customClass="LabeledOutlineTextView" customModule="foe_ios" customModuleProvider="target">
-                                <rect key="frame" x="40" y="92" width="295" height="60"/>
+                                <rect key="frame" x="40" y="112" width="295" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="4yZ-Tb-hmS"/>
@@ -793,7 +793,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VHW-MF-OJ6" userLabel="emailInput" customClass="LabeledOutlineTextView" customModule="foe_ios" customModuleProvider="target">
-                                <rect key="frame" x="40" y="176" width="295" height="60"/>
+                                <rect key="frame" x="40" y="196" width="295" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="vcQ-Pq-dSm"/>
@@ -808,7 +808,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRz-62-5lf" userLabel="emailInput" customClass="LabeledOutlineTextView" customModule="foe_ios" customModuleProvider="target">
-                                <rect key="frame" x="40" y="260" width="295" height="60"/>
+                                <rect key="frame" x="40" y="280" width="295" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="hEu-9A-IF9"/>
@@ -824,7 +824,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4y-4f-b5F" userLabel="emailInput" customClass="LabeledOutlineTextView" customModule="foe_ios" customModuleProvider="target">
-                                <rect key="frame" x="40" y="344" width="295" height="60"/>
+                                <rect key="frame" x="40" y="364" width="295" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Xyd-4g-aw1"/>
@@ -866,6 +866,14 @@
                                     <action selector="handleSightingCloseButton:" destination="Lld-jF-kvC" eventType="touchUpInside" id="oCF-hU-rza"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHx-N3-tsK">
+                                <rect key="frame" x="40" y="524" width="295" height="33"/>
+                                <string key="text">By signing up, I agree to the terms and conditions
+and EULA Agreement.</string>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -876,15 +884,18 @@
                             <constraint firstItem="kRz-62-5lf" firstAttribute="top" secondItem="VHW-MF-OJ6" secondAttribute="bottom" constant="24" id="Ejt-lh-Dcv"/>
                             <constraint firstItem="LKf-Sq-4GA" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="JHQ-5y-1Z6"/>
                             <constraint firstItem="kRz-62-5lf" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="MbZ-cy-uO6"/>
-                            <constraint firstItem="LKf-Sq-4GA" firstAttribute="top" secondItem="tWh-rY-Y9m" secondAttribute="bottom" constant="20" id="NBS-14-X4H"/>
+                            <constraint firstItem="LKf-Sq-4GA" firstAttribute="top" secondItem="tWh-rY-Y9m" secondAttribute="bottom" constant="40" id="NBS-14-X4H"/>
                             <constraint firstItem="rLp-SM-LsY" firstAttribute="trailing" secondItem="LKf-Sq-4GA" secondAttribute="trailing" id="Qkh-7L-Civ"/>
                             <constraint firstItem="tWh-rY-Y9m" firstAttribute="top" secondItem="Ndh-Fb-c7o" secondAttribute="bottom" constant="24" id="UNh-6G-rMg"/>
                             <constraint firstItem="tWh-rY-Y9m" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="Vqd-xw-JJq"/>
+                            <constraint firstItem="iHx-N3-tsK" firstAttribute="bottom" secondItem="5uC-wr-1kI" secondAttribute="top" constant="-24" id="iYg-xI-5w4"/>
                             <constraint firstItem="rLp-SM-LsY" firstAttribute="centerY" secondItem="tWh-rY-Y9m" secondAttribute="centerY" id="jDh-6Y-xkw"/>
+                            <constraint firstItem="iHx-N3-tsK" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="jcB-Hn-1gL"/>
                             <constraint firstItem="kRz-62-5lf" firstAttribute="width" secondItem="5zK-pt-Hse" secondAttribute="width" constant="-80" id="jg7-4U-RSC"/>
                             <constraint firstItem="w4y-4f-b5F" firstAttribute="top" secondItem="kRz-62-5lf" secondAttribute="bottom" constant="24" id="neQ-SA-F1F"/>
                             <constraint firstItem="5uC-wr-1kI" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="pSt-Vk-d34"/>
                             <constraint firstItem="VHW-MF-OJ6" firstAttribute="top" secondItem="LKf-Sq-4GA" secondAttribute="bottom" constant="24" id="qas-KU-yO0"/>
+                            <constraint firstItem="iHx-N3-tsK" firstAttribute="width" secondItem="5zK-pt-Hse" secondAttribute="width" constant="-80" id="sK9-5Q-dlV"/>
                             <constraint firstItem="pwv-8M-CBi" firstAttribute="top" secondItem="5uC-wr-1kI" secondAttribute="bottom" constant="32" id="v6N-qQ-fl2"/>
                             <constraint firstItem="VHW-MF-OJ6" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="wWt-gX-YJz"/>
                             <constraint firstItem="5uC-wr-1kI" firstAttribute="width" secondItem="5zK-pt-Hse" secondAttribute="width" constant="-80" id="y5z-ZU-Ldc"/>
