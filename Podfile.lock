@@ -21,6 +21,16 @@ DEPENDENCIES:
   - GooglePlaces
   - SwiftKeychainWrapper (~> 3.0.1)
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - Bolts
+    - FBSDKCoreKit
+    - FBSDKLoginKit
+    - GoogleMaps
+    - GooglePlaces
+    - SwiftKeychainWrapper
+
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
@@ -32,4 +42,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 5957b96c45c2a1856a3187a7a7a43c893599dd69
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.5.0
