@@ -10,76 +10,78 @@ import UIKit
 import Alamofire
 import SwiftKeychainWrapper
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController {
 
     var frameView : UIView!
     var activeTextField : UITextField?
-    let center: NotificationCenter = NotificationCenter.default
+    var emailTextField: UITextField?
+    var passwordTextField: UITextField?
+    @IBOutlet weak var skyImage: UIImageView!
+    
+    @IBOutlet weak var emailTextView: LabeledOutlineTextView!
+    @IBOutlet weak var passwordTextView: LabeledOutlineTextView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for item in [emailTextField, passwordTextField] {
-            let textField = item as UITextField?
-            textField!.delegate = self
-        }
+        emailTextField = emailTextView.getTextField()
+        passwordTextField = passwordTextView.getTextField()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidChange(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidChange(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidChange(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         renderUIButtons()
-        setupKeyboardNotificationCenter()
+        
         self.hideKeyboardWhenTappedAround()
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        activeTextField = textField
+    override func viewDidAppear(_ animated: Bool) {
+        animateSkyBackground()
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        textField.layoutIfNeeded()
-        
-        if (activeTextField == emailTextField) {
-            passwordTextField.becomeFirstResponder()
-        }
-        
-        return false
-    }
-    
-    
-    func setupKeyboardNotificationCenter() {
-        center.addObserver(self, selector: #selector(keyboardDidShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        center.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-    }
-    
-    func keyboardDidShow(notification:NSNotification) {
-        let info : NSDictionary = notification.userInfo! as NSDictionary
-        let keyboardSize = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let keyboardY = self.view.bounds.height - keyboardSize.height
-        let padding: CGFloat = 100
-        let activeTextFieldY : CGFloat! = self.activeTextField?.frame.origin.y
-        
-        if ((self.view.frame.origin.y >= 0.0) && (activeTextFieldY > keyboardY - padding)) {
-            UIView.animate(withDuration: 0.25, delay: 0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
-                print("animate")
-                self.view.frame = CGRect(x: 0, y: self.view.frame.origin.y - (activeTextFieldY! - (keyboardY - padding)), width: self.view.bounds.width, height: self.view.bounds.height)
-            }, completion: nil)
-        }
-        else {
-            UIView.animate(withDuration: 0.25, delay: 0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
-                self.view.frame.origin.y = 0;
-            }, completion: nil)
-        }
-    }
-    
-    func keyboardWillHide(notification:NSNotification) {
-        UIView.animate(withDuration: 0.25, delay: 0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
-            self.view.frame.origin.y = 0;
+    func animateSkyBackground() {
+        let bg_2 = UIImageView()
+        bg_2.frame = CGRect(x:-self.view.bounds.width, y: 0, width: self.view.bounds.width*2, height: 175)
+        bg_2.image = UIImage(named:"clouds-repeating")
+        bg_2.contentMode = UIViewContentMode.scaleAspectFit
+        self.view.addSubview(bg_2)
+        self.view.sendSubview(toBack: bg_2)
+        UIView.animate(withDuration: 45.0, delay: 0, options: [.curveLinear, .repeat], animations: {
+            self.skyImage.frame.origin.x -= self.view.bounds.width
+            bg_2.frame.origin.x -= self.view.bounds.width
+            
         }, completion: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+    }
+    
+    @objc func keyboardDidChange(notification: Notification) {
+        if let userInfo = notification.userInfo as? Dictionary<String,AnyObject> {
+            let frame = userInfo[UIKeyboardFrameBeginUserInfoKey]
+            let keyboardRect = frame?.cgRectValue
+            let keyboardHeight = keyboardRect!.height
+            
+            if (notification.name == NSNotification.Name.UIKeyboardWillShow || notification.name == NSNotification.Name.UIKeyboardWillChangeFrame) {
+                
+                self.view.frame.origin.y = -keyboardHeight
+            }
+            else {
+                self.view.frame.origin.y = 0
+            }
+            
+            self.view.layoutIfNeeded()
+        }
     }
     
     // render button corners and shadow
     func renderUIButtons() {
         
-        for item in [signInButton, facebookButton] {
+        for item in [signInButton] {
             let button = item as UIButton?
             button!.layer.cornerRadius = button!.frame.height/2
             
@@ -94,16 +96,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         
     }
+    
     // TODO: validation of inputs: email has domain, password must be >= 8 chars
-
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var facebookButton: UIButton!
-    @IBOutlet weak var emailPrompt: UILabel!
-    @IBOutlet weak var emailOutline: UIView!
-    @IBOutlet weak var passwordPrompt: UILabel!
-    @IBOutlet weak var passwordOutline: UIView!
     
     @IBAction func loginButtonClicked(_ sender: Any) {
         postLogin()
@@ -114,45 +110,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         alert.show(animated: true)
     }
     
-    func renderInputActiveState(label: UILabel, outline: UIView, isActive: Bool) {
-        let color : UIColor = isActive ? UIColor(red:0.12, green:0.75, blue:0.39, alpha:1.0) : UIColor(red:0.88, green:0.88, blue:0.88, alpha:1.0)
-        
-        UIView.transition(with: label, duration: 0.2, options: .transitionCrossDissolve, animations: {
-            label.textColor = color
-        }, completion: nil)
-        
-        UIView.transition(with: outline, duration: 0.2, options: .transitionCrossDissolve, animations: {
-            outline.backgroundColor = color
-        }, completion: nil)
-    }
-    
     @IBAction func signupTouchedUpInside(_ sender: Any) {
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignupViewController") as! SignupViewController
         self.present(controller, animated: true, completion: nil)
     }
     
-    @IBAction func emailEditingDidBegin(_ sender: Any) {
-        renderInputActiveState(label: emailPrompt, outline: emailOutline, isActive: true)
-    }
-    
-    @IBAction func emailEditingDidEnd(_ sender: Any) {
-        renderInputActiveState(label: emailPrompt, outline: emailOutline, isActive: false)
-    }
-    
-    @IBAction func passwordEditingDidBegin(_ sender: Any) {
-        renderInputActiveState(label: passwordPrompt, outline: passwordOutline, isActive: true)
-    }
-    
-    @IBAction func passwordEditingDidEnd(_ sender: Any) {
-        renderInputActiveState(label: passwordPrompt, outline: passwordOutline, isActive: false)
-    }
-    
-    
-    
     private func postLogin() {
         let parameters: Parameters = [
-            "email": emailTextField.text!,
-            "password": passwordTextField.text!
+            "email": emailTextField!.text!,
+            "password": passwordTextField!.text!
         ]
 
         Alamofire.request(
@@ -166,7 +132,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     print("Successfully logged in")
                     ServerGateway.rotateTokens(response)
                     self.goToHome()
-                case .failure(let error):
+                case .failure(_):
                     self.showLoginError(msg: "A server problem was encountered, please try again.")
                     print("Validation failure on login")
                     // TODO: handle errors
@@ -174,9 +140,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        center.removeObserver(self, name: .UIKeyboardWillShow , object: nil)
-    }
     func goToHome() {
         self.dismiss(animated: true, completion: nil)
     }
