@@ -18,12 +18,12 @@ class SightingTableViewCell: UITableViewCell {
     @IBOutlet weak var sightingCellView: UIView!
     @IBOutlet weak var paddedCellWidth: NSLayoutConstraint!
     
+    @IBInspectable var hasGradient : Bool = true
+    
     var disabledAnimation = false
     let kHighlightedFactor: CGFloat = 0.96
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    func renderGradient() {
         let gradientView = UIView(frame: photoImageView.frame)
         
         let gradient = CAGradientLayer()
@@ -36,6 +36,13 @@ class SightingTableViewCell: UITableViewCell {
         gradientView.layer.insertSublayer(gradient, at: 0)
         photoImageView.addSubview(gradientView)
         photoImageView.bringSubview(toFront: gradientView)
+    }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        if (hasGradient){
+            renderGradient()
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

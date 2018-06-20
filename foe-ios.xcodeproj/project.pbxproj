@@ -13,6 +13,11 @@
 		E39B40EB20C2E84B0037EAEA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B40EA20C2E84B0037EAEA /* LoginViewController.swift */; };
 		E39B40F120C486E20037EAEA /* InitialNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B40F020C486E10037EAEA /* InitialNavigationController.swift */; };
 		E39B40F320C6F9A60037EAEA /* ServerGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B40F220C6F9A60037EAEA /* ServerGateway.swift */; };
+		F61511B020D82963006A4FB3 /* LabeledOutlineTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F61511AF20D82963006A4FB3 /* LabeledOutlineTextView.xib */; };
+		F61511B220D82B24006A4FB3 /* LabeledOutlineTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61511B120D82B24006A4FB3 /* LabeledOutlineTextView.swift */; };
+		F61511B420D83C88006A4FB3 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61511B320D83C88006A4FB3 /* SignupViewController.swift */; };
+		F61511B620D97815006A4FB3 /* emptyHistoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F61511B520D97814006A4FB3 /* emptyHistoryView.xib */; };
+		F61511B820D97A21006A4FB3 /* emptyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61511B720D97A21006A4FB3 /* emptyHistoryView.swift */; };
 		F625279F20BF57F3006475AC /* SightingHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326E120BF5708004933FB /* SightingHeaderTableViewCell.swift */; };
 		F62527A020BF57F3006475AC /* SightingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326E220BF5708004933FB /* SightingTableViewCell.swift */; };
 		F62527A120BF57F3006475AC /* Sighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326D020BF5708004933FB /* Sighting.swift */; };
@@ -30,7 +35,6 @@
 		F62527AD20BF57F3006475AC /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326D620BF5708004933FB /* Modal.swift */; };
 		F62527AE20BF57F3006475AC /* CustomModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326D720BF5708004933FB /* CustomModal.swift */; };
 		F62527B020BF738D006475AC /* SightingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62527AF20BF738D006475AC /* SightingDetailViewController.swift */; };
-		F67D397620916FD700311545 /* FBSDKLoginKit in Resources */ = {isa = PBXBuildFile; fileRef = F67D397520916FD700311545 /* FBSDKLoginKit */; };
 		F6A733F020CE206300450D84 /* SpeciesMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A733EF20CE206300450D84 /* SpeciesMap.swift */; };
 		F6B99BE9204899B00033939D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B99BE8204899B00033939D /* Constants.swift */; };
 		F6C90B892009134A00039933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C90B882009134A00039933 /* AppDelegate.swift */; };
@@ -61,6 +65,11 @@
 		E39B40EA20C2E84B0037EAEA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E39B40F020C486E10037EAEA /* InitialNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialNavigationController.swift; sourceTree = "<group>"; };
 		E39B40F220C6F9A60037EAEA /* ServerGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerGateway.swift; sourceTree = "<group>"; };
+		F61511AF20D82963006A4FB3 /* LabeledOutlineTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabeledOutlineTextView.xib; sourceTree = "<group>"; };
+		F61511B120D82B24006A4FB3 /* LabeledOutlineTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledOutlineTextView.swift; sourceTree = "<group>"; };
+		F61511B320D83C88006A4FB3 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		F61511B520D97814006A4FB3 /* emptyHistoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = emptyHistoryView.xib; sourceTree = "<group>"; };
+		F61511B720D97A21006A4FB3 /* emptyHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = emptyHistoryView.swift; sourceTree = "<group>"; };
 		F62527AF20BF738D006475AC /* SightingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingDetailViewController.swift; sourceTree = "<group>"; };
 		F66326D020BF5708004933FB /* Sighting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sighting.swift; sourceTree = "<group>"; };
 		F66326D220BF5708004933FB /* NosePickerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NosePickerItem.swift; sourceTree = "<group>"; };
@@ -78,7 +87,6 @@
 		F66326DF20BF5708004933FB /* SightingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingTableViewController.swift; sourceTree = "<group>"; };
 		F66326E120BF5708004933FB /* SightingHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		F66326E220BF5708004933FB /* SightingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingTableViewCell.swift; sourceTree = "<group>"; };
-		F67D397520916FD700311545 /* FBSDKLoginKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FBSDKLoginKit; path = Pods/FBSDKLoginKit; sourceTree = "<group>"; };
 		F6A733EF20CE206300450D84 /* SpeciesMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesMap.swift; sourceTree = "<group>"; };
 		F6B99BE8204899B00033939D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F6C90B852009134A00039933 /* foe-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "foe-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,7 +132,6 @@
 		D33A0CA7210E3792AD187707 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F67D397520916FD700311545 /* FBSDKLoginKit */,
 				830A560FEB860970E861BB38 /* Pods-foe-ios.debug.xcconfig */,
 				1C83638E0486B243AC5E60A9 /* Pods-foe-ios.release.xcconfig */,
 				59E890187ACD2297CE725851 /* Pods-foe-iosTests.debug.xcconfig */,
@@ -151,6 +158,10 @@
 				F66326D520BF5708004933FB /* CardView.swift */,
 				F66326D620BF5708004933FB /* Modal.swift */,
 				F66326D720BF5708004933FB /* CustomModal.swift */,
+				F61511AF20D82963006A4FB3 /* LabeledOutlineTextView.xib */,
+				F61511B120D82B24006A4FB3 /* LabeledOutlineTextView.swift */,
+				F61511B520D97814006A4FB3 /* emptyHistoryView.xib */,
+				F61511B720D97A21006A4FB3 /* emptyHistoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -168,6 +179,7 @@
 				F66326DF20BF5708004933FB /* SightingTableViewController.swift */,
 				F62527AF20BF738D006475AC /* SightingDetailViewController.swift */,
 				E39B40F020C486E10037EAEA /* InitialNavigationController.swift */,
+				F61511B320D83C88006A4FB3 /* SignupViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -260,8 +272,6 @@
 				F6C90B952009134A00039933 /* Sources */,
 				F6C90B962009134A00039933 /* Frameworks */,
 				F6C90B972009134A00039933 /* Resources */,
-				CFDC4C64B46051BBC0C1DE9B /* [CP] Embed Pods Frameworks */,
-				B86B24B312D66703F27AEDA8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -319,8 +329,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F67D397620916FD700311545 /* FBSDKLoginKit in Resources */,
+				F61511B620D97815006A4FB3 /* emptyHistoryView.xib in Resources */,
 				F6C90B932009134A00039933 /* LaunchScreen.storyboard in Resources */,
+				F61511B020D82963006A4FB3 /* LabeledOutlineTextView.xib in Resources */,
 				F6C90B902009134A00039933 /* Assets.xcassets in Resources */,
 				F6C90B8E2009134A00039933 /* Main.storyboard in Resources */,
 			);
@@ -344,17 +355,11 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-foe-ios/Pods-foe-ios-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,41 +396,11 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-foe-ios/Pods-foe-ios-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B86B24B312D66703F27AEDA8 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-foe-iosTests/Pods-foe-iosTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CFDC4C64B46051BBC0C1DE9B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-foe-iosTests/Pods-foe-iosTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E453CA4C281A7EA35D76E669 /* [CP] Check Pods Manifest.lock */ = {
@@ -458,7 +433,9 @@
 				F62527A120BF57F3006475AC /* Sighting.swift in Sources */,
 				F62527A220BF57F3006475AC /* HomeViewController.swift in Sources */,
 				E39B40F120C486E20037EAEA /* InitialNavigationController.swift in Sources */,
+				F61511B820D97A21006A4FB3 /* emptyHistoryView.swift in Sources */,
 				F62527A320BF57F3006475AC /* MainUITabBarController.swift in Sources */,
+				F61511B220D82B24006A4FB3 /* LabeledOutlineTextView.swift in Sources */,
 				F62527A420BF57F3006475AC /* DetailsFormViewController.swift in Sources */,
 				F62527A520BF57F3006475AC /* SpeciesSelectionViewController.swift in Sources */,
 				F62527A620BF57F3006475AC /* CaptureViewController.swift in Sources */,
@@ -471,6 +448,7 @@
 				F6A733F020CE206300450D84 /* SpeciesMap.swift in Sources */,
 				F62527AB20BF57F3006475AC /* NosePicker.swift in Sources */,
 				F62527AC20BF57F3006475AC /* CardView.swift in Sources */,
+				F61511B420D83C88006A4FB3 /* SignupViewController.swift in Sources */,
 				F62527AD20BF57F3006475AC /* Modal.swift in Sources */,
 				E32D9B6020D7F42700D7E1A7 /* Util.swift in Sources */,
 				F62527AE20BF57F3006475AC /* CustomModal.swift in Sources */,

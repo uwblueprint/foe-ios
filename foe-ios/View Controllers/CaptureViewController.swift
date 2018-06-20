@@ -63,6 +63,8 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate,
 
     override func viewWillAppear(_ animated: Bool) {
         let navController = self.navigationController as! SubmissionNavigationController
+        super.viewWillAppear(animated)
+        navController.setStatusBartoLight()
         navController.navigationBar.barTintColor = UIColor.black
         navController.navigationBar.isTranslucent = false
         navController.navigationBar.tintColor = UIColor(red:0.12, green:0.75, blue:0.39, alpha:1.0)
@@ -81,7 +83,7 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate,
         let navController = self.navigationController as! SubmissionNavigationController
         navController.setSighting(sighting: sighting!)
         super.viewWillDisappear(animated)
-        UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
+        navController.setStatusBartoDefault()
     }
 
     override func didReceiveMemoryWarning() {

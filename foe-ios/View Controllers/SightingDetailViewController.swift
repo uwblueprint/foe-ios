@@ -27,10 +27,8 @@ class SightingDetailViewController: UIViewController {
     @IBOutlet weak var closeButton: UIButton!
     
     
-    var statusBarShouldBeHidden = true
-    
     override var prefersStatusBarHidden: Bool {
-        return statusBarShouldBeHidden
+        return statusBarHidden
     }
     
     override func viewDidLayoutSubviews() {

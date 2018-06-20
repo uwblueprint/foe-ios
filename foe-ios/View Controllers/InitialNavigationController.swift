@@ -22,13 +22,6 @@ class InitialNavigationController: UINavigationController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "loginViewController")
         self.present(controller, animated: true, completion: nil)
-        
-        // TODO(dinah): present login controller without storyboard once mock
-        // elements are removed
-        /*
-         let loginViewController = LoginViewController()
-         present(loginViewController, animated: true, completion: nil)
-         */
     }
 
 }
