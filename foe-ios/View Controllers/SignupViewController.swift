@@ -17,6 +17,7 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var reenteredPasswordTextView: LabeledOutlineTextView!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var signupButton: UIButton!
+    @IBOutlet weak var errorLabel: UILabel!
     
     var tvs : [LabeledOutlineTextView] = []
     
@@ -42,11 +43,60 @@ class SignupViewController: UIViewController {
         signupButton.layer.shadowRadius = 6
     }
     
+    @objc func keyboardDidChange(notification: Notification) {
+        if let userInfo = notification.userInfo as? Dictionary<String,AnyObject> {
+            let frame = userInfo[UIKeyboardFrameBeginUserInfoKey]
+            let keyboardRect = frame?.cgRectValue
+            let keyboardHeight = keyboardRect!.height
+            
+            if (notification.name == NSNotification.Name.UIKeyboardWillShow || notification.name == NSNotification.Name.UIKeyboardWillChangeFrame) {
+                
+                var activeTextView : LabeledOutlineTextView?
+                let padding : CGFloat = 60
+                
+                //get active field
+                for item in tvs {
+                    if (item.isActive!) {
+                        activeTextView = item
+                        break
+                    }
+                }
+                
+                //test whether field.y overlaps keyboard
+                if (activeTextView!.frame.maxY + padding < self.view.frame.height - keyboardHeight) {
+                    print("\(activeTextView!.label!.text!) does not overlap")
+                }
+                else {
+                    print("\(activeTextView!.label!.text!) overlaps")
+                    let offset = activeTextView!.frame.maxY + padding - (self.view.frame.height - keyboardHeight)
+
+                    self.view.frame.origin.y = -offset
+                }
+                //if so, move the keyboard down
+                
+            }
+            else {
+                self.view.frame.origin.y = 0
+            }
+            
+            self.view.layoutIfNeeded()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         renderUI()
         tvs += [nameTextView, emailTextView, passwordTextView, reenteredPasswordTextView]
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidChange(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidChange(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidChange(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         // Do any additional setup after loading the view.
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,6 +106,34 @@ class SignupViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    func setError(msg: String, errorViews: [LabeledOutlineTextView]) {
+        errorLabel.text = msg
+        for item in errorViews {
+            let view = item as LabeledOutlineTextView
+            view.displayAsError()
+        }
+    }
+    
+    func resetErrors() {
+        errorLabel.text = ""
+        for item in [nameTextView, emailTextView, passwordTextView, reenteredPasswordTextView] {
+            let view = item as LabeledOutlineTextView?
+            view!.displayAsDefault()
+        }
+    }
+    
+    @IBAction func signupPressed(_ sender: Any) {
+        resetErrors()
+        
+        do {
+            let account = try SignupAccount(nameView: nameTextView, emailView: emailTextView, passwordView: passwordTextView, reenterPasswordView: reenteredPasswordTextView)
+        } catch let e as SignupError {
+            setError(msg: e.msg, errorViews: e.views)
+        } catch {}
+
+        
     }
     
     @IBAction func closeButtonTouchedUpInside(_ sender: Any) {

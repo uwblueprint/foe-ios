@@ -13,6 +13,7 @@
 		E39B40EB20C2E84B0037EAEA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B40EA20C2E84B0037EAEA /* LoginViewController.swift */; };
 		E39B40F120C486E20037EAEA /* InitialNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B40F020C486E10037EAEA /* InitialNavigationController.swift */; };
 		E39B40F320C6F9A60037EAEA /* ServerGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B40F220C6F9A60037EAEA /* ServerGateway.swift */; };
+		F6018BAC20DB50D5002A20E9 /* SignupAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6018BAB20DB50D5002A20E9 /* SignupAccount.swift */; };
 		F61511B020D82963006A4FB3 /* LabeledOutlineTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F61511AF20D82963006A4FB3 /* LabeledOutlineTextView.xib */; };
 		F61511B220D82B24006A4FB3 /* LabeledOutlineTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61511B120D82B24006A4FB3 /* LabeledOutlineTextView.swift */; };
 		F61511B420D83C88006A4FB3 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61511B320D83C88006A4FB3 /* SignupViewController.swift */; };
@@ -66,6 +67,7 @@
 		E39B40EA20C2E84B0037EAEA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E39B40F020C486E10037EAEA /* InitialNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialNavigationController.swift; sourceTree = "<group>"; };
 		E39B40F220C6F9A60037EAEA /* ServerGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerGateway.swift; sourceTree = "<group>"; };
+		F6018BAB20DB50D5002A20E9 /* SignupAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupAccount.swift; sourceTree = "<group>"; };
 		F61511AF20D82963006A4FB3 /* LabeledOutlineTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabeledOutlineTextView.xib; sourceTree = "<group>"; };
 		F61511B120D82B24006A4FB3 /* LabeledOutlineTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledOutlineTextView.swift; sourceTree = "<group>"; };
 		F61511B320D83C88006A4FB3 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			children = (
 				F66326D020BF5708004933FB /* Sighting.swift */,
 				F6A733EF20CE206300450D84 /* SpeciesMap.swift */,
+				F6018BAB20DB50D5002A20E9 /* SignupAccount.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				E32D9B6020D7F42700D7E1A7 /* Util.swift in Sources */,
 				F62527AE20BF57F3006475AC /* CustomModal.swift in Sources */,
 				E39B40F320C6F9A60037EAEA /* ServerGateway.swift in Sources */,
+				F6018BAC20DB50D5002A20E9 /* SignupAccount.swift in Sources */,
 				F6C90B892009134A00039933 /* AppDelegate.swift in Sources */,
 				F6B99BE9204899B00033939D /* Constants.swift in Sources */,
 			);

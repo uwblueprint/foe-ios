@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Bpu-Ik-TBV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DFB-7n-Ymh">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1029,13 +1029,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create an Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tWh-rY-Y9m">
-                                <rect key="frame" x="40" y="44" width="174" height="28"/>
+                                <rect key="frame" x="40" y="60" width="174" height="28"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKf-Sq-4GA" userLabel="nameInput" customClass="LabeledOutlineTextView" customModule="foe_ios" customModuleProvider="target">
-                                <rect key="frame" x="40" y="112" width="295" height="60"/>
+                                <rect key="frame" x="40" y="138" width="295" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="4yZ-Tb-hmS"/>
@@ -1050,7 +1050,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VHW-MF-OJ6" userLabel="emailInput" customClass="LabeledOutlineTextView" customModule="foe_ios" customModuleProvider="target">
-                                <rect key="frame" x="40" y="196" width="295" height="60"/>
+                                <rect key="frame" x="40" y="222" width="295" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="vcQ-Pq-dSm"/>
@@ -1065,7 +1065,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRz-62-5lf" userLabel="emailInput" customClass="LabeledOutlineTextView" customModule="foe_ios" customModuleProvider="target">
-                                <rect key="frame" x="40" y="280" width="295" height="60"/>
+                                <rect key="frame" x="40" y="306" width="295" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="hEu-9A-IF9"/>
@@ -1081,7 +1081,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4y-4f-b5F" userLabel="emailInput" customClass="LabeledOutlineTextView" customModule="foe_ios" customModuleProvider="target">
-                                <rect key="frame" x="40" y="364" width="295" height="60"/>
+                                <rect key="frame" x="40" y="390" width="295" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Xyd-4g-aw1"/>
@@ -1109,10 +1109,11 @@
                                 </state>
                                 <connections>
                                     <action selector="loginButtonClicked:" destination="DFB-7n-Ymh" eventType="touchUpInside" id="IFV-15-OkY"/>
+                                    <action selector="signupPressed:" destination="i7x-PC-SQr" eventType="touchUpInside" id="adS-PU-TZe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLp-SM-LsY">
-                                <rect key="frame" x="295" y="38" width="40" height="40"/>
+                                <rect key="frame" x="295" y="54" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Azd-hd-tYy"/>
                                     <constraint firstAttribute="width" constant="40" id="Q7G-qG-1sf"/>
@@ -1131,6 +1132,15 @@ and EULA Agreement.</string>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3DU-H2-eXD">
+                                <rect key="frame" x="40" y="106" width="295" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="npI-vf-Tru"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
+                                <color key="textColor" red="0.92156862745098034" green="0.3411764705882353" blue="0.3411764705882353" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1141,11 +1151,14 @@ and EULA Agreement.</string>
                             <constraint firstItem="kRz-62-5lf" firstAttribute="top" secondItem="VHW-MF-OJ6" secondAttribute="bottom" constant="24" id="Ejt-lh-Dcv"/>
                             <constraint firstItem="LKf-Sq-4GA" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="JHQ-5y-1Z6"/>
                             <constraint firstItem="kRz-62-5lf" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="MbZ-cy-uO6"/>
-                            <constraint firstItem="LKf-Sq-4GA" firstAttribute="top" secondItem="tWh-rY-Y9m" secondAttribute="bottom" constant="40" id="NBS-14-X4H"/>
+                            <constraint firstItem="3DU-H2-eXD" firstAttribute="width" secondItem="5zK-pt-Hse" secondAttribute="width" constant="-80" id="NNy-dT-jOz"/>
                             <constraint firstItem="rLp-SM-LsY" firstAttribute="trailing" secondItem="LKf-Sq-4GA" secondAttribute="trailing" id="Qkh-7L-Civ"/>
-                            <constraint firstItem="tWh-rY-Y9m" firstAttribute="top" secondItem="Ndh-Fb-c7o" secondAttribute="bottom" constant="24" id="UNh-6G-rMg"/>
+                            <constraint firstItem="tWh-rY-Y9m" firstAttribute="top" secondItem="Ndh-Fb-c7o" secondAttribute="bottom" constant="40" id="UNh-6G-rMg"/>
                             <constraint firstItem="tWh-rY-Y9m" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="Vqd-xw-JJq"/>
+                            <constraint firstItem="LKf-Sq-4GA" firstAttribute="top" secondItem="3DU-H2-eXD" secondAttribute="bottom" constant="12" id="X8H-HV-b8o"/>
                             <constraint firstItem="iHx-N3-tsK" firstAttribute="bottom" secondItem="5uC-wr-1kI" secondAttribute="top" constant="-24" id="iYg-xI-5w4"/>
+                            <constraint firstItem="3DU-H2-eXD" firstAttribute="top" secondItem="rLp-SM-LsY" secondAttribute="bottom" constant="12" id="isX-02-1oq"/>
+                            <constraint firstItem="3DU-H2-eXD" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="j8H-ze-JQt"/>
                             <constraint firstItem="rLp-SM-LsY" firstAttribute="centerY" secondItem="tWh-rY-Y9m" secondAttribute="centerY" id="jDh-6Y-xkw"/>
                             <constraint firstItem="iHx-N3-tsK" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="jcB-Hn-1gL"/>
                             <constraint firstItem="kRz-62-5lf" firstAttribute="width" secondItem="5zK-pt-Hse" secondAttribute="width" constant="-80" id="jg7-4U-RSC"/>
@@ -1160,9 +1173,10 @@ and EULA Agreement.</string>
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="rLp-SM-LsY" id="55n-o2-aCn"/>
-                        <outlet property="emailTextView" destination="kRz-62-5lf" id="mci-fR-Ul2"/>
+                        <outlet property="emailTextView" destination="VHW-MF-OJ6" id="UhF-xn-cIK"/>
+                        <outlet property="errorLabel" destination="3DU-H2-eXD" id="JHe-DG-xpI"/>
                         <outlet property="nameTextView" destination="LKf-Sq-4GA" id="vRg-Hk-jd8"/>
-                        <outlet property="passwordTextView" destination="w4y-4f-b5F" id="yyJ-y6-Hsu"/>
+                        <outlet property="passwordTextView" destination="kRz-62-5lf" id="jgF-fN-TTs"/>
                         <outlet property="reenteredPasswordTextView" destination="w4y-4f-b5F" id="IUM-iH-lzo"/>
                         <outlet property="signupButton" destination="5uC-wr-1kI" id="TLH-aW-Ael"/>
                     </connections>
