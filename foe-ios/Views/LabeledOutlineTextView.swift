@@ -126,7 +126,6 @@ import UIKit
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         isActive = false
-        print("done!!")
         activeTextField?.resignFirstResponder()
         renderInputActiveState(isActive: false)
     }

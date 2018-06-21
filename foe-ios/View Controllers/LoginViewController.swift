@@ -13,7 +13,6 @@ import SwiftKeychainWrapper
 class LoginViewController: UIViewController {
 
     var frameView : UIView!
-    var activeTextField : UITextField?
     var emailTextField: UITextField?
     var passwordTextField: UITextField?
     @IBOutlet weak var skyImage: UIImageView!
@@ -27,13 +26,15 @@ class LoginViewController: UIViewController {
         
         emailTextField = emailTextView.getTextField()
         passwordTextField = passwordTextView.getTextField()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidChange(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidChange(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidChange(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         renderUIButtons()
         
         self.hideKeyboardWhenTappedAround()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidChange(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidChange(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidChange(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -54,13 +55,15 @@ class LoginViewController: UIViewController {
         }, completion: nil)
     }
     
-    deinit {
+    override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
     
     @objc func keyboardDidChange(notification: Notification) {
+        var activeTextView : LabeledOutlineTextView?
+        
         if let userInfo = notification.userInfo as? Dictionary<String,AnyObject> {
             let frame = userInfo[UIKeyboardFrameBeginUserInfoKey]
             let keyboardRect = frame?.cgRectValue
@@ -68,10 +71,26 @@ class LoginViewController: UIViewController {
             
             if (notification.name == NSNotification.Name.UIKeyboardWillShow || notification.name == NSNotification.Name.UIKeyboardWillChangeFrame) {
                 
-                self.view.frame.origin.y = -keyboardHeight
+                let padding : CGFloat = 60
+                
+                //get active field
+                for item in [emailTextView, passwordTextView] {
+                    let view = item as LabeledOutlineTextView?
+                    if (view!.isActive!) {
+                        activeTextView = item
+                        break
+                    }
+                }
+                
+                //test whether field.y overlaps keyboard; if so, shift view up by offset
+                if (activeTextView!.frame.maxY + padding >= self.view.frame.height - keyboardHeight) {
+                    let offset = activeTextView!.frame.maxY + padding - (self.view.frame.height - keyboardHeight)
+                    self.view.frame.origin.y = -offset
+                }
             }
             else {
                 self.view.frame.origin.y = 0
+                activeTextView = nil
             }
             
             self.view.layoutIfNeeded()

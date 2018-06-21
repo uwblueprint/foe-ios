@@ -62,17 +62,12 @@ class SignupViewController: UIViewController {
                     }
                 }
                 
-                //test whether field.y overlaps keyboard
-                if (activeTextView!.frame.maxY + padding < self.view.frame.height - keyboardHeight) {
-                    print("\(activeTextView!.label!.text!) does not overlap")
-                }
-                else {
+                //test whether field.y overlaps keyboard; if so, shift view up by offset
+                if (activeTextView!.frame.maxY + padding >= self.view.frame.height - keyboardHeight) {
                     print("\(activeTextView!.label!.text!) overlaps")
                     let offset = activeTextView!.frame.maxY + padding - (self.view.frame.height - keyboardHeight)
-
                     self.view.frame.origin.y = -offset
                 }
-                //if so, move the keyboard down
                 
             }
             else {

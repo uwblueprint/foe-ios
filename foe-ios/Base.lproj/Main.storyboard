@@ -927,26 +927,26 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-transparent-icon" translatesAutoresizingMaskIntoConstraints="NO" id="fT0-wP-P03" userLabel="logoImageView">
-                                <rect key="frame" x="158.5" y="130" width="58" height="58"/>
+                                <rect key="frame" x="158.5" y="148" width="58" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="58" id="Y3g-aW-jcx"/>
                                     <constraint firstAttribute="height" constant="58" id="wSb-DT-7rv"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friends of Earth Canada presents" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viF-hH-xEN">
-                                <rect key="frame" x="94.5" y="212" width="187.5" height="16.5"/>
+                                <rect key="frame" x="94.5" y="230" width="187.5" height="16.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="12"/>
                                 <color key="textColor" red="0.50980392156862742" green="0.50980392156862742" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Great Canadian Bumblebee Count" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SPG-mz-YjO" userLabel="titleLabel">
-                                <rect key="frame" x="40" y="236.5" width="295" height="55"/>
+                                <rect key="frame" x="40" y="254.5" width="295" height="55"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
                                 <color key="textColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HD2-sz-I0r" userLabel="nameInput" customClass="LabeledOutlineTextView" customModule="foe_ios" customModuleProvider="target">
-                                <rect key="frame" x="40" y="355.5" width="295" height="60"/>
+                                <rect key="frame" x="40" y="373.5" width="295" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="oNS-91-qiG"/>
@@ -962,7 +962,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SlL-2z-vn8" userLabel="passwordInput" customClass="LabeledOutlineTextView" customModule="foe_ios" customModuleProvider="target">
-                                <rect key="frame" x="40" y="439.5" width="295" height="60"/>
+                                <rect key="frame" x="40" y="457.5" width="295" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Elg-n3-dWd"/>
@@ -985,6 +985,7 @@
                             <constraint firstItem="SPG-mz-YjO" firstAttribute="centerX" secondItem="t05-tb-3Hg" secondAttribute="centerX" id="Cfy-Hh-c26"/>
                             <constraint firstItem="ACq-Oz-o5D" firstAttribute="leading" secondItem="t05-tb-3Hg" secondAttribute="leading" constant="40" id="E4r-Bu-bMe"/>
                             <constraint firstItem="zeG-Qn-AXA" firstAttribute="width" secondItem="XOu-5G-2PV" secondAttribute="width" constant="-80" id="KiT-z3-c7V"/>
+                            <constraint firstItem="fT0-wP-P03" firstAttribute="top" secondItem="t05-tb-3Hg" secondAttribute="top" constant="128" id="Nep-UM-nIt"/>
                             <constraint firstItem="t05-tb-3Hg" firstAttribute="bottom" secondItem="zeG-Qn-AXA" secondAttribute="bottom" constant="24" id="RiL-1Q-yev"/>
                             <constraint firstItem="ACq-Oz-o5D" firstAttribute="width" secondItem="XOu-5G-2PV" secondAttribute="width" constant="-80" id="XpF-JG-iFv"/>
                             <constraint firstItem="HD2-sz-I0r" firstAttribute="leading" secondItem="t05-tb-3Hg" secondAttribute="leading" constant="40" id="Y1i-I2-5ot"/>
@@ -1000,7 +1001,6 @@
                             <constraint firstItem="SlL-2z-vn8" firstAttribute="top" secondItem="HD2-sz-I0r" secondAttribute="bottom" constant="24" id="mgE-VP-50W"/>
                             <constraint firstItem="fT0-wP-P03" firstAttribute="centerX" secondItem="t05-tb-3Hg" secondAttribute="centerX" id="r5o-On-WEe"/>
                             <constraint firstItem="SlL-2z-vn8" firstAttribute="width" secondItem="XOu-5G-2PV" secondAttribute="width" constant="-80" id="tX0-3R-XVZ"/>
-                            <constraint firstItem="ACq-Oz-o5D" firstAttribute="top" secondItem="SlL-2z-vn8" secondAttribute="bottom" constant="40" id="umV-MN-gYd"/>
                             <constraint firstItem="viF-hH-xEN" firstAttribute="centerX" secondItem="t05-tb-3Hg" secondAttribute="centerX" id="y7S-vB-zeW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="t05-tb-3Hg"/>
