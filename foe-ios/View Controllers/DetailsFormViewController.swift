@@ -73,8 +73,8 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
             commonNameLabel.text = "Unidentified"
             binomialNameLabel.text = "N/A"
         } else {
-            commonNameLabel.text = SpeciesMap.getCommonName(sighting: sighting!)
-            binomialNameLabel.text = snakecaseToCapitalized(sighting!.getSpecies())
+            commonNameLabel.text = SpeciesMap.getCommonName(sighting!.getSpecies())
+            binomialNameLabel.text = SpeciesMap.getDisplayBinomialName(sighting!.getSpecies())
         }
 
         setupHabitatPicker()
@@ -153,12 +153,6 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
 
     private func postToServer() {
-        let headers: HTTPHeaders = [
-            "access-token": KeychainWrapper.standard.string(forKey: "accessToken")!,
-            "token-type": "Bearer",
-            "client": KeychainWrapper.standard.string(forKey: "client")!,
-            "uid": KeychainWrapper.standard.string(forKey: "uid")!
-        ]
         let parameters: Parameters = [
             "sighting": sighting!.toDict()
         ]
@@ -167,7 +161,7 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
             url: "/sightings",
             method: .post,
             parameters: parameters,
-            success: {
+            success: { _ in
                 let alert = CustomModal(
                     title: "Buzz buzz!",
                     caption: "That's thank you in bee!",
@@ -177,7 +171,7 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
                 )
                 alert.show(animated: true)
             },
-            failure: {}
+            failure: { _ in }
         )
     }
 }

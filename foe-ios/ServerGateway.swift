@@ -4,8 +4,13 @@ import Alamofire
 import SwiftKeychainWrapper
 
 class ServerGateway {
-    static func authenticatedRequest(url: String, method: HTTPMethod, parameters: Parameters,
-                 success: @escaping () -> Void, failure: @escaping () -> ()) {
+    static func authenticatedRequest(
+        url: String,
+        method: HTTPMethod,
+        parameters: Parameters?,
+        success: @escaping (DataResponse<Any>) -> Void,
+        failure: @escaping (DataResponse<Any>) -> ()
+    ) {
         let headers: HTTPHeaders = [
             "access-token": KeychainWrapper.standard.string(forKey: "accessToken")!,
             "token-type": "Bearer",
@@ -28,12 +33,12 @@ class ServerGateway {
                     print("JSON: \(json)") // serialized json response
                 }
 
-                success()
+                success(response)
             case .failure(let error):
                 print("Validation failure on login")
                 print(error)
 
-                failure()
+                failure(response)
             }
         }
     }

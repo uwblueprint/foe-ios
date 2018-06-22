@@ -35,7 +35,6 @@
 		F62527AD20BF57F3006475AC /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326D620BF5708004933FB /* Modal.swift */; };
 		F62527AE20BF57F3006475AC /* CustomModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326D720BF5708004933FB /* CustomModal.swift */; };
 		F62527B020BF738D006475AC /* SightingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62527AF20BF738D006475AC /* SightingDetailViewController.swift */; };
-		F67D397620916FD700311545 /* FBSDKLoginKit in Resources */ = {isa = PBXBuildFile; fileRef = F67D397520916FD700311545 /* FBSDKLoginKit */; };
 		F6A733F020CE206300450D84 /* SpeciesMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A733EF20CE206300450D84 /* SpeciesMap.swift */; };
 		F6B99BE9204899B00033939D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B99BE8204899B00033939D /* Constants.swift */; };
 		F6C90B892009134A00039933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C90B882009134A00039933 /* AppDelegate.swift */; };
@@ -88,7 +87,6 @@
 		F66326DF20BF5708004933FB /* SightingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingTableViewController.swift; sourceTree = "<group>"; };
 		F66326E120BF5708004933FB /* SightingHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		F66326E220BF5708004933FB /* SightingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingTableViewCell.swift; sourceTree = "<group>"; };
-		F67D397520916FD700311545 /* FBSDKLoginKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FBSDKLoginKit; path = Pods/FBSDKLoginKit; sourceTree = "<group>"; };
 		F6A733EF20CE206300450D84 /* SpeciesMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesMap.swift; sourceTree = "<group>"; };
 		F6B99BE8204899B00033939D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F6C90B852009134A00039933 /* foe-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "foe-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,7 +132,6 @@
 		D33A0CA7210E3792AD187707 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F67D397520916FD700311545 /* FBSDKLoginKit */,
 				830A560FEB860970E861BB38 /* Pods-foe-ios.debug.xcconfig */,
 				1C83638E0486B243AC5E60A9 /* Pods-foe-ios.release.xcconfig */,
 				59E890187ACD2297CE725851 /* Pods-foe-iosTests.debug.xcconfig */,
@@ -332,7 +329,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F67D397620916FD700311545 /* FBSDKLoginKit in Resources */,
 				F61511B620D97815006A4FB3 /* emptyHistoryView.xib in Resources */,
 				F6C90B932009134A00039933 /* LaunchScreen.storyboard in Resources */,
 				F61511B020D82963006A4FB3 /* LabeledOutlineTextView.xib in Resources */,
@@ -359,17 +355,11 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-foe-ios/Pods-foe-ios-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

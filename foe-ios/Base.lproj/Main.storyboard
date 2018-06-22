@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Bpu-Ik-TBV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8iC-xj-q5R">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -436,7 +436,7 @@
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="partly-sunny" translatesAutoresizingMaskIntoConstraints="NO" id="DwN-5o-oYf" userLabel="weatherIconImage">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="partly-cloudy" translatesAutoresizingMaskIntoConstraints="NO" id="DwN-5o-oYf" userLabel="weatherIconImage">
                                 <rect key="frame" x="24" y="472" width="22" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="22" id="Zan-rh-j8U"/>
@@ -1109,6 +1109,7 @@
                                 </state>
                                 <connections>
                                     <action selector="loginButtonClicked:" destination="DFB-7n-Ymh" eventType="touchUpInside" id="IFV-15-OkY"/>
+                                    <action selector="signupButtonTouchedUpInside:" destination="i7x-PC-SQr" eventType="touchUpInside" id="jio-SY-Gn3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLp-SM-LsY">
@@ -1160,10 +1161,10 @@ and EULA Agreement.</string>
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="rLp-SM-LsY" id="55n-o2-aCn"/>
-                        <outlet property="emailTextView" destination="kRz-62-5lf" id="mci-fR-Ul2"/>
+                        <outlet property="emailTextView" destination="VHW-MF-OJ6" id="CMh-nT-vat"/>
                         <outlet property="nameTextView" destination="LKf-Sq-4GA" id="vRg-Hk-jd8"/>
-                        <outlet property="passwordTextView" destination="w4y-4f-b5F" id="yyJ-y6-Hsu"/>
-                        <outlet property="reenteredPasswordTextView" destination="w4y-4f-b5F" id="IUM-iH-lzo"/>
+                        <outlet property="passwordTextView" destination="kRz-62-5lf" id="Kq3-hk-Aqe"/>
+                        <outlet property="reenteredPasswordTextView" destination="w4y-4f-b5F" id="0Zy-Re-Sui"/>
                         <outlet property="signupButton" destination="5uC-wr-1kI" id="TLH-aW-Ael"/>
                     </connections>
                 </viewController>
@@ -1258,7 +1259,7 @@ and EULA Agreement.</string>
         <image name="location-icon-grey" width="12" height="20"/>
         <image name="logo-transparent-icon" width="59" height="58"/>
         <image name="me-icon" width="19" height="29"/>
-        <image name="partly-sunny" width="62" height="62"/>
+        <image name="partly-cloudy" width="62" height="62"/>
         <image name="placeholder-image" width="327" height="261"/>
     </resources>
 </document>
