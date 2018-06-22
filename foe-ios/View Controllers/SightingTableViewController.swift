@@ -12,6 +12,8 @@ import GooglePlaces
 
 class SightingTableViewController: UITableViewController {
 
+    var sightings = [Sighting]()
+    
     override var prefersStatusBarHidden: Bool {
         return statusBarHidden
     }
@@ -59,6 +61,7 @@ class SightingTableViewController: UITableViewController {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         self.tableView.delaysContentTouches = false
         self.tableView.isScrollEnabled = false
+        self.tableView.addSubview(self.pullToRefreshControl)
 
         //load placeholder cells for to improve perceived responsiveness
         sightings += [Sighting(), Sighting()]
@@ -131,8 +134,6 @@ class SightingTableViewController: UITableViewController {
         fetchSightings()
     }
 
-
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -177,15 +178,25 @@ class SightingTableViewController: UITableViewController {
                 let rawSightings = response.result.value as! Array<Any>
                 print("raw: \(rawSightings)")
 
-                self.sightings = rawSightings.map { json in
+                self.sightings = rawSightings.enumerated().map { (index, json) in
                     let dict = json as! NSDictionary
-                    return Sighting(json: dict as! [String: Any])
+                    let indexPath = IndexPath(item: index, section: 0)
+                    return Sighting(
+                        json: dict as! [String: Any],
+                        imageRenderedCallback: { self.tableView.reloadRows(at: [indexPath], with: .none) }
+                    )
                 }
-                self.tableView.reloadData()
+                
+                if (self.sightings.count == 0) {
+                    self.renderEmptyState()
+                } else {
+                    self.isLoaded = true
+                    self.tableView.isScrollEnabled = true
+                    self.sightingCountLabel.text = "\(self.sightings.count) sightings"
+                    self.tableView.reloadData()
+                }
             },
             failure: { _ in }
         )
     }
-
-
 }

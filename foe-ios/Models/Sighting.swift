@@ -21,20 +21,21 @@ class Sighting {
 
     init() { }
 
-    init(json: [String: Any]) {
+    init(json: [String: Any], imageRenderedCallback: @escaping () -> Void) {
         guard
             let habitat = json["habitat"] as? String,
             let weather = json["weather"] as? String,
-            let species = json["species"] as? String
+            let species = json["species"] as? String,
+            let locationName = json["street_address"] as? String
         else { return }
         
         self.habitat = habitat
         self.weather = weather
         self.species = species
         self.date = stringToDate(json["date"] as! String)
-        self.locationName = json["location_name"] as? String
+        self.locationName = locationName
         
-        downloadImage(link: json["image_url"] as! String)
+        downloadImage(link: json["image_url"] as! String, callback: imageRenderedCallback)
     }
     
   func setSpecies(species: String) {
@@ -74,7 +75,11 @@ class Sighting {
   }
 
   func getLocationName() -> String {
-    return (self.location == nil) ? "" : self.location!.name
+    if (self.locationName == nil) {
+        self.locationName = (self.location == nil) ? "" : self.location!.name
+    }
+
+    return self.locationName!
   }
 
   func getDate() -> Date {
@@ -89,6 +94,7 @@ class Sighting {
             "date": formatDate(date: Date()),
             "latitude": location!.coordinate.latitude,
             "longitude": location!.coordinate.longitude,
+            "street_address": location!.name,
             "image": [
                 "file": "data:image/png;base64,\(UIImagePNGRepresentation(image!)!.base64EncodedString())"
             ]
@@ -110,12 +116,12 @@ class Sighting {
         return formatter.date(from: str)!
     }
     
-    func downloadImage(link: String) {
+    func downloadImage(link: String, callback: @escaping () -> Void) {
         guard let url = URL(string: link) else { return }
-        downloadImage(url: url)
+        downloadImage(url: url, callback: callback)
     }
     
-    func downloadImage(url: URL) {
+    func downloadImage(url: URL, callback: @escaping () -> Void) {
         // TODO(dinah): replace with default sample image
         self.image = UIImage(named: "bee-sample-image-1")
         
@@ -129,6 +135,7 @@ class Sighting {
                 else { return }
             DispatchQueue.main.async() {
                 self.image = image
+                callback()
             }
         }.resume()
     }

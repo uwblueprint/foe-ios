@@ -59,6 +59,7 @@ class SignupViewController: UIViewController {
     }
     
     @IBAction func closeButtonTouchedUpInside(_ sender: Any) {
+        
         dismiss(animated: true, completion: nil)
     }
 }
