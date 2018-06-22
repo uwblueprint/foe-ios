@@ -130,10 +130,7 @@ class Sighting {
     }
     
     func downloadImage(url: URL, callback: @escaping () -> Void) {
-        // TODO(dinah): replace with default sample image
-        self.image = UIImage(named: "bee-sample-image-1")
-        
-        // Adapted from https://stackoverflow.com/questions/24231680/loading-downloading-image-from-url-on-swift
+        self.image = UIImage(named: "placeholder-image")
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard
                 let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,

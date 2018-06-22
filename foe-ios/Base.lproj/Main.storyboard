@@ -1109,6 +1109,7 @@
                                 </state>
                                 <connections>
                                     <action selector="loginButtonClicked:" destination="DFB-7n-Ymh" eventType="touchUpInside" id="IFV-15-OkY"/>
+                                    <action selector="signupButtonTouchedUpInside:" destination="i7x-PC-SQr" eventType="touchUpInside" id="jio-SY-Gn3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLp-SM-LsY">
@@ -1160,10 +1161,10 @@ and EULA Agreement.</string>
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="rLp-SM-LsY" id="55n-o2-aCn"/>
-                        <outlet property="emailTextView" destination="kRz-62-5lf" id="mci-fR-Ul2"/>
+                        <outlet property="emailTextView" destination="VHW-MF-OJ6" id="CMh-nT-vat"/>
                         <outlet property="nameTextView" destination="LKf-Sq-4GA" id="vRg-Hk-jd8"/>
-                        <outlet property="passwordTextView" destination="w4y-4f-b5F" id="yyJ-y6-Hsu"/>
-                        <outlet property="reenteredPasswordTextView" destination="w4y-4f-b5F" id="IUM-iH-lzo"/>
+                        <outlet property="passwordTextView" destination="kRz-62-5lf" id="Kq3-hk-Aqe"/>
+                        <outlet property="reenteredPasswordTextView" destination="w4y-4f-b5F" id="0Zy-Re-Sui"/>
                         <outlet property="signupButton" destination="5uC-wr-1kI" id="TLH-aW-Ael"/>
                     </connections>
                 </viewController>
