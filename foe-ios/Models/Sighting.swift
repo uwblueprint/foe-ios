@@ -55,7 +55,7 @@ class Sighting {
   }
 
   func getHabitat() -> String {
-    return (self.location == nil) ? "" : self.location!.name
+    return self.habitat!
   }
 
   func setHabitat(habitat: String) {
@@ -96,10 +96,18 @@ class Sighting {
             "longitude": location!.coordinate.longitude,
             "street_address": location!.name,
             "image": [
-                "file": "data:image/png;base64,\(UIImagePNGRepresentation(image!)!.base64EncodedString())"
+                "file": getBase64EncodedImage()
             ]
         ]
         return dict
+    }
+    
+    private func getBase64EncodedImage() -> String {
+        if let updatedImage = self.image?.updateImageOrientionUpSide() {
+            return "data:image/png;base64,\(UIImagePNGRepresentation(updatedImage)!.base64EncodedString())"
+        } else {
+            return "data:image/png;base64,\(UIImagePNGRepresentation(image!)!.base64EncodedString())"
+        }
     }
 
     private func formatDate(date: Date) -> String {

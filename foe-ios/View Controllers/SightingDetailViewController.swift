@@ -46,7 +46,7 @@ class SightingDetailViewController: UIViewController {
     func renderInformation() {
         speciesNameLabel.text = SpeciesMap.getCommonName(sightingModel.getSpecies())
         binomialNameLabel.text = SpeciesMap.getDisplayBinomialName(sightingModel.getSpecies())
-        habitatLabel.text = self.sightingModel.getHabitat()
+        habitatLabel.text = snakecaseToCapitalized(self.sightingModel.getHabitat())
         weatherImageView.image = UIImage(named: self.sightingModel.getWeather())!
         weatherDescriptionLabel.text = snakecaseToCapitalized(self.sightingModel.getWeather())
         locationLabel.text = self.sightingModel.getLocationName()
