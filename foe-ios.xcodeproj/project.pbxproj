@@ -36,6 +36,7 @@
 		F62527AD20BF57F3006475AC /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326D620BF5708004933FB /* Modal.swift */; };
 		F62527AE20BF57F3006475AC /* CustomModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66326D720BF5708004933FB /* CustomModal.swift */; };
 		F62527B020BF738D006475AC /* SightingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62527AF20BF738D006475AC /* SightingDetailViewController.swift */; };
+		F631382D20E302BE00566EE5 /* LoginAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F631382C20E302BE00566EE5 /* LoginAccount.swift */; };
 		F6A733F020CE206300450D84 /* SpeciesMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A733EF20CE206300450D84 /* SpeciesMap.swift */; };
 		F6B99BE9204899B00033939D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B99BE8204899B00033939D /* Constants.swift */; };
 		F6C90B892009134A00039933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C90B882009134A00039933 /* AppDelegate.swift */; };
@@ -73,6 +74,7 @@
 		F61511B520D97814006A4FB3 /* emptyHistoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = emptyHistoryView.xib; sourceTree = "<group>"; };
 		F61511B720D97A21006A4FB3 /* emptyHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = emptyHistoryView.swift; sourceTree = "<group>"; };
 		F62527AF20BF738D006475AC /* SightingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingDetailViewController.swift; sourceTree = "<group>"; };
+		F631382C20E302BE00566EE5 /* LoginAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAccount.swift; sourceTree = "<group>"; };
 		F66326D020BF5708004933FB /* Sighting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sighting.swift; sourceTree = "<group>"; };
 		F66326D220BF5708004933FB /* NosePickerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NosePickerItem.swift; sourceTree = "<group>"; };
 		F66326D320BF5708004933FB /* LinkListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkListView.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				F66326D020BF5708004933FB /* Sighting.swift */,
 				F6A733EF20CE206300450D84 /* SpeciesMap.swift */,
 				F6018BAB20DB50D5002A20E9 /* SignupAccount.swift */,
+				F631382C20E302BE00566EE5 /* LoginAccount.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				E39B40F120C486E20037EAEA /* InitialNavigationController.swift in Sources */,
 				F61511B820D97A21006A4FB3 /* emptyHistoryView.swift in Sources */,
 				F62527A320BF57F3006475AC /* MainUITabBarController.swift in Sources */,
+				F631382D20E302BE00566EE5 /* LoginAccount.swift in Sources */,
 				F61511B220D82B24006A4FB3 /* LabeledOutlineTextView.swift in Sources */,
 				F62527A420BF57F3006475AC /* DetailsFormViewController.swift in Sources */,
 				F62527A520BF57F3006475AC /* SpeciesSelectionViewController.swift in Sources */,
