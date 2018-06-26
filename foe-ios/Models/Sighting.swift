@@ -15,9 +15,29 @@ class Sighting {
   private var habitat: String?
   private var weather: String?
   private var location: GMSPlace?
+  private var locationName: String?
   private var species: String = "unidentified"
   private var date: Date = Date.init()
 
+    init() { }
+
+    init(json: [String: Any], imageRenderedCallback: @escaping () -> Void) {
+        guard
+            let habitat = json["habitat"] as? String,
+            let weather = json["weather"] as? String,
+            let species = json["species"] as? String,
+            let locationName = json["street_address"] as? String
+        else { return }
+        
+        self.habitat = habitat
+        self.weather = weather
+        self.species = species
+        self.date = stringToDate(json["date"] as! String)
+        self.locationName = locationName
+        
+        downloadImage(link: json["image_url"] as! String, callback: imageRenderedCallback)
+    }
+    
   func setSpecies(species: String) {
     self.species = species
   }
@@ -35,7 +55,7 @@ class Sighting {
   }
 
   func getHabitat() -> String {
-    return (self.location == nil) ? "" : self.location!.name
+    return self.habitat!
   }
 
   func setHabitat(habitat: String) {
@@ -55,7 +75,11 @@ class Sighting {
   }
 
   func getLocationName() -> String {
-    return (self.location == nil) ? "" : self.location!.name
+    if (self.locationName == nil) {
+        self.locationName = (self.location == nil) ? "" : self.location!.name
+    }
+
+    return self.locationName!
   }
 
   func getDate() -> Date {
@@ -70,11 +94,20 @@ class Sighting {
             "date": formatDate(date: Date()),
             "latitude": location!.coordinate.latitude,
             "longitude": location!.coordinate.longitude,
+            "street_address": location!.name,
             "image": [
-                "file": "data:image/png;base64,\(UIImagePNGRepresentation(image!)!.base64EncodedString())"
+                "file": getBase64EncodedImage()
             ]
         ]
         return dict
+    }
+    
+    private func getBase64EncodedImage() -> String {
+        if let updatedImage = self.image?.updateImageOrientionUpSide() {
+            return "data:image/png;base64,\(UIImagePNGRepresentation(updatedImage)!.base64EncodedString())"
+        } else {
+            return "data:image/png;base64,\(UIImagePNGRepresentation(image!)!.base64EncodedString())"
+        }
     }
 
     private func formatDate(date: Date) -> String {
@@ -82,5 +115,33 @@ class Sighting {
         formatter.dateFormat = "yyyy-MM-dd"
 
         return formatter.string(from: date)
+    }
+    
+    private func stringToDate(_ str: String) -> Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+
+        return formatter.date(from: str)!
+    }
+    
+    func downloadImage(link: String, callback: @escaping () -> Void) {
+        guard let url = URL(string: link) else { return }
+        downloadImage(url: url, callback: callback)
+    }
+    
+    func downloadImage(url: URL, callback: @escaping () -> Void) {
+        self.image = UIImage(named: "placeholder-image")
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() {
+                self.image = image
+                callback()
+            }
+        }.resume()
     }
 }

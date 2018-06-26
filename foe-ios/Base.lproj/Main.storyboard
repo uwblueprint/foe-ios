@@ -436,7 +436,7 @@
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="partly-sunny" translatesAutoresizingMaskIntoConstraints="NO" id="DwN-5o-oYf" userLabel="weatherIconImage">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="partly-cloudy" translatesAutoresizingMaskIntoConstraints="NO" id="DwN-5o-oYf" userLabel="weatherIconImage">
                                 <rect key="frame" x="24" y="472" width="22" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="22" id="Zan-rh-j8U"/>
@@ -1307,7 +1307,7 @@ and EULA Agreement.</string>
         <image name="location-icon-grey" width="12" height="20"/>
         <image name="logo-transparent-icon" width="59" height="58"/>
         <image name="me-icon" width="19" height="29"/>
-        <image name="partly-sunny" width="62" height="62"/>
+        <image name="partly-cloudy" width="62" height="62"/>
         <image name="placeholder-image" width="327" height="261"/>
     </resources>
 </document>

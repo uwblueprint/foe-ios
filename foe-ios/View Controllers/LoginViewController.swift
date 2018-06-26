@@ -118,7 +118,6 @@ class LoginViewController: UIViewController {
     
     // TODO: validation of inputs: email has domain, password must be >= 8 chars
     @IBOutlet weak var signInButton: UIButton!
-    @IBOutlet weak var facebookButton: UIButton!
     
     @IBAction func loginButtonClicked(_ sender: Any) {
         postLogin()

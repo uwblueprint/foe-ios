@@ -6,6 +6,7 @@
 //  Copyright © 2018 Blueprint. All rights reserved.
 //
 
+import Alamofire
 import UIKit
 
 class SignupViewController: UIViewController {
@@ -160,6 +161,32 @@ class SignupViewController: UIViewController {
     }
     
     @IBAction func closeButtonTouchedUpInside(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func signupButtonTouchedUpInside(_ sender: Any) {
+        let parameters: Parameters = [
+            "name": nameTextView.getText(),
+            "email": emailTextView.getText(),
+            "password": passwordTextView.getText()
+        ]
+        
+        Alamofire.request(
+            "\(API_URL)/auth",
+            method: .post,
+            parameters: parameters,
+            encoding: JSONEncoding.default
+            ).validate().responseJSON { response in
+                switch response.result {
+                case .success:
+                    // TODO(john): this is where the transition to the confirmation email modal
+                    let alert = CustomModal(title: "Welcome!", caption: "Sign-up complete--a confirmation was sent to your email.", dismissText: "Done", image: UIImage(named: "default-home-illustration")!, onDismiss: { self.dismiss(animated: true, completion: nil) })
+                    alert.show(animated: true)
+                case .failure(let error):
+                    print("Validation failure on signup")
+                    print(error)
+                }
+        }
+    }
+    
 }

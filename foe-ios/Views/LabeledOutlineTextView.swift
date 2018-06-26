@@ -71,6 +71,9 @@ import UIKit
         return inputTextField
     }
     
+    func getText() -> String {
+        return inputTextField.text!
+    }
     
     func loadViewFromNib() -> UIView? {
         guard let nibName = nibName else { return nil }

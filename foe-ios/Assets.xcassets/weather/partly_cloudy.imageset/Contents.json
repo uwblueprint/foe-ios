@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icon-geodata-partly-sunny.png",
+      "filename" : "icon-geodata-partly-cloudy.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "icon-geodata-partly-sunny@2x.png",
+      "filename" : "icon-geodata-partly-cloudy@2x.png",
       "scale" : "2x"
     },
     {

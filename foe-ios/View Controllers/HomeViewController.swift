@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import FBSDKLoginKit
 
-class HomeViewController: UIViewController, UITabBarDelegate, FBSDKLoginButtonDelegate {
+class HomeViewController: UIViewController, UITabBarDelegate {
 
     override var prefersStatusBarHidden: Bool {
         return false
@@ -77,38 +76,9 @@ class HomeViewController: UIViewController, UITabBarDelegate, FBSDKLoginButtonDe
 //        }
 //
 //    }
-    
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        if error != nil {
-            print(error)
-            return
-        }
-        
-        print("Successfully logged in with facebook...")
-        
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabController") as! UITabBarController
-        self.present(vc, animated: true, completion: nil)
-    }
-    
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        print("Did log out of facebook")
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 }
-
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
-}
-
