@@ -11,7 +11,7 @@ import Alamofire
 import GooglePlaces
 import SwiftKeychainWrapper
 
-class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
     // MARK: outlets
     @IBOutlet weak var previewImage: UIImageView!
@@ -21,7 +21,8 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var habitatPickerTextField: UITextField!
     @IBOutlet weak var weatherPickerView: UIView!
     @IBOutlet weak var locationPickerView: UIView!
-
+    @IBOutlet weak var habitatPickerArrow: UIImageView!
+    
     var sighting: Sighting?
     var weatherPicker: NosePicker?
     var habitatPicker = UIPickerView()
@@ -62,7 +63,7 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
 
         let navController = self.navigationController as! SubmissionNavigationController
         sighting = navController.getSighting()
-
+        
         let submitButton = UIBarButtonItem(title: "Submit", style: UIBarButtonItemStyle.plain, target: self, action: "submit")
         self.navigationItem.rightBarButtonItem = submitButton
         self.navigationItem.title = "Step 3: Geotag"
@@ -133,9 +134,52 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
 
     private func setupHabitatPicker() {
         habitatPickerData =  ["back_yard", "balcony/container_garden", "community_garden", "city_park", "rural", "golf_course", "roadside", "woodland", "farmland", "school_grounds", "other"]
+        habitatPicker.backgroundColor = UIColor.white
         habitatPicker.delegate = self
         habitatPicker.dataSource = self
         habitatPickerTextField.inputView = habitatPicker
+        habitatPickerTextField.delegate = self
+        
+        let toolBar = UIToolbar()
+        toolBar.barStyle = .default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = UIColor(red:0.12, green:0.75, blue:0.39, alpha:1.0)
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneButtonPressed))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(doneButtonPressed))
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        
+        doneButton.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir Heavy", size: 16)!], for: UIControlState.normal)
+        cancelButton.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir Book", size: 16)!], for: UIControlState.normal)
+        toolBar.isUserInteractionEnabled = true
+        habitatPickerTextField.inputAccessoryView = toolBar
+        
+        habitatPickerArrow.isUserInteractionEnabled = true
+        habitatPickerArrow.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openHabitatPicker)))
+    }
+    
+    func openHabitatPicker() {
+        habitatPickerTextField.becomeFirstResponder()
+    }
+    
+    func doneButtonPressed() {
+        habitatPickerTextField.resignFirstResponder()
+        
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        habitatPickerArrow.transform = CGAffineTransform(scaleX: 1, y: -1)
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        habitatPickerArrow.transform = CGAffineTransform(scaleX: 1, y: 1)
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return false
     }
 
     private func setupWeatherPicker() {

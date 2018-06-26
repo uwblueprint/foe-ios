@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DFB-7n-Ymh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nL4-iz-goL">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -735,7 +735,7 @@
                                 <rect key="frame" x="0.0" y="194" width="375" height="54"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter a location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zLh-zM-HkR">
-                                        <rect key="frame" x="63" y="0.0" width="285" height="54"/>
+                                        <rect key="frame" x="53" y="0.0" width="285" height="54"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -755,7 +755,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="Kg6-Rt-GJH"/>
-                                    <constraint firstItem="zLh-zM-HkR" firstAttribute="leading" secondItem="pr1-Q2-QWc" secondAttribute="trailing" constant="10" id="LkC-Rf-qfk"/>
+                                    <constraint firstItem="zLh-zM-HkR" firstAttribute="leading" secondItem="pr1-Q2-QWc" secondAttribute="trailing" id="LkC-Rf-qfk"/>
                                     <constraint firstItem="pr1-Q2-QWc" firstAttribute="leading" secondItem="f7O-0m-X8B" secondAttribute="leading" id="b7P-V9-8QC"/>
                                     <constraint firstItem="zLh-zM-HkR" firstAttribute="height" secondItem="f7O-0m-X8B" secondAttribute="height" id="dr5-Ti-Krp"/>
                                     <constraint firstAttribute="bottom" secondItem="zLh-zM-HkR" secondAttribute="bottom" id="emK-bY-BmD"/>
@@ -778,25 +778,31 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="shc-Jf-tjO" userLabel="HabitatView">
                                 <rect key="frame" x="0.0" y="302" width="375" height="54"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select a habitat" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i0c-rh-cA6">
-                                        <rect key="frame" x="16" y="0.0" width="343" height="54"/>
-                                        <accessibility key="accessibilityConfiguration">
-                                            <accessibilityTraits key="traits" notEnabled="YES"/>
-                                        </accessibility>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select a habitat" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="usi-IG-YfU">
+                                        <rect key="frame" x="16" y="0.0" width="281" height="54"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="54" id="CkR-DS-gMR"/>
+                                            <constraint firstAttribute="height" constant="54" id="0zc-ag-rZA"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron-arrow-down" translatesAutoresizingMaskIntoConstraints="NO" id="lvp-uK-DLd">
+                                        <rect key="frame" x="313" y="0.0" width="54" height="54"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="DZu-hQ-A1h"/>
+                                            <constraint firstAttribute="width" constant="54" id="nga-a4-CpE"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="i0c-rh-cA6" firstAttribute="top" secondItem="shc-Jf-tjO" secondAttribute="top" id="CSv-AI-wJJ"/>
+                                    <constraint firstItem="usi-IG-YfU" firstAttribute="leading" secondItem="shc-Jf-tjO" secondAttribute="leading" constant="16" id="ARy-BV-YUm"/>
+                                    <constraint firstItem="lvp-uK-DLd" firstAttribute="leading" secondItem="usi-IG-YfU" secondAttribute="trailing" constant="16" id="E8G-63-Mdd"/>
+                                    <constraint firstAttribute="trailing" secondItem="lvp-uK-DLd" secondAttribute="trailing" constant="8" id="KbQ-ed-xVa"/>
                                     <constraint firstAttribute="height" constant="54" id="LWh-yr-pBn"/>
-                                    <constraint firstAttribute="trailing" secondItem="i0c-rh-cA6" secondAttribute="trailing" constant="16" id="PYS-jz-cTu"/>
-                                    <constraint firstItem="i0c-rh-cA6" firstAttribute="leading" secondItem="shc-Jf-tjO" secondAttribute="leading" constant="16" id="t7k-iU-igX"/>
+                                    <constraint firstItem="usi-IG-YfU" firstAttribute="top" secondItem="shc-Jf-tjO" secondAttribute="top" id="NWB-7s-YJA"/>
+                                    <constraint firstItem="lvp-uK-DLd" firstAttribute="top" secondItem="shc-Jf-tjO" secondAttribute="top" id="jbV-Eq-3dW"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YBS-rT-UqH" userLabel="WeatherNosePickerView">
@@ -876,7 +882,8 @@
                     <connections>
                         <outlet property="binomialNameLabel" destination="OPM-be-Mpb" id="Lpx-Sq-GBr"/>
                         <outlet property="commonNameLabel" destination="VXf-jw-WPr" id="CP8-Rb-uxl"/>
-                        <outlet property="habitatPickerTextField" destination="i0c-rh-cA6" id="rUb-bF-a7y"/>
+                        <outlet property="habitatPickerArrow" destination="lvp-uK-DLd" id="00T-KL-EuY"/>
+                        <outlet property="habitatPickerTextField" destination="usi-IG-YfU" id="zv1-0Z-sSq"/>
                         <outlet property="locationPickerView" destination="f7O-0m-X8B" id="6Lu-NZ-2b8"/>
                         <outlet property="locationTextField" destination="zLh-zM-HkR" id="ytH-7C-gLb"/>
                         <outlet property="previewImage" destination="AxT-UO-JYg" id="SGt-I5-GAW"/>
@@ -1028,90 +1035,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create an Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tWh-rY-Y9m">
-                                <rect key="frame" x="40" y="60" width="174" height="28"/>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKf-Sq-4GA" userLabel="nameInput" customClass="LabeledOutlineTextView" customModule="foe_ios" customModuleProvider="target">
-                                <rect key="frame" x="40" y="138" width="295" height="60"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="4yZ-Tb-hmS"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="nibName" value="LabeledOutlineTextView"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="NAME"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="inputPlaceholderText" value="Johnny Appleseed"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="index">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VHW-MF-OJ6" userLabel="emailInput" customClass="LabeledOutlineTextView" customModule="foe_ios" customModuleProvider="target">
-                                <rect key="frame" x="40" y="222" width="295" height="60"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="vcQ-Pq-dSm"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="nibName" value="LabeledOutlineTextView"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="EMAIL"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="inputPlaceholderText" value="bees@knees.com"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="index">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRz-62-5lf" userLabel="emailInput" customClass="LabeledOutlineTextView" customModule="foe_ios" customModuleProvider="target">
-                                <rect key="frame" x="40" y="306" width="295" height="60"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="hEu-9A-IF9"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="nibName" value="LabeledOutlineTextView"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="PASSWORD"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="inputPlaceholderText" value="Minimum 8 characters"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSecure" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="index">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4y-4f-b5F" userLabel="emailInput" customClass="LabeledOutlineTextView" customModule="foe_ios" customModuleProvider="target">
-                                <rect key="frame" x="40" y="390" width="295" height="60"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Xyd-4g-aw1"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="nibName" value="LabeledOutlineTextView"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="RE-ENTER PASSWORD"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="inputPlaceholderText" value="Minimum 8 characters"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSecure" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="index">
-                                        <integer key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uC-wr-1kI">
-                                <rect key="frame" x="40" y="581" width="295" height="54"/>
-                                <color key="backgroundColor" red="0.1176470588" green="0.75294117650000003" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="A7W-tt-1Db"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
-                                <state key="normal" title="Sign Up">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="loginButtonClicked:" destination="DFB-7n-Ymh" eventType="touchUpInside" id="IFV-15-OkY"/>
-                                    <action selector="signupPressed:" destination="i7x-PC-SQr" eventType="touchUpInside" id="adS-PU-TZe"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLp-SM-LsY">
                                 <rect key="frame" x="295" y="54" width="40" height="40"/>
                                 <constraints>
@@ -1124,66 +1047,176 @@
                                     <action selector="handleSightingCloseButton:" destination="Lld-jF-kvC" eventType="touchUpInside" id="oCF-hU-rza"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHx-N3-tsK">
-                                <rect key="frame" x="40" y="524" width="295" height="33"/>
-                                <string key="text">By signing up, I agree to the terms and conditions
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create an Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tWh-rY-Y9m">
+                                <rect key="frame" x="40" y="60" width="174" height="28"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0jc-4O-v4l" userLabel="signupView">
+                                <rect key="frame" x="0.0" y="100" width="375" height="567"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKf-Sq-4GA" userLabel="nameInput" customClass="LabeledOutlineTextView" customModule="foe_ios" customModuleProvider="target">
+                                        <rect key="frame" x="40" y="32" width="295" height="60"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="4yZ-Tb-hmS"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="nibName" value="LabeledOutlineTextView"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="NAME"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="inputPlaceholderText" value="Johnny Appleseed"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="index">
+                                                <integer key="value" value="0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VHW-MF-OJ6" userLabel="emailInput" customClass="LabeledOutlineTextView" customModule="foe_ios" customModuleProvider="target">
+                                        <rect key="frame" x="40" y="116" width="295" height="60"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="vcQ-Pq-dSm"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="nibName" value="LabeledOutlineTextView"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="EMAIL"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="inputPlaceholderText" value="bees@knees.com"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="index">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRz-62-5lf" userLabel="emailInput" customClass="LabeledOutlineTextView" customModule="foe_ios" customModuleProvider="target">
+                                        <rect key="frame" x="40" y="200" width="295" height="60"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="hEu-9A-IF9"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="nibName" value="LabeledOutlineTextView"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="PASSWORD"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="inputPlaceholderText" value="Minimum 8 characters"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSecure" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="index">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4y-4f-b5F" userLabel="passwordInput" customClass="LabeledOutlineTextView" customModule="foe_ios" customModuleProvider="target">
+                                        <rect key="frame" x="40" y="284" width="295" height="60"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="Xyd-4g-aw1"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="nibName" value="LabeledOutlineTextView"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="RE-ENTER PASSWORD"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="inputPlaceholderText" value="Minimum 8 characters"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSecure" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="index">
+                                                <integer key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uC-wr-1kI">
+                                        <rect key="frame" x="40" y="473" width="295" height="54"/>
+                                        <color key="backgroundColor" red="0.1176470588" green="0.75294117650000003" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="A7W-tt-1Db"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+                                        <state key="normal" title="Sign Up">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="loginButtonClicked:" destination="DFB-7n-Ymh" eventType="touchUpInside" id="IFV-15-OkY"/>
+                                            <action selector="signupPressed:" destination="i7x-PC-SQr" eventType="touchUpInside" id="adS-PU-TZe"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHx-N3-tsK">
+                                        <rect key="frame" x="40" y="424" width="295" height="33"/>
+                                        <string key="text">By signing up, I agree to the terms and conditions
 and EULA Agreement.</string>
-                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
-                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3DU-H2-eXD">
-                                <rect key="frame" x="40" y="106" width="295" height="20"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3DU-H2-eXD">
+                                        <rect key="frame" x="40" y="0.0" width="295" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="npI-vf-Tru"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
+                                        <color key="textColor" red="0.92156862745098034" green="0.3411764705882353" blue="0.3411764705882353" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="npI-vf-Tru"/>
+                                    <constraint firstItem="kRz-62-5lf" firstAttribute="leading" secondItem="0jc-4O-v4l" secondAttribute="leading" constant="40" id="0xM-4B-lky"/>
+                                    <constraint firstItem="kRz-62-5lf" firstAttribute="width" secondItem="0jc-4O-v4l" secondAttribute="width" constant="-80" id="IfT-R4-lHe"/>
+                                    <constraint firstItem="iHx-N3-tsK" firstAttribute="width" secondItem="0jc-4O-v4l" secondAttribute="width" constant="-80" id="JML-gj-dly"/>
+                                    <constraint firstItem="5uC-wr-1kI" firstAttribute="leading" secondItem="0jc-4O-v4l" secondAttribute="leading" constant="40" id="JsX-qk-RCe"/>
+                                    <constraint firstItem="3DU-H2-eXD" firstAttribute="leading" secondItem="0jc-4O-v4l" secondAttribute="leading" constant="40" id="Kvw-cg-vCI"/>
+                                    <constraint firstItem="w4y-4f-b5F" firstAttribute="top" secondItem="kRz-62-5lf" secondAttribute="bottom" constant="24" id="Lat-oX-kX4"/>
+                                    <constraint firstItem="LKf-Sq-4GA" firstAttribute="top" secondItem="3DU-H2-eXD" secondAttribute="bottom" constant="12" id="MlB-T7-Kza"/>
+                                    <constraint firstItem="VHW-MF-OJ6" firstAttribute="leading" secondItem="0jc-4O-v4l" secondAttribute="leading" constant="40" id="OlX-Rf-sOp"/>
+                                    <constraint firstItem="iHx-N3-tsK" firstAttribute="bottom" secondItem="5uC-wr-1kI" secondAttribute="top" constant="-16" id="P6d-oE-OFZ"/>
+                                    <constraint firstItem="w4y-4f-b5F" firstAttribute="leading" secondItem="0jc-4O-v4l" secondAttribute="leading" constant="40" id="Qbf-GN-gzf"/>
+                                    <constraint firstItem="3DU-H2-eXD" firstAttribute="top" secondItem="0jc-4O-v4l" secondAttribute="top" id="RAI-PW-qx8"/>
+                                    <constraint firstItem="VHW-MF-OJ6" firstAttribute="width" secondItem="0jc-4O-v4l" secondAttribute="width" constant="-80" id="SmS-xG-sIL"/>
+                                    <constraint firstItem="5uC-wr-1kI" firstAttribute="width" secondItem="0jc-4O-v4l" secondAttribute="width" constant="-80" id="Tyw-VU-BQd"/>
+                                    <constraint firstItem="VHW-MF-OJ6" firstAttribute="top" secondItem="LKf-Sq-4GA" secondAttribute="bottom" constant="24" id="hfb-eu-2Ps"/>
+                                    <constraint firstItem="w4y-4f-b5F" firstAttribute="width" secondItem="0jc-4O-v4l" secondAttribute="width" constant="-80" id="k9P-hJ-8cu"/>
+                                    <constraint firstItem="kRz-62-5lf" firstAttribute="top" secondItem="VHW-MF-OJ6" secondAttribute="bottom" constant="24" id="lQ8-w7-BLw"/>
+                                    <constraint firstItem="3DU-H2-eXD" firstAttribute="width" secondItem="0jc-4O-v4l" secondAttribute="width" constant="-80" id="lha-vf-hXG"/>
+                                    <constraint firstItem="LKf-Sq-4GA" firstAttribute="width" secondItem="0jc-4O-v4l" secondAttribute="width" constant="-80" id="lqK-mG-k1F"/>
+                                    <constraint firstItem="LKf-Sq-4GA" firstAttribute="leading" secondItem="0jc-4O-v4l" secondAttribute="leading" constant="40" id="mFS-4B-8A5"/>
+                                    <constraint firstAttribute="bottom" secondItem="5uC-wr-1kI" secondAttribute="bottom" constant="40" id="nSw-ut-mtK"/>
+                                    <constraint firstItem="iHx-N3-tsK" firstAttribute="leading" secondItem="0jc-4O-v4l" secondAttribute="leading" constant="40" id="wt9-0F-kLP"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
-                                <color key="textColor" red="0.92156862745098034" green="0.3411764705882353" blue="0.3411764705882353" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBQ-Uz-1WE" userLabel="confirmationView" customClass="emptyHistoryView" customModule="foe_ios" customModuleProvider="target">
+                                <rect key="frame" x="375" y="100" width="375" height="487"/>
+                                <color key="backgroundColor" white="0.20328776041666666" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="illustrationImage" value="confirmation-email-illustration"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="LKf-Sq-4GA" firstAttribute="width" secondItem="5zK-pt-Hse" secondAttribute="width" constant="-80" id="0Uz-lk-OLp"/>
-                            <constraint firstItem="w4y-4f-b5F" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="1zp-ya-GC5"/>
-                            <constraint firstItem="VHW-MF-OJ6" firstAttribute="width" secondItem="5zK-pt-Hse" secondAttribute="width" constant="-80" id="363-F4-FwB"/>
-                            <constraint firstItem="w4y-4f-b5F" firstAttribute="width" secondItem="5zK-pt-Hse" secondAttribute="width" constant="-80" id="3HL-NZ-i5G"/>
-                            <constraint firstItem="kRz-62-5lf" firstAttribute="top" secondItem="VHW-MF-OJ6" secondAttribute="bottom" constant="24" id="Ejt-lh-Dcv"/>
-                            <constraint firstItem="LKf-Sq-4GA" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="JHQ-5y-1Z6"/>
-                            <constraint firstItem="kRz-62-5lf" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="MbZ-cy-uO6"/>
-                            <constraint firstItem="3DU-H2-eXD" firstAttribute="width" secondItem="5zK-pt-Hse" secondAttribute="width" constant="-80" id="NNy-dT-jOz"/>
-                            <constraint firstItem="rLp-SM-LsY" firstAttribute="trailing" secondItem="LKf-Sq-4GA" secondAttribute="trailing" id="Qkh-7L-Civ"/>
+                            <constraint firstItem="rLp-SM-LsY" firstAttribute="top" secondItem="Ndh-Fb-c7o" secondAttribute="bottom" constant="34" id="AsS-IQ-jl8"/>
+                            <constraint firstItem="0jc-4O-v4l" firstAttribute="width" secondItem="5zK-pt-Hse" secondAttribute="width" id="JkP-s7-QVN"/>
+                            <constraint firstItem="0jc-4O-v4l" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" id="Qt0-JS-60w"/>
                             <constraint firstItem="tWh-rY-Y9m" firstAttribute="top" secondItem="Ndh-Fb-c7o" secondAttribute="bottom" constant="40" id="UNh-6G-rMg"/>
                             <constraint firstItem="tWh-rY-Y9m" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="Vqd-xw-JJq"/>
-                            <constraint firstItem="LKf-Sq-4GA" firstAttribute="top" secondItem="3DU-H2-eXD" secondAttribute="bottom" constant="12" id="X8H-HV-b8o"/>
-                            <constraint firstItem="iHx-N3-tsK" firstAttribute="bottom" secondItem="5uC-wr-1kI" secondAttribute="top" constant="-24" id="iYg-xI-5w4"/>
-                            <constraint firstItem="3DU-H2-eXD" firstAttribute="top" secondItem="rLp-SM-LsY" secondAttribute="bottom" constant="12" id="isX-02-1oq"/>
-                            <constraint firstItem="3DU-H2-eXD" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="j8H-ze-JQt"/>
-                            <constraint firstItem="rLp-SM-LsY" firstAttribute="centerY" secondItem="tWh-rY-Y9m" secondAttribute="centerY" id="jDh-6Y-xkw"/>
-                            <constraint firstItem="iHx-N3-tsK" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="jcB-Hn-1gL"/>
-                            <constraint firstItem="kRz-62-5lf" firstAttribute="width" secondItem="5zK-pt-Hse" secondAttribute="width" constant="-80" id="jg7-4U-RSC"/>
-                            <constraint firstItem="w4y-4f-b5F" firstAttribute="top" secondItem="kRz-62-5lf" secondAttribute="bottom" constant="24" id="neQ-SA-F1F"/>
-                            <constraint firstItem="5uC-wr-1kI" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="pSt-Vk-d34"/>
-                            <constraint firstItem="VHW-MF-OJ6" firstAttribute="top" secondItem="LKf-Sq-4GA" secondAttribute="bottom" constant="24" id="qas-KU-yO0"/>
-                            <constraint firstItem="iHx-N3-tsK" firstAttribute="width" secondItem="5zK-pt-Hse" secondAttribute="width" constant="-80" id="sK9-5Q-dlV"/>
-                            <constraint firstItem="pwv-8M-CBi" firstAttribute="top" secondItem="5uC-wr-1kI" secondAttribute="bottom" constant="32" id="v6N-qQ-fl2"/>
-                            <constraint firstItem="VHW-MF-OJ6" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="wWt-gX-YJz"/>
-                            <constraint firstItem="5uC-wr-1kI" firstAttribute="width" secondItem="5zK-pt-Hse" secondAttribute="width" constant="-80" id="y5z-ZU-Ldc"/>
+                            <constraint firstItem="0jc-4O-v4l" firstAttribute="top" secondItem="tWh-rY-Y9m" secondAttribute="bottom" constant="12" id="bCY-1Z-TgL"/>
+                            <constraint firstItem="VBQ-Uz-1WE" firstAttribute="top" secondItem="tWh-rY-Y9m" secondAttribute="bottom" constant="12" id="lNl-Hf-FBq"/>
+                            <constraint firstItem="pwv-8M-CBi" firstAttribute="top" secondItem="0jc-4O-v4l" secondAttribute="bottom" id="oGb-U7-8uB"/>
+                            <constraint firstItem="VBQ-Uz-1WE" firstAttribute="bottom" secondItem="pwv-8M-CBi" secondAttribute="top" constant="-80" id="qmr-Z8-vhp"/>
+                            <constraint firstItem="VBQ-Uz-1WE" firstAttribute="leading" secondItem="0jc-4O-v4l" secondAttribute="trailing" id="sjj-wk-Kg7"/>
+                            <constraint firstAttribute="trailing" secondItem="rLp-SM-LsY" secondAttribute="trailing" constant="40" id="svh-ZA-PSn"/>
+                            <constraint firstItem="VBQ-Uz-1WE" firstAttribute="width" secondItem="5zK-pt-Hse" secondAttribute="width" id="vra-Ea-HrB"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="rLp-SM-LsY" id="55n-o2-aCn"/>
+                        <outlet property="confirmationView" destination="VBQ-Uz-1WE" id="mzu-yG-9ck"/>
                         <outlet property="emailTextView" destination="VHW-MF-OJ6" id="UhF-xn-cIK"/>
                         <outlet property="errorLabel" destination="3DU-H2-eXD" id="JHe-DG-xpI"/>
                         <outlet property="nameTextView" destination="LKf-Sq-4GA" id="vRg-Hk-jd8"/>
                         <outlet property="passwordTextView" destination="kRz-62-5lf" id="jgF-fN-TTs"/>
                         <outlet property="reenteredPasswordTextView" destination="w4y-4f-b5F" id="IUM-iH-lzo"/>
                         <outlet property="signupButton" destination="5uC-wr-1kI" id="TLH-aW-Ael"/>
+                        <outlet property="signupView" destination="0jc-4O-v4l" id="1nP-ed-Cwv"/>
+                        <outlet property="signupViewLeadingConstraint" destination="Qt0-JS-60w" id="lkm-Nm-4b2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0nI-Pt-QUm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-159" y="2577"/>
+            <point key="canvasLocation" x="-159.19999999999999" y="2576.7616191904049"/>
         </scene>
         <!--Initial Navigation Controller-->
         <scene sceneID="urt-jK-c8I">
@@ -1264,8 +1297,10 @@ and EULA Agreement.</string>
     <resources>
         <image name="capture-icon" width="30" height="31"/>
         <image name="capture_button" width="134" height="134"/>
+        <image name="chevron-arrow-down" width="21" height="14"/>
         <image name="close-icon-green" width="13" height="13"/>
         <image name="clouds-repeating" width="750" height="175"/>
+        <image name="confirmation-email-illustration" width="196" height="196"/>
         <image name="home-icon" width="29" height="29"/>
         <image name="icon_photo_library" width="90" height="88"/>
         <image name="location-icon" width="18" height="18"/>
