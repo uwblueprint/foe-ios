@@ -10,6 +10,13 @@ DEPENDENCIES:
   - GooglePlaces
   - SwiftKeychainWrapper (~> 3.0.1)
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - GoogleMaps
+    - GooglePlaces
+    - SwiftKeychainWrapper
+
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   GoogleMaps: c087b8e5dfe87ca6ebf59adb9b4894a4146bec4f
@@ -18,4 +25,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 3f963291cfc4f2e6edb8548ac40e5a9f0cb3b59c
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.5.0

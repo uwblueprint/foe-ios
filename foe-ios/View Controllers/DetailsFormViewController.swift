@@ -90,6 +90,7 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
 
     func openAutoComplete() {
         let autocompleteController = GMSAutocompleteViewController()
+        UINavigationBar.appearance().tintColor = UIColor(red:0.12, green:0.75, blue:0.39, alpha:1.0)
         autocompleteController.delegate = self
         present(autocompleteController, animated: true, completion: nil)
     }
