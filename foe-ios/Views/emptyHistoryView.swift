@@ -13,6 +13,7 @@ class emptyHistoryView: UIView {
     var contentView: UIView?
     var descriptionString:NSString = "You can begin by tapping Capture below."
     
+    @IBOutlet var yOffsetConstraint: NSLayoutConstraint!
     //:- Outlets
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var illustrationImageView: UIImageView!
@@ -21,8 +22,12 @@ class emptyHistoryView: UIView {
     @IBInspectable var illustrationImage: UIImage?
     @IBInspectable var title: String?
     
+    func setVerticalOffset(y: CGFloat) {
+        yOffsetConstraint.constant = y
+        layoutIfNeeded()
+    }
+    
     private func initialize () {
-        
         var mutableString = NSMutableAttributedString()
         
         mutableString = NSMutableAttributedString(string: descriptionString as String, attributes: [NSFontAttributeName:UIFont(name: "Avenir", size: 16.0)!])

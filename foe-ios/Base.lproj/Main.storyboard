@@ -1227,19 +1227,52 @@ and EULA Agreement.</string>
                                 <color key="backgroundColor" white="0.20328776041666666" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="illustrationImage" value="confirmation-email-illustration"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Almost there, John!"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vu-Hl-WkO">
+                                <rect key="frame" x="415" y="483" width="295" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="G48-xH-Lqr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+                                <state key="normal" title="Resend Email">
+                                    <color key="titleColor" red="0.21176470589999999" green="0.7843137255" blue="0.4549019608" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="resendEmailPressed:" destination="i7x-PC-SQr" eventType="touchUpInside" id="BKb-56-Lvh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="918-TM-d5O" userLabel="ReturnToLogin">
+                                <rect key="frame" x="415" y="529" width="295" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="uwn-7A-8Bb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+                                <state key="normal" title="Return to Log In">
+                                    <color key="titleColor" red="0.21176470589999999" green="0.7843137255" blue="0.4549019608" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="returnToLoginPressed:" destination="i7x-PC-SQr" eventType="touchUpInside" id="ZiP-R9-n2q"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="918-TM-d5O" firstAttribute="leading" secondItem="VBQ-Uz-1WE" secondAttribute="leading" constant="40" id="7aT-J1-Dci"/>
                             <constraint firstItem="rLp-SM-LsY" firstAttribute="top" secondItem="Ndh-Fb-c7o" secondAttribute="bottom" constant="34" id="AsS-IQ-jl8"/>
                             <constraint firstItem="0jc-4O-v4l" firstAttribute="width" secondItem="5zK-pt-Hse" secondAttribute="width" id="JkP-s7-QVN"/>
+                            <constraint firstItem="7vu-Hl-WkO" firstAttribute="width" secondItem="VBQ-Uz-1WE" secondAttribute="width" constant="-80" id="QKY-76-1z9"/>
                             <constraint firstItem="0jc-4O-v4l" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" id="Qt0-JS-60w"/>
                             <constraint firstItem="tWh-rY-Y9m" firstAttribute="top" secondItem="Ndh-Fb-c7o" secondAttribute="bottom" constant="40" id="UNh-6G-rMg"/>
                             <constraint firstItem="tWh-rY-Y9m" firstAttribute="leading" secondItem="5zK-pt-Hse" secondAttribute="leading" constant="40" id="Vqd-xw-JJq"/>
+                            <constraint firstItem="7vu-Hl-WkO" firstAttribute="bottom" secondItem="918-TM-d5O" secondAttribute="top" constant="-12" id="agp-87-PKT"/>
+                            <constraint firstItem="918-TM-d5O" firstAttribute="width" secondItem="VBQ-Uz-1WE" secondAttribute="width" constant="-80" id="bCQ-E5-zkp"/>
                             <constraint firstItem="0jc-4O-v4l" firstAttribute="top" secondItem="tWh-rY-Y9m" secondAttribute="bottom" constant="12" id="bCY-1Z-TgL"/>
                             <constraint firstItem="VBQ-Uz-1WE" firstAttribute="top" secondItem="tWh-rY-Y9m" secondAttribute="bottom" constant="12" id="lNl-Hf-FBq"/>
                             <constraint firstItem="pwv-8M-CBi" firstAttribute="top" secondItem="0jc-4O-v4l" secondAttribute="bottom" id="oGb-U7-8uB"/>
+                            <constraint firstItem="7vu-Hl-WkO" firstAttribute="leading" secondItem="VBQ-Uz-1WE" secondAttribute="leading" constant="40" id="oHV-mG-abg"/>
+                            <constraint firstItem="918-TM-d5O" firstAttribute="bottom" secondItem="VBQ-Uz-1WE" secondAttribute="bottom" constant="-24" id="pO0-8Y-gYv"/>
                             <constraint firstItem="VBQ-Uz-1WE" firstAttribute="bottom" secondItem="pwv-8M-CBi" secondAttribute="top" constant="-80" id="qmr-Z8-vhp"/>
                             <constraint firstItem="VBQ-Uz-1WE" firstAttribute="leading" secondItem="0jc-4O-v4l" secondAttribute="trailing" id="sjj-wk-Kg7"/>
                             <constraint firstAttribute="trailing" secondItem="rLp-SM-LsY" secondAttribute="trailing" constant="40" id="svh-ZA-PSn"/>

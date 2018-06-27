@@ -118,37 +118,10 @@ class LoginViewController: UIViewController {
         
     }
     
-    private func centerActivityIndicatorInButton() {
-        let xCenterConstraint = NSLayoutConstraint(item: signInButton, attribute: .centerX, relatedBy: .equal, toItem: activityIndicator, attribute: .centerX, multiplier: 1, constant: 0)
-        signInButton.addConstraint(xCenterConstraint)
-        
-        let yCenterConstraint = NSLayoutConstraint(item: signInButton, attribute: .centerY, relatedBy: .equal, toItem: activityIndicator, attribute: .centerY, multiplier: 1, constant: 0)
-        signInButton.addConstraint(yCenterConstraint)
-    }
-    
-    private func renderStartLoading() {
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.white
-        signInButton.setTitle("", for: UIControlState.normal)
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        signInButton.addSubview(activityIndicator)
-        centerActivityIndicatorInButton()
-        
-        activityIndicator.startAnimating()
-        UIApplication.shared.beginIgnoringInteractionEvents()
-    }
-    
-    private func renderStopLoading() {
-        activityIndicator.stopAnimating()
-        signInButton.setTitle("Sign in", for: UIControlState.normal)
-        UIApplication.shared.endIgnoringInteractionEvents()
-    }
-    
     // TODO: validation of inputs: email has domain, password must be >= 8 chars
     @IBOutlet weak var signInButton: UIButton!
     
     @IBAction func loginButtonClicked(_ sender: Any) {
-        renderStartLoading()
         postLogin()
     }
 
@@ -175,6 +148,8 @@ class LoginViewController: UIViewController {
     }
     
     private func postLogin() {
+        let av = UIActivityIndicatorView()
+        signInButton.startLoading(activityIndicator: av)
         self.resetError()
         
         do {
@@ -195,22 +170,51 @@ class LoginViewController: UIViewController {
                     case .success:
                         print("Successfully logged in")
                         ServerGateway.rotateTokens(response)
-                        self.renderStopLoading()
+                        self.signInButton.stopLoading(activityIndicator: av)
                         self.goToHome()
                     case .failure(_):
                         self.setError(msg: "Invalid email and/or password.")
                         print("Validation failure on login")
                         // TODO: handle errors
-                        self.renderStopLoading()
+                        self.signInButton.stopLoading(activityIndicator: av)
                     }
             }
         } catch let e as LoginError {
             self.setError(msg: e.msg)
-            self.renderStopLoading()
+            self.signInButton.stopLoading(activityIndicator: av)
         } catch {}
     }
 
     func goToHome() {
         self.dismiss(animated: true, completion: nil)
     }
+}
+
+extension UIButton {
+    
+    private func centerActivityIndicatorInButton(av: UIActivityIndicatorView ) {
+        let xCenterConstraint = NSLayoutConstraint(item: self, attribute: .centerX, relatedBy: .equal, toItem: av, attribute: .centerX, multiplier: 1, constant: 0)
+        self.addConstraint(xCenterConstraint)
+        
+        let yCenterConstraint = NSLayoutConstraint(item: self, attribute: .centerY, relatedBy: .equal, toItem: av, attribute: .centerY, multiplier: 1, constant: 0)
+        self.addConstraint(yCenterConstraint)
+    }
+    
+    func startLoading(activityIndicator: UIActivityIndicatorView) {
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.white
+        self.titleLabel?.isHidden = true
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(activityIndicator)
+        centerActivityIndicatorInButton(av: activityIndicator)
+        activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+    }
+    
+    func stopLoading(activityIndicator: UIActivityIndicatorView) {
+        activityIndicator.stopAnimating()
+        self.titleLabel?.isHidden = false
+        UIApplication.shared.endIgnoringInteractionEvents()
+    }
+    
 }

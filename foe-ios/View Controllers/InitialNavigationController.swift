@@ -8,7 +8,7 @@ class InitialNavigationController: UINavigationController {
         
         // TODO(dinah): remove after testing
         // Programmatically remove accessToken to trigger login
-        // KeychainWrapper.standard.remove(key: "accessToken")
+         KeychainWrapper.standard.remove(key: "accessToken")
         
         // TODO(dinah): ideally this should send a ping to server to verify
         // whether or not access token is valid

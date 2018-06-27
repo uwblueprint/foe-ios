@@ -28,6 +28,8 @@ class SignupViewController: UIViewController {
     var activeTextField : UITextField?
     
     func setupConfirmationView(account: SignupAccount) {
+        confirmationView.setVerticalOffset(y: -124)
+        
         if let firstName = account.name.components(separatedBy: " ").first {
             confirmationView.titleLabel.text = "Almost there, \(firstName)!"
         }
@@ -145,13 +147,7 @@ class SignupViewController: UIViewController {
         do {
             let account = try SignupAccount(nameView: nameTextView, emailView: emailTextView, passwordView: passwordTextView, reenterPasswordView: reenteredPasswordTextView)
             
-            setupConfirmationView(account: account)
-            
-            UIView.animate(withDuration: 0.4, delay: 0, options: [.curveEaseInOut], animations: {
-                self.signupViewLeadingConstraint.constant = -self.view.bounds.width
-                self.view.layoutIfNeeded()
-                
-            }, completion: nil)
+            postSignupToServer(account: account)
             
         } catch let e as SignupError {
             setError(msg: e.msg, errorViews: e.views)
@@ -164,11 +160,20 @@ class SignupViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func signupButtonTouchedUpInside(_ sender: Any) {
+    @IBAction func returnToLoginPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func resendEmailPressed(_ sender: Any) {
+    }
+    
+    func postSignupToServer(account: SignupAccount) {
+        let av = UIActivityIndicatorView()
+        signupButton.startLoading(activityIndicator: av)
+        
         let parameters: Parameters = [
-            "name": nameTextView.getText(),
-            "email": emailTextView.getText(),
-            "password": passwordTextView.getText()
+            "name": account.name,
+            "email": account.email,
+            "password": account.password
         ]
         
         Alamofire.request(
@@ -179,10 +184,18 @@ class SignupViewController: UIViewController {
             ).validate().responseJSON { response in
                 switch response.result {
                 case .success:
-                    // TODO(john): this is where the transition to the confirmation email modal
-                    let alert = CustomModal(title: "Welcome!", caption: "Sign-up complete--a confirmation was sent to your email.", dismissText: "Done", image: UIImage(named: "default-home-illustration")!, onDismiss: { self.dismiss(animated: true, completion: nil) })
-                    alert.show(animated: true)
+                    self.signupButton.stopLoading(activityIndicator: av)
+                    self.setupConfirmationView(account: account)
+                    
+                    UIView.animate(withDuration: 0.4, delay: 0, options: [.curveEaseInOut], animations: {
+                        self.signupViewLeadingConstraint.constant = -self.view.bounds.width
+                        self.view.layoutIfNeeded()
+                        
+                    }, completion: nil)
+                    
+                    
                 case .failure(let error):
+                    self.signupButton.stopLoading(activityIndicator: av)
                     print("Validation failure on signup")
                     print(error)
                 }
