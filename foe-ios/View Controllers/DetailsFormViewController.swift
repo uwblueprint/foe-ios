@@ -136,7 +136,7 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
 
     func submit() {
-        if (sighting?.getLocationName() == "" || sighting?.getHabitat() == "" || sighting?.getWeather() == "") {
+        if (locationTextField.text == "" || sighting?.getHabitat() == "" || sighting?.getWeather() == "") {
             createErrorView()
             return
         }

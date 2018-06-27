@@ -75,7 +75,11 @@ class Sighting {
   }
 
   func getLocationName() -> String {
-    return (self.location != nil) ? self.location!.name : "";
+    if (self.locationName == nil) {
+        self.locationName = (self.location == nil) ? "" : self.location!.name
+    }
+    
+    return self.locationName!
   }
 
   func getDate() -> Date {
