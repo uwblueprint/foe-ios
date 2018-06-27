@@ -45,6 +45,8 @@ class SightingTableViewController: UITableViewController {
     }
 
     func renderEmptyState() {
+        sightings.removeAll()
+        tableView.reloadData()
         self.tableView.backgroundView = emptyHistoryView()
         sightingCountLabel.text = "No sightings"
     }
@@ -170,6 +172,7 @@ class SightingTableViewController: UITableViewController {
     */
 
     private func fetchSightings() {
+        tableView.isUserInteractionEnabled = false
         ServerGateway.authenticatedRequest(
             url: "/sightings",
             method: .get,
@@ -195,6 +198,7 @@ class SightingTableViewController: UITableViewController {
                     self.sightingCountLabel.text = "\(self.sightings.count) sightings"
                     self.tableView.reloadData()
                 }
+                self.tableView.isUserInteractionEnabled = true
             },
             failure: { _ in }
         )
