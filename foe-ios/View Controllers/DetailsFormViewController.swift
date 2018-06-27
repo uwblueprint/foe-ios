@@ -69,11 +69,7 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
 
         let navController = self.navigationController as! SubmissionNavigationController
         sighting = navController.getSighting()
-        
-//        sighting = Sighting()
-//        sighting!.setImage(image: UIImage(named:"bee-sample-image-0")!)
-//        sighting!.setSpecies(species: "bombus_cryptarum")
-        
+
         let submitButton = UIBarButtonItem(title: "Submit", style: UIBarButtonItemStyle.plain, target: self, action: "submit")
         self.navigationItem.rightBarButtonItem = submitButton
         self.navigationItem.title = "Step 3: Geotag"
