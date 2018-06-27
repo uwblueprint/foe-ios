@@ -23,6 +23,12 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var locationPickerView: UIView!
     @IBOutlet weak var habitatPickerArrow: UIImageView!
     
+    @IBOutlet weak var errorView: UIView!
+    @IBOutlet weak var speciesView: UIView!
+    @IBOutlet weak var speciesViewTopConstraint: NSLayoutConstraint!
+    
+    @IBOutlet var speciesViewTopDefaultConstraint: NSLayoutConstraint!
+    
     var sighting: Sighting?
     var weatherPicker: NosePicker?
     var habitatPicker = UIPickerView()
@@ -63,6 +69,10 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
 
         let navController = self.navigationController as! SubmissionNavigationController
         sighting = navController.getSighting()
+        
+//        sighting = Sighting()
+//        sighting!.setImage(image: UIImage(named:"bee-sample-image-0")!)
+//        sighting!.setSpecies(species: "bombus_cryptarum")
         
         let submitButton = UIBarButtonItem(title: "Submit", style: UIBarButtonItemStyle.plain, target: self, action: "submit")
         self.navigationItem.rightBarButtonItem = submitButton
@@ -126,7 +136,15 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
 
     func submit() {
-        postToServer()
+        if (sighting?.getLocationName() == "" || sighting?.getHabitat() == "" || sighting?.getWeather() == "") {
+            createErrorView()
+            return
+        }
+        else {
+            removeErrorView()
+            postToServer()
+        }
+        
     }
 
     private func goToHome() {
@@ -183,6 +201,22 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
         return false
     }
 
+    func createErrorView() {
+        UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseInOut, animations: {
+            self.view.removeConstraint(self.speciesViewTopDefaultConstraint)
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+    
+    func removeErrorView() {
+        UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseInOut, animations: {
+            self.speciesViewTopDefaultConstraint.priority = 1000
+            self.view.addConstraint(self.speciesViewTopDefaultConstraint)
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+    
+    
     private func setupWeatherPicker() {
         let weatherImageNames = [
             "sunny",

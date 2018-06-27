@@ -195,6 +195,7 @@ class LoginViewController: UIViewController {
                     case .success:
                         print("Successfully logged in")
                         ServerGateway.rotateTokens(response)
+                        self.renderStopLoading()
                         self.goToHome()
                     case .failure(_):
                         self.setError(msg: "Invalid email and/or password.")

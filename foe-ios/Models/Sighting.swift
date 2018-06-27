@@ -55,7 +55,7 @@ class Sighting {
   }
 
   func getHabitat() -> String {
-    return self.habitat!
+    return (self.habitat != nil) ? self.habitat! : "";
   }
 
   func setHabitat(habitat: String) {
@@ -67,7 +67,7 @@ class Sighting {
   }
 
   func getWeather() -> String {
-    return self.weather!
+    return (self.weather != nil) ? self.weather! : "";
   }
 
   func setLocation(location: GMSPlace) {
@@ -75,11 +75,7 @@ class Sighting {
   }
 
   func getLocationName() -> String {
-    if (self.locationName == nil) {
-        self.locationName = (self.location == nil) ? "" : self.location!.name
-    }
-
-    return self.locationName!
+    return (self.location != nil) ? self.location!.name : "";
   }
 
   func getDate() -> Date {
