@@ -45,11 +45,10 @@ class ServerGateway {
     
     static func rotateTokens(_ response: (DataResponse<Any>)) {
         if
-            let accessToken = response.response?.allHeaderFields["access-token"] as! String?,
-            let client = response.response?.allHeaderFields["client"] as! String?,
-            let uid = response.response?.allHeaderFields["uid"] as! String?
+            let accessToken = response.response?.allHeaderFields["Access-Token"] as! String?,
+            let client = response.response?.allHeaderFields["Client"] as! String?,
+            let uid = response.response?.allHeaderFields["Uid"] as! String?
         {
-            print("accessToken: \(accessToken)")
             KeychainWrapper.standard.set(accessToken, forKey: "accessToken")
             KeychainWrapper.standard.set(client, forKey: "client")
             KeychainWrapper.standard.set(uid, forKey: "uid")
