@@ -230,8 +230,30 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
 
         weatherPickerView.addSubview(weatherPicker!)
     }
+    
+    func displaySpinner() -> UIView {
+        let spinnerView = UIView.init(frame: self.view.bounds)
+        spinnerView.backgroundColor = UIColor.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.66)
+        let ai = UIActivityIndicatorView.init(activityIndicatorStyle: .whiteLarge)
+        ai.startAnimating()
+        ai.center = spinnerView.center
+        
+        DispatchQueue.main.async {
+            spinnerView.addSubview(ai)
+            self.view.addSubview(spinnerView)
+        }
+        
+        return spinnerView
+    }
+    
+    func removeSpinner(spinner :UIView) {
+        DispatchQueue.main.async {
+            spinner.removeFromSuperview()
+        }
+    }
 
     private func postToServer() {
+        let sv = displaySpinner()
         let parameters: Parameters = [
             "sighting": sighting!.toDict()
         ]
@@ -248,9 +270,12 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
                     image: UIImage(named: "default-home-illustration")!,
                     onDismiss: self.goToHome
                 )
+                self.removeSpinner(spinner: sv)
                 alert.show(animated: true)
             },
-            failure: { _ in }
+            failure: { _ in
+                self.removeSpinner(spinner: sv)
+        }
         )
     }
 }
