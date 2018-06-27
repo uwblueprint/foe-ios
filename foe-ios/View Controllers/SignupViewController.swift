@@ -81,7 +81,6 @@ class SignupViewController: UIViewController {
                 
                 //test whether field.y overlaps keyboard; if so, shift view up by offset
                 if ( superViewY! + activeTextView!.frame.maxY + padding >= self.view.frame.height - keyboardHeight) {
-                    print("\(activeTextView!.label!.text!) overlaps")
                     let offset = superViewY! + activeTextView!.frame.maxY + padding - (self.view.frame.height - keyboardHeight)
                     self.view.frame.origin.y = -offset
                 }
@@ -143,28 +142,23 @@ class SignupViewController: UIViewController {
         resetErrors()
         
         do {
-            let account = try SignupAccount(nameView: nameTextView, emailView: emailTextView, passwordView: passwordTextView, reenterPasswordView: reenteredPasswordTextView)
-            
-            setupConfirmationView(account: account)
-            
-            UIView.animate(withDuration: 0.4, delay: 0, options: [.curveEaseInOut], animations: {
-                self.signupViewLeadingConstraint.constant = -self.view.bounds.width
-                self.view.layoutIfNeeded()
-                
-            }, completion: nil)
-            
+            let account = try SignupAccount(
+                nameView: nameTextView,
+                emailView: emailTextView,
+                passwordView: passwordTextView,
+                reenterPasswordView: reenteredPasswordTextView
+            )
+            postSignup(account)
         } catch let e as SignupError {
             setError(msg: e.msg, errorViews: e.views)
         } catch {}
-
-        
     }
     
     @IBAction func closeButtonTouchedUpInside(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func signupButtonTouchedUpInside(_ sender: Any) {
+    func postSignup(_ account: SignupAccount) {
         let parameters: Parameters = [
             "name": nameTextView.getText(),
             "email": emailTextView.getText(),
@@ -179,14 +173,16 @@ class SignupViewController: UIViewController {
             ).validate().responseJSON { response in
                 switch response.result {
                 case .success:
-                    // TODO(john): this is where the transition to the confirmation email modal
-                    let alert = CustomModal(title: "Welcome!", caption: "Sign-up complete--a confirmation was sent to your email.", dismissText: "Done", image: UIImage(named: "default-home-illustration")!, onDismiss: { self.dismiss(animated: true, completion: nil) })
-                    alert.show(animated: true)
+                    self.setupConfirmationView(account: account)
+                    
+                    UIView.animate(withDuration: 0.4, delay: 0, options: [.curveEaseInOut], animations: {
+                        self.signupViewLeadingConstraint.constant = -self.view.bounds.width
+                        self.view.layoutIfNeeded()
+                    }, completion: nil)
                 case .failure(let error):
                     print("Validation failure on signup")
                     print(error)
                 }
         }
     }
-    
 }
