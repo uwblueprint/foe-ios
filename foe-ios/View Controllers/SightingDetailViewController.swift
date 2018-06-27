@@ -59,7 +59,9 @@ class SightingDetailViewController: UIViewController {
         dateLabel.text = dateFormatter.string(from: self.sightingModel.getDate())
         
         //set species image
-        speciesImageView.image = UIImage(named: self.sightingModel.getSpecies())!
+        if (sightingModel.getSpecies() != "unidentified") {
+            speciesImageView.image = UIImage(named: self.sightingModel.getSpecies())!
+        }
         
     }
     

@@ -11,7 +11,7 @@ import Alamofire
 import GooglePlaces
 import SwiftKeychainWrapper
 
-class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
     // MARK: outlets
     @IBOutlet weak var previewImage: UIImageView!
@@ -21,7 +21,14 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var habitatPickerTextField: UITextField!
     @IBOutlet weak var weatherPickerView: UIView!
     @IBOutlet weak var locationPickerView: UIView!
-
+    @IBOutlet weak var habitatPickerArrow: UIImageView!
+    
+    @IBOutlet weak var errorView: UIView!
+    @IBOutlet weak var speciesView: UIView!
+    @IBOutlet weak var speciesViewTopConstraint: NSLayoutConstraint!
+    
+    @IBOutlet var speciesViewTopDefaultConstraint: NSLayoutConstraint!
+    
     var sighting: Sighting?
     var weatherPicker: NosePicker?
     var habitatPicker = UIPickerView()
@@ -89,6 +96,7 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
 
     func openAutoComplete() {
         let autocompleteController = GMSAutocompleteViewController()
+        UINavigationBar.appearance().tintColor = UIColor(red:0.12, green:0.75, blue:0.39, alpha:1.0)
         autocompleteController.delegate = self
         present(autocompleteController, animated: true, completion: nil)
     }
@@ -124,7 +132,15 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
 
     func submit() {
-        postToServer()
+        if (locationTextField.text == "" || sighting?.getHabitat() == "" || sighting?.getWeather() == "") {
+            createErrorView()
+            return
+        }
+        else {
+            removeErrorView()
+            postToServer()
+        }
+        
     }
 
     private func goToHome() {
@@ -133,11 +149,70 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
 
     private func setupHabitatPicker() {
         habitatPickerData =  ["back_yard", "balcony/container_garden", "community_garden", "city_park", "rural", "golf_course", "roadside", "woodland", "farmland", "school_grounds", "other"]
+        habitatPicker.backgroundColor = UIColor.white
         habitatPicker.delegate = self
         habitatPicker.dataSource = self
         habitatPickerTextField.inputView = habitatPicker
+        habitatPickerTextField.delegate = self
+        
+        let toolBar = UIToolbar()
+        toolBar.barStyle = .default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = UIColor(red:0.12, green:0.75, blue:0.39, alpha:1.0)
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneButtonPressed))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(doneButtonPressed))
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        
+        doneButton.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir Heavy", size: 16)!], for: UIControlState.normal)
+        cancelButton.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir Book", size: 16)!], for: UIControlState.normal)
+        toolBar.isUserInteractionEnabled = true
+        habitatPickerTextField.inputAccessoryView = toolBar
+        
+        habitatPickerArrow.isUserInteractionEnabled = true
+        habitatPickerArrow.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openHabitatPicker)))
+    }
+    
+    func openHabitatPicker() {
+        habitatPickerTextField.becomeFirstResponder()
+    }
+    
+    func doneButtonPressed() {
+        habitatPickerTextField.resignFirstResponder()
+        
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        habitatPickerArrow.transform = CGAffineTransform(scaleX: 1, y: -1)
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        habitatPickerArrow.transform = CGAffineTransform(scaleX: 1, y: 1)
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return false
     }
 
+    func createErrorView() {
+        UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseInOut, animations: {
+            self.view.removeConstraint(self.speciesViewTopDefaultConstraint)
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+    
+    func removeErrorView() {
+        UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseInOut, animations: {
+            self.speciesViewTopDefaultConstraint.priority = 1000
+            self.view.addConstraint(self.speciesViewTopDefaultConstraint)
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+    
+    
     private func setupWeatherPicker() {
         let weatherImageNames = [
             "sunny",
@@ -151,8 +226,30 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
 
         weatherPickerView.addSubview(weatherPicker!)
     }
+    
+    func displaySpinner() -> UIView {
+        let spinnerView = UIView.init(frame: self.view.bounds)
+        spinnerView.backgroundColor = UIColor.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.66)
+        let ai = UIActivityIndicatorView.init(activityIndicatorStyle: .whiteLarge)
+        ai.startAnimating()
+        ai.center = spinnerView.center
+        
+        DispatchQueue.main.async {
+            spinnerView.addSubview(ai)
+            self.view.addSubview(spinnerView)
+        }
+        
+        return spinnerView
+    }
+    
+    func removeSpinner(spinner :UIView) {
+        DispatchQueue.main.async {
+            spinner.removeFromSuperview()
+        }
+    }
 
     private func postToServer() {
+        let sv = displaySpinner()
         let parameters: Parameters = [
             "sighting": sighting!.toDict()
         ]
@@ -169,9 +266,12 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
                     image: UIImage(named: "default-home-illustration")!,
                     onDismiss: self.goToHome
                 )
+                self.removeSpinner(spinner: sv)
                 alert.show(animated: true)
             },
-            failure: { _ in }
+            failure: { _ in
+                self.removeSpinner(spinner: sv)
+        }
         )
     }
 }

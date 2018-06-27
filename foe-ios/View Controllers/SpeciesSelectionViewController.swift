@@ -76,6 +76,7 @@ class SpeciesSelectionViewController: UIViewController {
         partsPicker = NosePicker(frame: CGRect(x: 0, y: partsLabelsRow.frame.maxY , width: view.frame.width, height: 96), items: easternItems!, updateCallback: self.setSightingSpecies)
         
         view.addSubview(partsPicker!)
+        updateButtons()
     }
     
     override func viewDidLoad() {
@@ -89,8 +90,6 @@ class SpeciesSelectionViewController: UIViewController {
         //add buttons and set initial state to face
         self.partsButtons.append(easternButton)
         self.partsButtons.append(westernButton)
-        
-        updateButtons()
         
         let alert = CustomModal(title: "Which bee?", caption: "Select the species below that best matches your photo!", dismissText: "Got it", image: UIImage(named: "picker-illustration")!)
         

@@ -15,6 +15,11 @@ class emptyHistoryView: UIView {
     
     //:- Outlets
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var illustrationImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBInspectable var illustrationImage: UIImage?
+    @IBInspectable var title: String?
     
     private func initialize () {
         
@@ -26,6 +31,15 @@ class emptyHistoryView: UIView {
         
         guard let view = loadViewFromNib() else { return }
         addSubview(view)
+        
+        if (illustrationImage != nil) {
+            illustrationImageView.image = illustrationImage
+        }
+        
+        if (title != nil) {
+            titleLabel.text = title
+        }
+        
         view.frame = self.bounds
         view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         self.contentView = view

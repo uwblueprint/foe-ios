@@ -12,9 +12,14 @@ import UIKit
 
     // MARK: - Outlets
     var contentView: UIView?
+    var isActive: Bool?
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var inputTextField: UITextField!
     @IBOutlet weak var outline: UIView!
+    
+    let errorColor : UIColor = UIColor(red:0.92, green:0.34, blue:0.34, alpha:1.0)
+    let activeColor : UIColor = UIColor(red:0.12, green:0.75, blue:0.39, alpha:1.0)
+    let defaultColor: UIColor = UIColor(red:0.88, green:0.88, blue:0.88, alpha:1.0)
     
     var activeTextField : UITextField?
     
@@ -55,6 +60,7 @@ import UIKit
         inputTextField.isSecureTextEntry = isSecure
         inputTextField.tag = index
         self.tag = index
+        self.isActive = false
         addSubview(view)
         view.frame = self.bounds
         view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -78,9 +84,7 @@ import UIKit
             options: nil).first as? UIView
     }
     
-    func renderInputActiveState(isActive: Bool) {
-        let color : UIColor = isActive ? UIColor(red:0.12, green:0.75, blue:0.39, alpha:1.0) : UIColor(red:0.88, green:0.88, blue:0.88, alpha:1.0)
-        
+    func setState(color: UIColor) {
         UIView.transition(with: self.label, duration: 0.2, options: .transitionCrossDissolve, animations: {
             self.label.textColor = color
         }, completion: nil)
@@ -90,13 +94,28 @@ import UIKit
         }, completion: nil)
     }
     
+    func renderInputActiveState(isActive: Bool) {
+        let color : UIColor = isActive ? activeColor : defaultColor
+        setState(color: color)
+    }
+    
+    func displayAsError() {
+        setState(color: errorColor)
+    }
+    
+    func displayAsDefault() {
+        self.label.textColor = defaultColor
+        self.outline.backgroundColor = defaultColor
+    }
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         activeTextField = textField
+        isActive = true
+        print(self.frame)
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         renderInputActiveState(isActive: false)
-        
         // Try to find next responder
         if let nextField = self.superview?.viewWithTag(textField.tag + 1) as? LabeledOutlineTextView {
             nextField.getTextField().becomeFirstResponder()
@@ -109,6 +128,7 @@ import UIKit
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
+        isActive = false
         activeTextField?.resignFirstResponder()
         renderInputActiveState(isActive: false)
     }

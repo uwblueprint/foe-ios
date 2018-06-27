@@ -13,10 +13,11 @@ import SwiftKeychainWrapper
 class LoginViewController: UIViewController {
 
     var frameView : UIView!
-    var activeTextField : UITextField?
     var emailTextField: UITextField?
     var passwordTextField: UITextField?
+    var activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
     @IBOutlet weak var skyImage: UIImageView!
+    @IBOutlet weak var errorLabel: UILabel!
     
     @IBOutlet weak var emailTextView: LabeledOutlineTextView!
     @IBOutlet weak var passwordTextView: LabeledOutlineTextView!
@@ -27,13 +28,15 @@ class LoginViewController: UIViewController {
         
         emailTextField = emailTextView.getTextField()
         passwordTextField = passwordTextView.getTextField()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidChange(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidChange(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidChange(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         renderUIButtons()
         
         self.hideKeyboardWhenTappedAround()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidChange(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidChange(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidChange(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -54,13 +57,15 @@ class LoginViewController: UIViewController {
         }, completion: nil)
     }
     
-    deinit {
+    override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
     
     @objc func keyboardDidChange(notification: Notification) {
+        var activeTextView : LabeledOutlineTextView?
+        
         if let userInfo = notification.userInfo as? Dictionary<String,AnyObject> {
             let frame = userInfo[UIKeyboardFrameBeginUserInfoKey]
             let keyboardRect = frame?.cgRectValue
@@ -68,10 +73,26 @@ class LoginViewController: UIViewController {
             
             if (notification.name == NSNotification.Name.UIKeyboardWillShow || notification.name == NSNotification.Name.UIKeyboardWillChangeFrame) {
                 
-                self.view.frame.origin.y = -keyboardHeight
+                let padding : CGFloat = 60
+                
+                //get active field
+                for item in [emailTextView, passwordTextView] {
+                    let view = item as LabeledOutlineTextView?
+                    if (view!.isActive!) {
+                        activeTextView = item
+                        break
+                    }
+                }
+                
+                //test whether field.y overlaps keyboard; if so, shift view up by offset
+                if (activeTextView!.frame.maxY + padding >= self.view.frame.height - keyboardHeight) {
+                    let offset = activeTextView!.frame.maxY + padding - (self.view.frame.height - keyboardHeight)
+                    self.view.frame.origin.y = -offset
+                }
             }
             else {
                 self.view.frame.origin.y = 0
+                activeTextView = nil
             }
             
             self.view.layoutIfNeeded()
@@ -97,10 +118,37 @@ class LoginViewController: UIViewController {
         
     }
     
+    private func centerActivityIndicatorInButton() {
+        let xCenterConstraint = NSLayoutConstraint(item: signInButton, attribute: .centerX, relatedBy: .equal, toItem: activityIndicator, attribute: .centerX, multiplier: 1, constant: 0)
+        signInButton.addConstraint(xCenterConstraint)
+        
+        let yCenterConstraint = NSLayoutConstraint(item: signInButton, attribute: .centerY, relatedBy: .equal, toItem: activityIndicator, attribute: .centerY, multiplier: 1, constant: 0)
+        signInButton.addConstraint(yCenterConstraint)
+    }
+    
+    private func renderStartLoading() {
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.white
+        signInButton.setTitle("", for: UIControlState.normal)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        signInButton.addSubview(activityIndicator)
+        centerActivityIndicatorInButton()
+        
+        activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+    }
+    
+    private func renderStopLoading() {
+        activityIndicator.stopAnimating()
+        signInButton.setTitle("Sign in", for: UIControlState.normal)
+        UIApplication.shared.endIgnoringInteractionEvents()
+    }
+    
     // TODO: validation of inputs: email has domain, password must be >= 8 chars
     @IBOutlet weak var signInButton: UIButton!
     
     @IBAction func loginButtonClicked(_ sender: Any) {
+        renderStartLoading()
         postLogin()
     }
 
@@ -114,29 +162,52 @@ class LoginViewController: UIViewController {
         self.present(controller, animated: true, completion: nil)
     }
     
+    func setError(msg: String) {
+        errorLabel.text = msg
+        emailTextView.displayAsError()
+        passwordTextView.displayAsError()
+    }
+    
+    func resetError() {
+        errorLabel.text = ""
+        emailTextView.displayAsDefault()
+        passwordTextView.displayAsDefault()
+    }
+    
     private func postLogin() {
-        let parameters: Parameters = [
-            "email": emailTextField!.text!,
-            "password": passwordTextField!.text!
-        ]
-
-        Alamofire.request(
-            "\(API_URL)/auth/sign_in",
-            method: .post,
-            parameters: parameters,
-            encoding: JSONEncoding.default
-            ).validate().responseJSON { response in
-                switch response.result {
-                case .success:
-                    print("Successfully logged in")
-                    ServerGateway.rotateTokens(response)
-                    self.goToHome()
-                case .failure(_):
-                    self.showLoginError(msg: "A server problem was encountered, please try again.")
-                    print("Validation failure on login")
-                    // TODO: handle errors
-                }
-        }
+        self.resetError()
+        
+        do {
+            let account = try LoginAccount(email: emailTextField!.text!, password: passwordTextField!.text!)
+            
+            let parameters: Parameters = [
+                "email": account.email,
+                "password": account.password
+            ]
+            
+            Alamofire.request(
+                "\(API_URL)/auth/sign_in",
+                method: .post,
+                parameters: parameters,
+                encoding: JSONEncoding.default
+                ).validate().responseJSON { response in
+                    switch response.result {
+                    case .success:
+                        print("Successfully logged in")
+                        ServerGateway.rotateTokens(response)
+                        self.renderStopLoading()
+                        self.goToHome()
+                    case .failure(_):
+                        self.setError(msg: "Invalid email and/or password.")
+                        print("Validation failure on login")
+                        // TODO: handle errors
+                        self.renderStopLoading()
+                    }
+            }
+        } catch let e as LoginError {
+            self.setError(msg: e.msg)
+            self.renderStopLoading()
+        } catch {}
     }
 
     func goToHome() {
