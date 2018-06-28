@@ -54,4 +54,27 @@ class ServerGateway {
             KeychainWrapper.standard.set(uid, forKey: "uid")
         }
     }
+    
+    static func validateAccessToken(accessToken: String, failureCallback: @escaping () -> Void) {
+        let headers: HTTPHeaders = [
+            "access-token": accessToken,
+            "token-type": "Bearer",
+            "client": KeychainWrapper.standard.string(forKey: "client")!,
+            "uid": KeychainWrapper.standard.string(forKey: "uid")!
+        ]
+        
+        Alamofire.request(
+            "\(API_URL)/auth/validate_token",
+            method: .get,
+            parameters: nil,
+            encoding: JSONEncoding.default,
+            headers: headers
+        ).validate().responseJSON { response in
+            rotateTokens(response)
+            
+            if response.result.isFailure {
+                failureCallback()
+            }
+        }
+    }
 }
