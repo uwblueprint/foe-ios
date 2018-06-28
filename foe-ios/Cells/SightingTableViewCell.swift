@@ -12,7 +12,6 @@ class SightingTableViewCell: UITableViewCell {
 
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var speciesLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var sightingCellView: UIView!

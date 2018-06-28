@@ -33,6 +33,7 @@ class SightingDetailViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        renderImageGradient()
     }
     
     @IBAction func handleSightingCloseButton(_ sender: Any) {
@@ -65,18 +66,7 @@ class SightingDetailViewController: UIViewController {
         
     }
     
-    override func viewDidLoad() {
-        print("view created")
-        super.viewDidLoad()
-        
-        renderInformation()
-        
-
-        // Do any additional setup after loading the view.
-        
-        photoImageView.image = sightingModel.getImage()
-        speciesImageBGView.layer.cornerRadius = speciesImageBGView.frame.width/2
-        
+    func renderImageGradient() {
         let gradientView = UIView(frame: photoImageView.frame)
         
         let gradient = CAGradientLayer()
@@ -89,6 +79,19 @@ class SightingDetailViewController: UIViewController {
         gradientView.layer.insertSublayer(gradient, at: 0)
         photoImageView.addSubview(gradientView)
         photoImageView.bringSubview(toFront: gradientView)
+    }
+    
+    override func viewDidLoad() {
+        print("view created")
+        super.viewDidLoad()
+        
+        renderInformation()
+        
+
+        // Do any additional setup after loading the view.
+        
+        photoImageView.image = sightingModel.getImage()
+        speciesImageBGView.layer.cornerRadius = speciesImageBGView.frame.width/2
         
         let blur = UIVisualEffectView(effect: UIBlurEffect(style: .prominent))
         blur.frame = closeButton.bounds

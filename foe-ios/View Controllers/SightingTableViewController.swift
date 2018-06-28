@@ -109,7 +109,6 @@ class SightingTableViewController: UITableViewController {
         cell.locationLabel.text = sighting.getLocationName()
         cell.photoImageView.image = sighting.getImage()
         cell.speciesLabel.text = SpeciesMap.getCommonName(sighting.getSpecies())
-        cell.statusLabel.text = "Pending"
 
         let dateFormatter = DateFormatter()
 
