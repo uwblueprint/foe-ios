@@ -22,6 +22,7 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var signupButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var signupViewLeadingConstraint: NSLayoutConstraint!
+    var av: UIActivityIndicatorView = UIActivityIndicatorView()
     
     var tvs : [LabeledOutlineTextView] = []
     
@@ -83,7 +84,6 @@ class SignupViewController: UIViewController {
                 
                 //test whether field.y overlaps keyboard; if so, shift view up by offset
                 if ( superViewY! + activeTextView!.frame.maxY + padding >= self.view.frame.height - keyboardHeight) {
-                    print("\(activeTextView!.label!.text!) overlaps")
                     let offset = superViewY! + activeTextView!.frame.maxY + padding - (self.view.frame.height - keyboardHeight)
                     self.view.frame.origin.y = -offset
                 }
@@ -99,6 +99,7 @@ class SignupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        av.hidesWhenStopped = true
         renderUI()
         tvs += [nameTextView, emailTextView, passwordTextView, reenteredPasswordTextView]
         // Do any additional setup after loading the view.
@@ -145,29 +146,32 @@ class SignupViewController: UIViewController {
         resetErrors()
         
         do {
-            let account = try SignupAccount(nameView: nameTextView, emailView: emailTextView, passwordView: passwordTextView, reenterPasswordView: reenteredPasswordTextView)
-            
-            postSignupToServer(account: account)
-            
+            let account = try SignupAccount(
+                nameView: nameTextView,
+                emailView: emailTextView,
+                passwordView: passwordTextView,
+                reenterPasswordView: reenteredPasswordTextView
+            )
+            postSignup(account)
         } catch let e as SignupError {
             setError(msg: e.msg, errorViews: e.views)
         } catch {}
-
-        
     }
     
     @IBAction func closeButtonTouchedUpInside(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
+
     @IBAction func returnToLoginPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func resendEmailPressed(_ sender: Any) {
     }
     
-    func postSignupToServer(account: SignupAccount) {
-        let av = UIActivityIndicatorView()
+    func postSignup(_ account: SignupAccount) {
+        let lblMsg = signupButton.titleLabel!.text
+        
         signupButton.startLoading(activityIndicator: av)
         
         let parameters: Parameters = [
@@ -184,22 +188,18 @@ class SignupViewController: UIViewController {
             ).validate().responseJSON { response in
                 switch response.result {
                 case .success:
-                    self.signupButton.stopLoading(activityIndicator: av)
+                    self.signupButton.stopLoading(activityIndicator: self.av, msg: lblMsg!)
                     self.setupConfirmationView(account: account)
                     
                     UIView.animate(withDuration: 0.4, delay: 0, options: [.curveEaseInOut], animations: {
                         self.signupViewLeadingConstraint.constant = -self.view.bounds.width
                         self.view.layoutIfNeeded()
-                        
                     }, completion: nil)
-                    
-                    
                 case .failure(let error):
-                    self.signupButton.stopLoading(activityIndicator: av)
+                    self.signupButton.stopLoading(activityIndicator: self.av, msg: lblMsg!)
                     print("Validation failure on signup")
                     print(error)
                 }
         }
     }
-    
 }
