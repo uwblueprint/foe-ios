@@ -68,8 +68,8 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate,
         navController.navigationBar.barTintColor = UIColor.black
         navController.navigationBar.isTranslucent = false
         navController.navigationBar.tintColor = UIColor(red:0.12, green:0.75, blue:0.39, alpha:1.0)
-        navController.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Avenir", size: 14)!, NSForegroundColorAttributeName : UIColor.white ]
-        self.navigationItem.title = "Step 1: Capture".uppercased()
+        navController.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 14)!, NSForegroundColorAttributeName : UIColor.white ]
+        self.navigationItem.title = "Step 1: Capture"
         
         UIApplication.shared.statusBarStyle = .lightContent
 

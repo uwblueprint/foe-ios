@@ -1123,14 +1123,6 @@
                                             <action selector="signupPressed:" destination="i7x-PC-SQr" eventType="touchUpInside" id="adS-PU-TZe"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHx-N3-tsK">
-                                        <rect key="frame" x="40" y="424" width="295" height="33"/>
-                                        <string key="text">By signing up, I agree to the terms and conditions
-and EULA Agreement.</string>
-                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
-                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3DU-H2-eXD">
                                         <rect key="frame" x="40" y="0.0" width="295" height="20"/>
                                         <constraints>
@@ -1140,22 +1132,34 @@ and EULA Agreement.</string>
                                         <color key="textColor" red="0.92156862745098034" green="0.3411764705882353" blue="0.3411764705882353" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="By signing up, I agree to the terms and conditions and EULA Agreement." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3m9-1n-3o4">
+                                        <rect key="frame" x="24" y="409" width="327" height="64"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="NXb-nb-Ouw"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                    </textView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="kRz-62-5lf" firstAttribute="leading" secondItem="0jc-4O-v4l" secondAttribute="leading" constant="40" id="0xM-4B-lky"/>
+                                    <constraint firstItem="3m9-1n-3o4" firstAttribute="leading" secondItem="0jc-4O-v4l" secondAttribute="leading" constant="24" id="Iem-FR-K43"/>
                                     <constraint firstItem="kRz-62-5lf" firstAttribute="width" secondItem="0jc-4O-v4l" secondAttribute="width" constant="-80" id="IfT-R4-lHe"/>
-                                    <constraint firstItem="iHx-N3-tsK" firstAttribute="width" secondItem="0jc-4O-v4l" secondAttribute="width" constant="-80" id="JML-gj-dly"/>
                                     <constraint firstItem="5uC-wr-1kI" firstAttribute="leading" secondItem="0jc-4O-v4l" secondAttribute="leading" constant="40" id="JsX-qk-RCe"/>
                                     <constraint firstItem="3DU-H2-eXD" firstAttribute="leading" secondItem="0jc-4O-v4l" secondAttribute="leading" constant="40" id="Kvw-cg-vCI"/>
                                     <constraint firstItem="w4y-4f-b5F" firstAttribute="top" secondItem="kRz-62-5lf" secondAttribute="bottom" constant="24" id="Lat-oX-kX4"/>
+                                    <constraint firstItem="3m9-1n-3o4" firstAttribute="width" secondItem="0jc-4O-v4l" secondAttribute="width" constant="-48" id="MH6-gY-aMI"/>
                                     <constraint firstItem="LKf-Sq-4GA" firstAttribute="top" secondItem="3DU-H2-eXD" secondAttribute="bottom" constant="12" id="MlB-T7-Kza"/>
                                     <constraint firstItem="VHW-MF-OJ6" firstAttribute="leading" secondItem="0jc-4O-v4l" secondAttribute="leading" constant="40" id="OlX-Rf-sOp"/>
-                                    <constraint firstItem="iHx-N3-tsK" firstAttribute="bottom" secondItem="5uC-wr-1kI" secondAttribute="top" constant="-16" id="P6d-oE-OFZ"/>
                                     <constraint firstItem="w4y-4f-b5F" firstAttribute="leading" secondItem="0jc-4O-v4l" secondAttribute="leading" constant="40" id="Qbf-GN-gzf"/>
                                     <constraint firstItem="3DU-H2-eXD" firstAttribute="top" secondItem="0jc-4O-v4l" secondAttribute="top" id="RAI-PW-qx8"/>
                                     <constraint firstItem="VHW-MF-OJ6" firstAttribute="width" secondItem="0jc-4O-v4l" secondAttribute="width" constant="-80" id="SmS-xG-sIL"/>
                                     <constraint firstItem="5uC-wr-1kI" firstAttribute="width" secondItem="0jc-4O-v4l" secondAttribute="width" constant="-80" id="Tyw-VU-BQd"/>
+                                    <constraint firstItem="5uC-wr-1kI" firstAttribute="top" secondItem="3m9-1n-3o4" secondAttribute="bottom" id="dVa-iP-0AD"/>
                                     <constraint firstItem="VHW-MF-OJ6" firstAttribute="top" secondItem="LKf-Sq-4GA" secondAttribute="bottom" constant="24" id="hfb-eu-2Ps"/>
                                     <constraint firstItem="w4y-4f-b5F" firstAttribute="width" secondItem="0jc-4O-v4l" secondAttribute="width" constant="-80" id="k9P-hJ-8cu"/>
                                     <constraint firstItem="kRz-62-5lf" firstAttribute="top" secondItem="VHW-MF-OJ6" secondAttribute="bottom" constant="24" id="lQ8-w7-BLw"/>
@@ -1163,7 +1167,6 @@ and EULA Agreement.</string>
                                     <constraint firstItem="LKf-Sq-4GA" firstAttribute="width" secondItem="0jc-4O-v4l" secondAttribute="width" constant="-80" id="lqK-mG-k1F"/>
                                     <constraint firstItem="LKf-Sq-4GA" firstAttribute="leading" secondItem="0jc-4O-v4l" secondAttribute="leading" constant="40" id="mFS-4B-8A5"/>
                                     <constraint firstAttribute="bottom" secondItem="5uC-wr-1kI" secondAttribute="bottom" constant="40" id="nSw-ut-mtK"/>
-                                    <constraint firstItem="iHx-N3-tsK" firstAttribute="leading" secondItem="0jc-4O-v4l" secondAttribute="leading" constant="40" id="wt9-0F-kLP"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBQ-Uz-1WE" userLabel="confirmationView" customClass="emptyHistoryView" customModule="foe_ios" customModuleProvider="target">
@@ -1234,6 +1237,7 @@ and EULA Agreement.</string>
                         <outlet property="signupButton" destination="5uC-wr-1kI" id="TLH-aW-Ael"/>
                         <outlet property="signupView" destination="0jc-4O-v4l" id="1nP-ed-Cwv"/>
                         <outlet property="signupViewLeadingConstraint" destination="Qt0-JS-60w" id="lkm-Nm-4b2"/>
+                        <outlet property="termsLabel" destination="3m9-1n-3o4" id="g5E-6l-Xe5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0nI-Pt-QUm" userLabel="First Responder" sceneMemberID="firstResponder"/>

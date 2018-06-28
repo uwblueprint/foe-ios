@@ -11,6 +11,7 @@ import UIKit
 
 class SignupViewController: UIViewController {
 
+    @IBOutlet var termsLabel: UITextView!
     @IBOutlet weak var signupView: UIView!
     @IBOutlet weak var confirmationView: emptyHistoryView!
     // MARK: - Outlets
@@ -59,6 +60,24 @@ class SignupViewController: UIViewController {
         signupButton.layer.shadowOpacity = 0.16
         signupButton.layer.shadowPath = shadowPath.cgPath
         signupButton.layer.shadowRadius = 6
+        
+        //set up EULA and terms and conditions text
+        let style = NSMutableParagraphStyle()
+        style.alignment = .center
+        
+        let text = "By signing up, I agree to the terms\u{00a0}and\u{00a0}conditions and EULA\u{00a0}Agreement."
+        let attributedText = NSMutableAttributedString(string: text, attributes: [NSParagraphStyleAttributeName: style, NSFontAttributeName : UIFont(name: "Avenir-Medium", size: 14)!])
+        let tcSubstringRange : NSRange = NSRange(location: 30, length: 20)
+        let EULASubstringRange = NSRange(location: 55, length: 14)
+    
+        
+        attributedText.addAttributes([NSLinkAttributeName: "http://foecanada.org/",  NSUnderlineColorAttributeName: UIColor.clear, NSFontAttributeName : UIFont(name: "Avenir-Heavy", size: 14)!], range: tcSubstringRange)
+        attributedText.addAttributes([NSLinkAttributeName: "http://foecanada.org/",  NSUnderlineColorAttributeName: UIColor.clear, NSFontAttributeName : UIFont(name: "Avenir-Heavy", size: 14)!], range: EULASubstringRange)
+        
+        termsLabel.isUserInteractionEnabled = true
+        termsLabel.text = ""
+        termsLabel.linkTextAttributes = [NSForegroundColorAttributeName: UIColor(red:0.12, green:0.75, blue:0.39, alpha:1.0)]
+        termsLabel.attributedText = attributedText
     }
     
     @objc func keyboardDidChange(notification: Notification) {
