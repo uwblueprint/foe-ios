@@ -69,12 +69,12 @@ class ServerGateway {
             parameters: nil,
             encoding: JSONEncoding.default,
             headers: headers
-            ).validate().responseJSON { response in
-                rotateTokens(response)
-                
-                if response.result.isFailure {
-                    failureCallback()
-                }
+        ).validate().responseJSON { response in
+            rotateTokens(response)
+            
+            if response.result.isFailure {
+                failureCallback()
+            }
         }
     }
 }

@@ -1,3 +1,4 @@
+import Alamofire
 import SwiftKeychainWrapper
 import UIKit
 
@@ -10,11 +11,11 @@ class InitialNavigationController: UINavigationController {
         // Programmatically remove accessToken to trigger login
          KeychainWrapper.standard.remove(key: "accessToken")
         
-        // TODO(dinah): ideally this should send a ping to server to verify
-        // whether or not access token is valid
         let accessToken: String? = KeychainWrapper.standard.string(forKey: "accessToken")
         if (accessToken ?? "").isEmpty {
             perform(#selector(showLogin), with: nil, afterDelay: 0.01)
+        } else {
+            ServerGateway.validateAccessToken(accessToken: accessToken!, failureCallback: { self.perform(#selector(self.showLogin), with: nil, afterDelay: 0.01) })
         }
     }
     
@@ -23,5 +24,4 @@ class InitialNavigationController: UINavigationController {
         let controller = storyboard.instantiateViewController(withIdentifier: "loginViewController")
         self.present(controller, animated: true, completion: nil)
     }
-
 }
