@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
     var frameView : UIView!
     var emailTextField: UITextField?
     var passwordTextField: UITextField?
-    var activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
+    var av : UIActivityIndicatorView = UIActivityIndicatorView()
     @IBOutlet weak var skyImage: UIImageView!
     @IBOutlet weak var errorLabel: UILabel!
     
@@ -25,6 +25,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        av.hidesWhenStopped = true
         
         emailTextField = emailTextView.getTextField()
         passwordTextField = passwordTextView.getTextField()
@@ -148,7 +149,7 @@ class LoginViewController: UIViewController {
     }
     
     private func postLogin() {
-        let av = UIActivityIndicatorView()
+        let lblMsg = signInButton.titleLabel!.text
         signInButton.startLoading(activityIndicator: av)
         self.resetError()
         
@@ -170,18 +171,18 @@ class LoginViewController: UIViewController {
                     case .success:
                         print("Successfully logged in")
                         ServerGateway.rotateTokens(response)
-                        self.signInButton.stopLoading(activityIndicator: av)
+                        self.signInButton.stopLoading(activityIndicator: self.av, msg: lblMsg!)
                         self.goToHome()
                     case .failure(_):
                         self.setError(msg: "Invalid email and/or password.")
                         print("Validation failure on login")
                         // TODO: handle errors
-                        self.signInButton.stopLoading(activityIndicator: av)
+                        self.signInButton.stopLoading(activityIndicator: self.av, msg: lblMsg!)
                     }
             }
         } catch let e as LoginError {
             self.setError(msg: e.msg)
-            self.signInButton.stopLoading(activityIndicator: av)
+            self.signInButton.stopLoading(activityIndicator: self.av, msg: lblMsg!)
         } catch {}
     }
 
@@ -201,9 +202,8 @@ extension UIButton {
     }
     
     func startLoading(activityIndicator: UIActivityIndicatorView) {
-        activityIndicator.hidesWhenStopped = true
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.white
-        self.titleLabel?.isHidden = true
+        self.titleLabel?.text = ""
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(activityIndicator)
         centerActivityIndicatorInButton(av: activityIndicator)
@@ -211,9 +211,10 @@ extension UIButton {
         UIApplication.shared.beginIgnoringInteractionEvents()
     }
     
-    func stopLoading(activityIndicator: UIActivityIndicatorView) {
+    func stopLoading(activityIndicator: UIActivityIndicatorView, msg: String) {
         activityIndicator.stopAnimating()
         self.titleLabel?.isHidden = false
+        self.titleLabel?.text = msg
         UIApplication.shared.endIgnoringInteractionEvents()
     }
     
