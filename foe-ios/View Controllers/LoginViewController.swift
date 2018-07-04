@@ -34,7 +34,7 @@ class LoginViewController: UIViewController {
         
         self.hideKeyboardWhenTappedAround()
         
-        if (UIScreen.main.bounds.height < 600) {
+        if (isIPhoneSE) {
             loginTopOffsetConstraint.constant = 24
         }
     }
