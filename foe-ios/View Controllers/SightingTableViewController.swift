@@ -199,7 +199,16 @@ class SightingTableViewController: UITableViewController {
                 }
                 self.tableView.isUserInteractionEnabled = true
             },
-            failure: { _ in }
+            failure: { _ in
+                let alert = CustomModal(
+                    title: "Uh oh",
+                    caption: "There was a server error in processing your request.",
+                    dismissText: "Done",
+                    image: nil,
+                    onDismiss: nil
+                )
+                alert.show(animated: true)
+        }
         )
     }
 }

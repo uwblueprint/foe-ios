@@ -274,6 +274,14 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
             },
             failure: { _ in
                 self.removeSpinner(spinner: sv)
+                let alert = CustomModal(
+                    title: "Uh oh",
+                    caption: "There was a server error in processing your request.",
+                    dismissText: "Done",
+                    image: nil,
+                    onDismiss: self.goToHome
+                )
+                alert.show(animated: true)
         }
         )
     }

@@ -231,6 +231,14 @@ class SignupViewController: UIViewController {
                     self.signupButton.stopLoading(activityIndicator: self.av, msg: lblMsg!)
                     print("Validation failure on signup")
                     print(error)
+                    let alert = CustomModal(
+                        title: "Uh oh",
+                        caption: "There was a server error in processing your request.",
+                        dismissText: "Done",
+                        image: nil,
+                        onDismiss: nil
+                    )
+                    alert.show(animated: true)
                 }
         }
     }
