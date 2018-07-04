@@ -27,6 +27,11 @@ class emptyHistoryView: UIView {
         layoutIfNeeded()
     }
     
+    func removeIllustration() {
+        illustrationImageView.image = nil
+        yOffsetConstraint.constant -= illustrationImageView.bounds.height/2
+    }
+    
     private func initialize () {
         var mutableString = NSMutableAttributedString()
         

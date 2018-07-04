@@ -85,13 +85,16 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
         }
 
         setupHabitatPicker()
-        setupWeatherPicker()
 
         locationTextField.isUserInteractionEnabled = false
         locationPickerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openAutoComplete)))
 
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        setupWeatherPicker()
     }
 
     func openAutoComplete() {

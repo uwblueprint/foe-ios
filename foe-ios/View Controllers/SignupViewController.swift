@@ -30,7 +30,14 @@ class SignupViewController: UIViewController {
     var activeTextField : UITextField?
     
     func setupConfirmationView(account: SignupAccount) {
-        confirmationView.setVerticalOffset(y: -124)
+        if (UIScreen.main.bounds.height > 600) {
+            confirmationView.setVerticalOffset(y: -84)
+        }
+        else {
+            confirmationView.removeIllustration()
+            confirmationView.setVerticalOffset(y: -224)
+            
+        }
         
         if let firstName = account.name.components(separatedBy: " ").first {
             confirmationView.titleLabel.text = "Almost there, \(firstName)!"
@@ -78,6 +85,11 @@ class SignupViewController: UIViewController {
         termsLabel.text = ""
         termsLabel.linkTextAttributes = [NSForegroundColorAttributeName: UIColor(red:0.12, green:0.75, blue:0.39, alpha:1.0)]
         termsLabel.attributedText = attributedText
+        
+        if (UIScreen.main.bounds.height > 600) {
+            self.view.addConstraint(NSLayoutConstraint(item: signupView, attribute: .height, relatedBy: .equal, toItem: signupView.superview, attribute: .height, multiplier: 1, constant: 0))
+            self.view.addConstraint(NSLayoutConstraint(item: signupButton, attribute: .bottom, relatedBy: .equal, toItem: signupButton.superview, attribute: .bottom, multiplier: 1, constant: -24))
+        }
     }
     
     @objc func keyboardDidChange(notification: Notification) {
@@ -99,7 +111,7 @@ class SignupViewController: UIViewController {
                     }
                 }
                 
-                let superViewY = activeTextView?.superview!.frame.minY
+                let superViewY = activeTextView?.superview!.superview!.frame.minY
                 
                 //test whether field.y overlaps keyboard; if so, shift view up by offset
                 if ( superViewY! + activeTextView!.frame.maxY + padding >= self.view.frame.height - keyboardHeight) {
