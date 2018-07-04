@@ -969,6 +969,13 @@
                                 <color key="textColor" red="0.92156862750000001" green="0.3411764706" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="322-H7-zqw" userLabel="greyStatusBarView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="pUZ-Lp-sqz"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -991,11 +998,14 @@
                             <constraint firstItem="zeG-Qn-AXA" firstAttribute="leading" secondItem="t05-tb-3Hg" secondAttribute="leading" constant="40" id="jVR-4J-eLD"/>
                             <constraint firstItem="SPG-mz-YjO" firstAttribute="top" secondItem="viF-hH-xEN" secondAttribute="bottom" constant="8" id="lFR-ft-65H"/>
                             <constraint firstItem="SPG-mz-YjO" firstAttribute="leading" secondItem="t05-tb-3Hg" secondAttribute="leading" constant="40" id="lVF-az-cDB"/>
+                            <constraint firstItem="322-H7-zqw" firstAttribute="width" secondItem="XOu-5G-2PV" secondAttribute="width" id="lnq-ZH-Jty"/>
                             <constraint firstItem="SlL-2z-vn8" firstAttribute="top" secondItem="HD2-sz-I0r" secondAttribute="bottom" constant="24" id="mgE-VP-50W"/>
+                            <constraint firstItem="t05-tb-3Hg" firstAttribute="leading" secondItem="322-H7-zqw" secondAttribute="leading" id="pSN-yb-oiD"/>
                             <constraint firstItem="fT0-wP-P03" firstAttribute="centerX" secondItem="t05-tb-3Hg" secondAttribute="centerX" id="r5o-On-WEe"/>
                             <constraint firstItem="HD2-sz-I0r" firstAttribute="top" secondItem="ABv-nP-SLQ" secondAttribute="bottom" constant="20.5" id="sBY-SZ-DHN"/>
                             <constraint firstItem="ABv-nP-SLQ" firstAttribute="leading" secondItem="t05-tb-3Hg" secondAttribute="leading" constant="40" id="sWF-Nd-MqZ"/>
                             <constraint firstItem="SlL-2z-vn8" firstAttribute="width" secondItem="XOu-5G-2PV" secondAttribute="width" constant="-80" id="tX0-3R-XVZ"/>
+                            <constraint firstItem="322-H7-zqw" firstAttribute="top" secondItem="XOu-5G-2PV" secondAttribute="top" id="tx0-Hn-Vtg"/>
                             <constraint firstItem="viF-hH-xEN" firstAttribute="centerX" secondItem="t05-tb-3Hg" secondAttribute="centerX" id="y7S-vB-zeW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="t05-tb-3Hg"/>
@@ -1003,6 +1013,7 @@
                     <connections>
                         <outlet property="emailTextView" destination="HD2-sz-I0r" id="3zh-ze-OPh"/>
                         <outlet property="errorLabel" destination="ABv-nP-SLQ" id="92B-cQ-RIt"/>
+                        <outlet property="loginTopOffsetConstraint" destination="Nep-UM-nIt" id="2rH-eo-Vvs"/>
                         <outlet property="passwordTextView" destination="SlL-2z-vn8" id="PcH-iU-Yt0"/>
                         <outlet property="signInButton" destination="ACq-Oz-o5D" id="PBf-7b-swv"/>
                         <outlet property="skyImage" destination="F0P-II-2TQ" id="qr6-da-R4R"/>

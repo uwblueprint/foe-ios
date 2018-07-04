@@ -19,6 +19,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var skyImage: UIImageView!
     @IBOutlet weak var errorLabel: UILabel!
     
+    @IBOutlet var loginTopOffsetConstraint: NSLayoutConstraint!
     @IBOutlet weak var emailTextView: LabeledOutlineTextView!
     @IBOutlet weak var passwordTextView: LabeledOutlineTextView!
     
@@ -32,6 +33,10 @@ class LoginViewController: UIViewController {
         renderUIButtons()
         
         self.hideKeyboardWhenTappedAround()
+        
+        if (UIScreen.main.bounds.height < 600) {
+            loginTopOffsetConstraint.constant = 24
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
