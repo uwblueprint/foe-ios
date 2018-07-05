@@ -1261,6 +1261,7 @@
                         <outlet property="nameTextView" destination="LKf-Sq-4GA" id="vRg-Hk-jd8"/>
                         <outlet property="passwordTextView" destination="kRz-62-5lf" id="jgF-fN-TTs"/>
                         <outlet property="reenteredPasswordTextView" destination="w4y-4f-b5F" id="IUM-iH-lzo"/>
+                        <outlet property="resendEmailButton" destination="7vu-Hl-WkO" id="7Wd-qF-Dab"/>
                         <outlet property="signupButton" destination="5uC-wr-1kI" id="TLH-aW-Ael"/>
                         <outlet property="signupView" destination="0jc-4O-v4l" id="1nP-ed-Cwv"/>
                         <outlet property="signupViewLeadingConstraint" destination="SAz-wZ-lWE" id="nnd-X3-e3f"/>
