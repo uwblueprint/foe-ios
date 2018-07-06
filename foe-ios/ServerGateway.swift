@@ -47,7 +47,8 @@ class ServerGateway {
         if
             let accessToken = response.response?.allHeaderFields["Access-Token"] as! String?,
             let client = response.response?.allHeaderFields["Client"] as! String?,
-            let uid = response.response?.allHeaderFields["Uid"] as! String?
+            let uid = response.response?.allHeaderFields["Uid"] as! String?,
+            !accessToken.isEmpty
         {
             KeychainWrapper.standard.set(accessToken, forKey: "accessToken")
             KeychainWrapper.standard.set(client, forKey: "client")
