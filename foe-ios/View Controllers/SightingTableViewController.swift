@@ -86,6 +86,7 @@ class SightingTableViewController: UITableViewController {
     
     func handleRefresh(_ refreshControl: UIRefreshControl) {
         fetchSightings()
+        self.refreshControl?.endRefreshing()
     }
 
     override func didReceiveMemoryWarning() {
@@ -204,7 +205,6 @@ class SightingTableViewController: UITableViewController {
                 }
                 
                 self.tableView.isUserInteractionEnabled = true
-                self.refreshControl?.endRefreshing()
             },
             failure: { _ in
                 let alert = CustomModal(
