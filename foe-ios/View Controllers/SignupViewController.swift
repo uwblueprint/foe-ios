@@ -23,6 +23,8 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var signupButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var signupViewLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var resendEmailButton: UIButton!
+    
     var av: UIActivityIndicatorView = UIActivityIndicatorView()
     
     var tvs : [LabeledOutlineTextView] = []
@@ -148,11 +150,6 @@ class SignupViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -193,12 +190,27 @@ class SignupViewController: UIViewController {
     @IBAction func closeButtonTouchedUpInside(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
 
     @IBAction func returnToLoginPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+
     @IBAction func resendEmailPressed(_ sender: Any) {
+        let parameters: Parameters = [
+            "email": emailTextView.getText()
+        ]
+        
+        Alamofire.request(
+            "\(API_URL)/auth/resend_confirmation",
+            method: .post,
+            parameters: parameters,
+            encoding: JSONEncoding.default
+        ).validate().responseJSON { response in
+            if response.result.isSuccess {
+                self.resendEmailButton.setTitle("Email sent", for: .normal)
+                self.resendEmailButton.setTitleColor(.gray, for: .normal)
+            }
+        }
     }
     
     func postSignup(_ account: SignupAccount) {
