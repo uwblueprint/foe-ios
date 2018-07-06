@@ -55,7 +55,7 @@ class CardView: UIView {
         defaultImage.frame.origin = CGPoint(x: 0, y: titleLabel.frame.height + titleLabel.frame.origin.y + padding)
         defaultImage.frame.size = CGSize(width: CardViewWidth, height: 300)
         defaultImage.image = UIImage(named: "default-home-illustration")!
-        titleLabel.contentMode = .scaleAspectFill
+        defaultImage.contentMode = .scaleAspectFill
         
         addSubview(defaultImage)
         

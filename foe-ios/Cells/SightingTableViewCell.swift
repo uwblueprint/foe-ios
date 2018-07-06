@@ -23,7 +23,10 @@ class SightingTableViewCell: UITableViewCell {
     let kHighlightedFactor: CGFloat = 0.96
     
     func renderGradient() {
-        let gradientView = UIView(frame: photoImageView.frame)
+        if (!hasGradient) { return }
+        
+//        let gradientView = UIView(frame: photoImageView.frame)
+        let gradientView = UIView(frame: CGRect(x: photoImageView.frame.minX, y: photoImageView.frame.minY, width: UIScreen.main.bounds.width - 48, height: photoImageView.frame.height))
         
         let gradient = CAGradientLayer()
         gradient.startPoint = CGPoint(x: 0.5, y: 1.0)
@@ -39,9 +42,7 @@ class SightingTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        if (hasGradient){
-            renderGradient()
-        }
+        renderGradient()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

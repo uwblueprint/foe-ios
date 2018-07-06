@@ -53,7 +53,7 @@ class LoginViewController: UIViewController {
         let bg_2 = UIImageView()
         bg_2.frame = CGRect(x:-self.view.bounds.width, y: 0, width: self.view.bounds.width*2, height: 175)
         bg_2.image = UIImage(named:"clouds-repeating")
-        bg_2.contentMode = UIViewContentMode.scaleAspectFit
+        bg_2.contentMode = UIViewContentMode.scaleAspectFill
         self.view.addSubview(bg_2)
         self.view.sendSubview(toBack: bg_2)
         UIView.animate(withDuration: 45.0, delay: 0, options: [.curveLinear, .repeat], animations: {
