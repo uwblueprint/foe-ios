@@ -85,8 +85,13 @@ class SightingTableViewController: UITableViewController {
     }()
     
     func handleRefresh(_ refreshControl: UIRefreshControl) {
+        self.tableView.isUserInteractionEnabled = false
+        defer {
+            self.tableView.isUserInteractionEnabled = true
+            self.refreshControl?.endRefreshing()
+        }
+
         fetchSightings()
-        self.refreshControl?.endRefreshing()
     }
 
     override func didReceiveMemoryWarning() {
@@ -177,7 +182,6 @@ class SightingTableViewController: UITableViewController {
     */
 
     private func fetchSightings() {
-        tableView.isUserInteractionEnabled = false
         ServerGateway.authenticatedRequest(
             url: "/sightings",
             method: .get,
@@ -203,8 +207,6 @@ class SightingTableViewController: UITableViewController {
                     self.sightingCountLabel.text = "\(self.sightings.count) sightings"
                     self.tableView.reloadData()
                 }
-                
-                self.tableView.isUserInteractionEnabled = true
             },
             failure: { _ in
                 let alert = CustomModal(
