@@ -45,7 +45,6 @@ class SightingTableViewController: UITableViewController {
     }
 
     func renderEmptyState() {
-        sightings.removeAll()
         tableView.reloadData()
         self.tableView.backgroundView = emptyHistoryView()
         sightingCountLabel.text = "No sightings"
@@ -62,12 +61,30 @@ class SightingTableViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         self.tableView.delaysContentTouches = false
-        self.tableView.isScrollEnabled = false
-        self.tableView.addSubview(self.pullToRefreshControl)
+        self.tableView.isScrollEnabled = true
+        
+        // Add Refresh Control to Table View
+        if #available(iOS 10.0, *) {
+            self.tableView.refreshControl = pullToRefreshControl
+        } else {
+            self.tableView.addSubview(pullToRefreshControl)
+        }
 
         //load placeholder cells for to improve perceived responsiveness
         sightings += [Sighting(), Sighting()]
 
+        fetchSightings()
+    }
+    
+    lazy var pullToRefreshControl: UIRefreshControl = {
+        let pullToRefreshControl = UIRefreshControl()
+        pullToRefreshControl.addTarget(self, action:
+            #selector(SightingTableViewController.handleRefresh),
+                                       for: UIControlEvents.valueChanged)
+        return pullToRefreshControl
+    }()
+    
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
         fetchSightings()
     }
 
@@ -121,18 +138,6 @@ class SightingTableViewController: UITableViewController {
         cell.selectionStyle = UITableViewCellSelectionStyle.none
 
         return cell
-    }
-
-    lazy var pullToRefreshControl: UIRefreshControl = {
-        let pullToRefreshControl = UIRefreshControl()
-        pullToRefreshControl.addTarget(self, action:
-            #selector(SightingTableViewController.handleRefresh(_:)),
-                                 for: UIControlEvents.valueChanged)
-        return pullToRefreshControl
-    }()
-
-    func handleRefresh(_ refreshControl: UIRefreshControl) {
-        fetchSightings()
     }
 
     /*
@@ -192,12 +197,14 @@ class SightingTableViewController: UITableViewController {
                 if (self.sightings.count == 0) {
                     self.renderEmptyState()
                 } else {
+                    self.tableView.backgroundView = nil
                     self.isLoaded = true
-                    self.tableView.isScrollEnabled = true
                     self.sightingCountLabel.text = "\(self.sightings.count) sightings"
                     self.tableView.reloadData()
                 }
+                
                 self.tableView.isUserInteractionEnabled = true
+                self.refreshControl?.endRefreshing()
             },
             failure: { _ in
                 let alert = CustomModal(
