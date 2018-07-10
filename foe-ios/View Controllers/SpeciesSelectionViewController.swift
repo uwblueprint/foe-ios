@@ -137,7 +137,7 @@ class SpeciesSelectionViewController: UIViewController {
             return
         }
         
-        let alert = CustomModal(title: SpeciesMap.getCommonName(sighting!.getSpecies()), caption: SpeciesMap.getDisplayBinomialName(sighting!.getSpecies()), dismissText: "Okay", image: UIImage(named: "picker-illustration")!)
+        let alert = CustomModal(species: sighting!.getSpecies())
         
         alert.show(animated: true)
     }
