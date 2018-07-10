@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8iC-xj-q5R">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nL4-iz-goL">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -612,7 +612,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DeJ-wh-i9B">
-                                <rect key="frame" x="24" y="537" width="327" height="34"/>
+                                <rect key="frame" x="24" y="617" width="327" height="34"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JeN-UN-Dyk">
                                         <rect key="frame" x="0.0" y="0.0" width="159" height="34"/>
@@ -636,15 +636,36 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="STr-gd-27b" userLabel="speciesLabelView">
+                                <rect key="frame" x="0.0" y="393" width="375" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No species selected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFR-Hz-v36">
+                                        <rect key="frame" x="24" y="92.5" width="327" height="19.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="lFR-Hz-v36" firstAttribute="leading" secondItem="STr-gd-27b" secondAttribute="leading" constant="24" id="1nS-Ns-ExD"/>
+                                    <constraint firstAttribute="trailing" secondItem="lFR-Hz-v36" secondAttribute="trailing" constant="24" id="4Al-as-7QN"/>
+                                    <constraint firstAttribute="height" constant="128" id="E5c-qX-wB7"/>
+                                    <constraint firstAttribute="bottom" secondItem="lFR-Hz-v36" secondAttribute="bottom" constant="16" id="QDl-jr-Rwm"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xZn-sB-0VO" firstAttribute="bottom" secondItem="DeJ-wh-i9B" secondAttribute="top" constant="-16" id="9ip-y0-zAP"/>
-                            <constraint firstItem="DeJ-wh-i9B" firstAttribute="bottom" secondItem="mbt-0U-AT0" secondAttribute="top" constant="-96" id="Ep3-qw-Sog"/>
+                            <constraint firstItem="STr-gd-27b" firstAttribute="bottom" secondItem="xZn-sB-0VO" secondAttribute="bottom" id="AMU-5I-Ibv"/>
                             <constraint firstItem="xZn-sB-0VO" firstAttribute="top" secondItem="RsW-nZ-fEr" secondAttribute="bottom" id="GNY-RP-PR1"/>
                             <constraint firstItem="xZn-sB-0VO" firstAttribute="leading" secondItem="3O9-19-RRY" secondAttribute="leading" id="HAx-Jj-rNU"/>
                             <constraint firstItem="xZn-sB-0VO" firstAttribute="centerX" secondItem="DeJ-wh-i9B" secondAttribute="centerX" id="MqE-pF-8q9"/>
+                            <constraint firstItem="STr-gd-27b" firstAttribute="width" secondItem="3O9-19-RRY" secondAttribute="width" id="Otl-Ii-qJv"/>
+                            <constraint firstItem="mbt-0U-AT0" firstAttribute="top" secondItem="DeJ-wh-i9B" secondAttribute="bottom" constant="16" id="PPg-9W-uGH"/>
+                            <constraint firstItem="DeJ-wh-i9B" firstAttribute="top" secondItem="xZn-sB-0VO" secondAttribute="bottom" constant="96" id="ZXn-1P-G1E"/>
                             <constraint firstItem="DeJ-wh-i9B" firstAttribute="leading" secondItem="3O9-19-RRY" secondAttribute="leading" constant="24" id="dVz-5w-3FN"/>
+                            <constraint firstItem="STr-gd-27b" firstAttribute="leading" secondItem="3O9-19-RRY" secondAttribute="leading" id="fZ4-EO-uW1"/>
                             <constraint firstItem="DeJ-wh-i9B" firstAttribute="trailing" secondItem="3O9-19-RRY" secondAttribute="trailing" constant="-24" id="ic6-Vb-N0n"/>
                         </constraints>
                     </view>
@@ -652,6 +673,7 @@
                         <outlet property="easternButton" destination="JeN-UN-Dyk" id="OkN-2C-7Sd"/>
                         <outlet property="partsLabelsRow" destination="DeJ-wh-i9B" id="ABa-Gt-oRK"/>
                         <outlet property="previewImage" destination="xZn-sB-0VO" id="5Gq-bK-0nU"/>
+                        <outlet property="speciesLabel" destination="lFR-Hz-v36" id="hXH-is-Scg"/>
                         <outlet property="westernButton" destination="zvq-QK-8Rm" id="IfS-6v-EXV"/>
                     </connections>
                 </viewController>

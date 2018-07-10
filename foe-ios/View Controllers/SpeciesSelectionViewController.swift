@@ -67,16 +67,47 @@ class SpeciesSelectionViewController: UIViewController {
         pickers.append(easternItems!)
         pickers.append(westernItems!)
     }
-
+    
+    func renderImageGradient() {
+        if (previewImage.layer.sublayers != nil) {
+            return
+        }
+        let gradientView = UIView(frame: previewImage.frame)
+        
+        let gradient = CAGradientLayer()
+        gradient.startPoint = CGPoint(x: 0.5, y: 1.0)
+        gradient.endPoint = CGPoint(x: 0.5, y:0.7)
+        let blackColor = UIColor.black
+        gradient.colors = [blackColor.withAlphaComponent(0.4).cgColor, blackColor.withAlphaComponent(0.2), blackColor.withAlphaComponent(0.0).cgColor]
+        gradient.frame = gradientView.bounds
+        gradientView.layer.insertSublayer(gradient, at: 0)
+        previewImage.addSubview(gradientView)
+        previewImage.bringSubview(toFront: gradientView)
+    }
+    
     private func setSightingSpecies(id: String) {
         sighting?.setSpecies(species: id)
+        speciesLabel.layer.opacity = 1
+        speciesLabel.text = nil
+        
+        //add icon
+        let attachment = NSTextAttachment()
+        attachment.image = UIImage(named: "info-icon")
+        attachment.bounds = CGRect(x: 8, y: -3, width: 18 , height: 18)
+        let attachmentString = NSAttributedString(attachment: attachment)
+        let speciesString = NSMutableAttributedString(string: SpeciesMap.getCommonName(sighting!.getSpecies()))
+        speciesString.append(attachmentString)
+        speciesLabel.attributedText = speciesString
     }
     
     override func viewDidLayoutSubviews() {
-        partsPicker = NosePicker(frame: CGRect(x: 0, y: partsLabelsRow.frame.maxY , width: view.frame.width, height: 96), items: easternItems!, updateCallback: self.setSightingSpecies)
-        
-        view.addSubview(partsPicker!)
-        updateButtons()
+        renderImageGradient()
+        if (partsPicker == nil) {
+            partsPicker = NosePicker(frame: CGRect(x: 0, y: previewImage.frame.maxY, width: view.frame.width, height: 96), items: easternItems!, updateCallback: self.setSightingSpecies)
+            
+            view.addSubview(partsPicker!)
+            updateButtons()
+        }
     }
     
     override func viewDidLoad() {
@@ -93,9 +124,23 @@ class SpeciesSelectionViewController: UIViewController {
         
         let alert = CustomModal(title: "Which bee?", caption: "Select the species below that best matches your photo!", dismissText: "Got it", image: UIImage(named: "picker-illustration")!)
         
+        speciesLabel.layer.opacity = 0.75
+        
         alert.show(animated: true)
+        
+        speciesLabel.isUserInteractionEnabled = true
+        speciesLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showSpeciesModal)))
     }
     
+    func showSpeciesModal() {
+        if (sighting?.getSpecies() == "unidentified") {
+            return
+        }
+        
+        let alert = CustomModal(title: SpeciesMap.getCommonName(sighting!.getSpecies()), caption: SpeciesMap.getDisplayBinomialName(sighting!.getSpecies()), dismissText: "Okay", image: UIImage(named: "picker-illustration")!)
+        
+        alert.show(animated: true)
+    }
     func updateButtons() {
         for i in 0..<self.partsButtons.count {
             if i == self.activePartIndex {
@@ -135,6 +180,8 @@ class SpeciesSelectionViewController: UIViewController {
     @IBOutlet weak var partsLabelsRow: UIStackView!
     @IBOutlet weak var easternButton: UIButton!
     @IBOutlet weak var westernButton: UIButton!
+    
+    @IBOutlet var speciesLabel: UILabel!
     
     @IBAction func easternButtonClicked(_ sender: Any) {
         self.activePartIndex = 0

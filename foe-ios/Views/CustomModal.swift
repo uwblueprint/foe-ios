@@ -55,6 +55,10 @@ class CustomModal: UIView, Modal {
         titleLabel.frame.size = CGSize(width: dialogViewWidth, height: 44)
         titleLabel.text = title
         titleLabel.font = UIFont(name: "Avenir-Heavy", size: 32)
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.minimumScaleFactor = 0.5
+        titleLabel.numberOfLines = 0
+        titleLabel.contentMode = .scaleToFill
         dialogView.addSubview(titleLabel)
         
         let captionLabel = UILabel()

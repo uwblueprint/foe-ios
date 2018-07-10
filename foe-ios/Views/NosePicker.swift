@@ -30,7 +30,6 @@ import UIKit
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setupButtons()
     }
     
     convenience init(frame: CGRect, items: [NosePickerItem], updateCallback : @escaping (_ res: String)->()) {
