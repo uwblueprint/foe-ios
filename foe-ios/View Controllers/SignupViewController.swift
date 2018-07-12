@@ -74,14 +74,14 @@ class SignupViewController: UIViewController {
         let style = NSMutableParagraphStyle()
         style.alignment = .center
         
-        let text = "By signing up, I agree to the terms\u{00a0}and\u{00a0}conditions and EULA\u{00a0}Agreement."
+        let text = "By signing up, I agree to the terms\u{00a0}and\u{00a0}conditions and privacy\u{00a0}policy."
         let attributedText = NSMutableAttributedString(string: text, attributes: [NSParagraphStyleAttributeName: style, NSFontAttributeName : UIFont(name: "Avenir-Medium", size: 14)!])
         let tcSubstringRange : NSRange = NSRange(location: 30, length: 20)
         let EULASubstringRange = NSRange(location: 55, length: 14)
     
         
-        attributedText.addAttributes([NSLinkAttributeName: "http://foecanada.org/",  NSUnderlineColorAttributeName: UIColor.clear, NSFontAttributeName : UIFont(name: "Avenir-Heavy", size: 14)!], range: tcSubstringRange)
-        attributedText.addAttributes([NSLinkAttributeName: "http://foecanada.org/",  NSUnderlineColorAttributeName: UIColor.clear, NSFontAttributeName : UIFont(name: "Avenir-Heavy", size: 14)!], range: EULASubstringRange)
+        attributedText.addAttributes([NSLinkAttributeName: "https://foecanada.org/en/terms-and-conditions-of-use/",  NSUnderlineColorAttributeName: UIColor.clear, NSFontAttributeName : UIFont(name: "Avenir-Heavy", size: 14)!], range: tcSubstringRange)
+        attributedText.addAttributes([NSLinkAttributeName: "https://foecanada.org/en/about/privacy-policy/",  NSUnderlineColorAttributeName: UIColor.clear, NSFontAttributeName : UIFont(name: "Avenir-Heavy", size: 14)!], range: EULASubstringRange)
         
         termsLabel.isUserInteractionEnabled = true
         termsLabel.text = ""
