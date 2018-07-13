@@ -9,7 +9,7 @@ class InitialNavigationController: UINavigationController {
         
         // TODO(dinah): remove after testing
         // Programmatically remove accessToken to trigger login
-         KeychainWrapper.standard.remove(key: "accessToken")
+        // KeychainWrapper.standard.remove(key: "accessToken")
         
         let accessToken: String? = KeychainWrapper.standard.string(forKey: "accessToken")
         if (accessToken ?? "").isEmpty {
