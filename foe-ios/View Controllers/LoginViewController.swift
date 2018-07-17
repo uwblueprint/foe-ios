@@ -23,6 +23,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextView: LabeledOutlineTextView!
     @IBOutlet weak var passwordTextView: LabeledOutlineTextView!
     
+    @IBOutlet var logoImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,10 @@ class LoginViewController: UIViewController {
         
         self.hideKeyboardWhenTappedAround()
         
-        if (isIPhoneSE) {
+        if (isIPhone4) {
+            logoImageView.removeFromSuperview()
+        }
+        else if (isIPhoneSE) {
             loginTopOffsetConstraint.constant = 24
         }
     }

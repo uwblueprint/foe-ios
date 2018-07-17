@@ -22,10 +22,8 @@ class DetailsFormViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var weatherPickerView: UIView!
     @IBOutlet weak var locationPickerView: UIView!
     @IBOutlet weak var habitatPickerArrow: UIImageView!
-    
     @IBOutlet weak var errorView: UIView!
     @IBOutlet weak var speciesView: UIView!
-    @IBOutlet weak var speciesViewTopConstraint: NSLayoutConstraint!
     
     @IBOutlet var speciesViewTopDefaultConstraint: NSLayoutConstraint!
     

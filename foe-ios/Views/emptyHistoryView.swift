@@ -33,12 +33,6 @@ class emptyHistoryView: UIView {
     }
     
     private func initialize () {
-        var mutableString = NSMutableAttributedString()
-        
-        mutableString = NSMutableAttributedString(string: descriptionString as String, attributes: [NSFontAttributeName:UIFont(name: "Avenir", size: 16.0)!])
-        mutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor(red:0.12, green:0.75, blue:0.39, alpha:1.0), range: (descriptionString as NSString).range(of: "Capture"))
-//        descriptionLabel.attributedText = mutableString
-        
         guard let view = loadViewFromNib() else { return }
         addSubview(view)
         
@@ -76,7 +70,6 @@ class emptyHistoryView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        initialize()
     }
 
 }
